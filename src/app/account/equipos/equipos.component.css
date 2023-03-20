@@ -1,0 +1,173 @@
+
+.principal {
+    position: absolute;
+        width: 185px;
+        height: 130px;
+        left: 68px;
+        top: 15px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 45px;
+        color:#000000
+}
+.login {
+    position: absolute;
+    width: 328px;
+    height: 330px;
+    left: 151px;
+    top: 215px;
+    
+    background: #EBE8E8;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+
+  .barra{
+    position: absolute;
+    left: 140px;
+    top: 165px;
+  }
+  .barra_categoria{
+    position: absolute;
+    left: 140px;
+    top: 200px;
+  }
+  #jugadores{
+    position: absolute;
+    left: 140px;
+    top: 240px;
+  }
+  .barra_puntos{
+    position: absolute;
+    left: 140px;
+    top: 276px;
+  }
+.login-2{
+    position: absolute;
+width: 328px;
+height: 330px;
+left: 533px;
+top: 215px;
+
+background: #EBE8E8;
+mix-blend-mode: normal;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+.login-3{
+    position: absolute;
+width: 328px;
+height: 330px;
+left: 915px;
+top: 215px;
+
+background: #EBE8E8;
+mix-blend-mode: normal;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+}
+.login-4{
+    position: absolute;
+width: 328px;
+height: 330px;
+left: 151px;
+top: 571px;
+
+background: #EBE8E8;
+mix-blend-mode: normal;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+}
+.login-5{
+    position: absolute;
+width: 328px;
+height: 330px;
+left: 533px;
+top: 571px;
+
+background: #EBE8E8;
+mix-blend-mode: normal;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+.login-6{
+    position: absolute;
+    width: 328px;
+    height: 330px;
+    left: 915px;
+    top: 580px;
+    
+    background: #EBE8E8;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px; 
+}
+h1{
+    position: absolute;
+width: 126px;
+height: 45px;
+left: 20px;
+top: 130px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 45px;
+color: #000000;
+}
+h2{
+   position: absolute;
+width: 127px;
+height: 38px;
+left: 20px;
+top: 170px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 38px;
+color: #000000; 
+}
+h3{
+    position: absolute;
+ width: 127px;
+ height: 38px;
+ left: 20px;
+ top: 206px;
+ font-family: 'Poppins';
+ font-style: normal;
+ font-weight: 400;
+ font-size: 25px;
+ line-height: 38px;
+ color: #000000; 
+ }
+ h4{
+    position: absolute;
+ width: 127px;
+ height: 38px;
+ left: 20px;
+ top: 235px;
+ font-family: 'Poppins';
+ font-style: normal;
+ font-weight: 400;
+ font-size: 25px;
+ line-height: 38px;
+ color: #000000; 
+ }
+ .img-login {
+  position: absolute;
+left: 45.37%;
+right: 47.52%;
+top: 31.59%;
+bottom: 63.79%;
+
+background: #f8f2f2;
+
+
+}
