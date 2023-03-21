@@ -1,4 +1,5 @@
 export interface ResponseI{
-    status:string;
-    response:string;
+    Token: string;
+    Tipodetoken:string;
+    TiempoDeExpiracionEnSegundos: number;
 }

@@ -4,16 +4,16 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EquiposComponent } from './equipos/equipos.component';
+import { LoginPruebasComponent } from './login-pruebas/login-pruebas.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     RecoveryPasswordComponent,
-    EquiposComponent
+    EquiposComponent,
+    LoginPruebasComponent
   ],
   imports: [
     CommonModule,
