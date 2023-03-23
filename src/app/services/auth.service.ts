@@ -13,8 +13,8 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  loginByEmail(form:LoginI):Observable<ResponseI>{
+  loginByEmail(form:LoginI):Observable<any>{
     let direccion = this.url;
-    return this.http.post<ResponseI>(direccion,form)
+    return this.http.post<any>(direccion,form)
   }
 }

@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-   validator:boolean = true;
+  inicioSesion:boolean = false;
+  token: any;
 
+  
+  
+  VerificarToken(){
+    return localStorage.getItem("Token")?true:false; 
+  }
 }

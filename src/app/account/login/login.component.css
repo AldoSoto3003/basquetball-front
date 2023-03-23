@@ -1,61 +1,100 @@
+/* #login{
+    font-family: 'Poppins'
+} */
+
 .img-login {
-    position: absolute;
-    width: 836px;
-    height: 552px;
-    left: 516px;
-    top: 58px;
+  position: absolute;
+  width: 1170px;
+  height: 650px;
+  left: 850px;
+  top: 150px;
+
+
+  mix-blend-mode: normal;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
   
+}
   
-    mix-blend-mode: normal;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 20px;
+.login {
+  position: absolute;
+  width: 450px;
+  height: 700px;
+  left: 250px;
+  top: 150px;
+
+  background: #EBE8E8;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
   
-  }
+.correo {
+  position: absolute;
+  width: 268px;
+  height: 48px;
+  left: 76px;
+  top: 241px;
+
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.contraseña {
+  position: absolute;
+  width: 268px;
+  height: 48px;
+  left: 76px;
+  top: 375px;
+
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
   
-  .login {
-    position: absolute;
-    width: 375px;
-    height: 552px;
-    left: 41px;
-    top: 58px;
-  
-    background: #EBE8E8;
-    mix-blend-mode: normal;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-  }
-  
-  .correo {
-    position: absolute;
-    width: 268px;
-    height: 48px;
-    left: 76px;
-    top: 241px;
-  
-    background: #FDFAFA;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-  }
-  
-  .contraseña {
-    position: absolute;
-    width: 268px;
-    height: 48px;
-    left: 76px;
-    top: 375px;
-  
-    background: #FDFAFA;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-  }
-  
-  .botton-ingresar {
-    position: absolute;
-    width: 172px;
-    height: 57px;
-    left: 131px;
-    top: 479px;
-  
-    background: #FF4F11;
-    border-radius: 3px;
-  }
+.botton-ingresar {
+  position: absolute;
+  width: 172px;
+  height: 57px;
+  left: 131px;
+  top: 479px;
+
+  background: #FF4F11;
+  border-radius: 3px;
+}
+h1{
+  position: absolute;
+  width: 95px;
+  height: 38px;
+  left: 68px;
+  top: 192px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 38px;
+}
+
+h2{
+  position: absolute;
+  width: 195px;
+  height: 45px;
+  left: 131px;
+  top: 91px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+}
+
+#h2-contrasenia{
+  position: absolute;
+  width: 95px;
+  height: 38px;
+  left: 68px;
+  top: 330px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 38px;
+}
