@@ -17,7 +17,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
     RouterOutlet
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
   ]
 })
 export class PagesModule { }

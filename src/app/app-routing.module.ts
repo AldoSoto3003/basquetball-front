@@ -6,6 +6,8 @@ import { LoginPruebasComponent } from './account/login-pruebas/login-pruebas.com
 import { HomeComponent } from './pages/home/home.component';
 import { MarcadoresComponent } from './components/marcadores/marcadores.component';
 import { PosicionesComponent } from './components/posiciones/posiciones.component';
+import { ErrorComponent } from './components/error/error.component';
+import { Error500Component } from './components/error500/error500.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +16,10 @@ const routes: Routes = [
   { path:"marcadores", component: MarcadoresComponent},
   { path:"posiciones", component: PosicionesComponent},
   { path: 'login',component: LoginComponent },
+  { path:"error404",component:ErrorComponent },
+  { path:"error500",component:Error500Component },
+  { path: '**', redirectTo: 'error404',
+  },
 ];
 
 @NgModule({
