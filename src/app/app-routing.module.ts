@@ -11,14 +11,14 @@ import { Error500Component } from './components/error500/error500.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home',component: HomeComponent },
+  { path:"home",component: HomeComponent },
   { path:"equipos", component: EquiposComponent},
   { path:"marcadores", component: MarcadoresComponent},
   { path:"posiciones", component: PosicionesComponent},
-  { path: 'login',component: LoginComponent },
+  { path:"login",component: LoginComponent },
   { path:"error404",component:ErrorComponent },
   { path:"error500",component:Error500Component },
-  { path: '**', redirectTo: 'error404',
+  { path:"**", redirectTo: 'error404',
   },
 ];
 

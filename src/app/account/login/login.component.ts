@@ -27,7 +27,7 @@ export class LoginComponent {
           localStorage.setItem("Token",dataResponse.Token)
           this.router.navigate(['home'])
         }
-      },error=>this._snackBar.open(error.error.data.toString(),"X",{duration:2000}))
+      },error=>this._snackBar.open(error.error.data,"X",{duration:2000}))
     }
   }
 
