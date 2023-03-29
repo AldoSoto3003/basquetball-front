@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,12 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  inicioSesion:boolean = false;
-  token: any;
 
+  loggedIn:boolean = false;
+  token: any;
+  constructor(private authService:AuthService){
+    this.loggedIn = this.authService.loggedIn
+  }
   
-  
-  VerificarToken(){
-    return localStorage.getItem("Token")?true:false; 
+  VerificarToken(){ 
+    this.loggedIn = this.authService.loggedIn
+  }
+
+  cerrarSesion(){
+    localStorage.removeItem("Token")
+    this.loggedIn = false
   }
 }

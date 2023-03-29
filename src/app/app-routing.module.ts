@@ -8,11 +8,13 @@ import { MarcadoresComponent } from './components/marcadores/marcadores.componen
 import { PosicionesComponent } from './components/posiciones/posiciones.component';
 import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
+import { AuthGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path:"home",component: HomeComponent },
-  { path:"equipos", component: EquiposComponent},
+  { path:"home",component: HomeComponent, canActivate:[AuthGuard] },
+  { path:"equipos", component: EquiposComponent, canActivate:[AuthGuard] },
   { path:"marcadores", component: MarcadoresComponent},
   { path:"posiciones", component: PosicionesComponent},
   { path:"login",component: LoginComponent },

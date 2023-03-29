@@ -25,9 +25,10 @@ export class LoginComponent {
         let dataResponse = data;
         if(dataResponse.Token){
           localStorage.setItem("Token",dataResponse.Token)
+          this.api.loggedIn = true;
           this.router.navigate(['home'])
         }
-      },error=>this._snackBar.open(error.error.data,"X",{duration:2000}))
+      },error=>this._snackBar.open((error.error.data?.tostring() || ''),"X",{duration:2000}))
     }
   }
 

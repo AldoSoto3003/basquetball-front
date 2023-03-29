@@ -1,3 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">   
+      <img src="../../../assets/img/logo-basquetsoft.png" routerLink="home/" id="logo-navbar" width="200" height="50" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" >
+          <a class="nav-link" id="nav-item" routerLink="equipos">Equipos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-item" routerLink="posiciones">Posiciones</a>
+        </li>
+        <li class="nav-item" >
+            <a class="nav-link" id="nav-item" routerLink="marcadores">Marcadores</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <li class="d-flex" *ngIf="">
+          <a class="form-control" id="nav-item-login">Iniciar sesión</a>
+        </li>
+
+        <li class="d-flex" *ngIf="">
+          <a class="form-control" id="nav-item-login" routerLink="/login" (click)="cerrarSesion()">Cerrar sesión</a>
+        </li>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
 <!-- <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-3 border-bottom border-primary" id="navbar" style="background-color: transparent;">
     <a class="navbar-brand" href="#">   
@@ -28,33 +66,3 @@
     </div>
   </nav>
 </div> -->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">   
-      <img src="../../../assets/img/logo-basquetsoft.png" id="logo-navbar" width="200" height="50" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Navbar</a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" >
-          <a class="nav-link" id="nav-item" routerLink="equipos">Equipos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="nav-item" routerLink="posiciones">Posiciones</a>
-        </li>
-        <li class="nav-item" >
-            <a class="nav-link" id="nav-item" routerLink="marcadores">Marcadores</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <li class="d-flex" *ngIf="!inicioSesion">
-          <a class="form-control" id="nav-item-login" routerLink="/login" >Iniciar sesión</a>
-        </li>
-      </form>
-    </div>
-  </div>
-</nav>

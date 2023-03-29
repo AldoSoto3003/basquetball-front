@@ -9,12 +9,14 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class AuthService {
+  loggedIn:boolean;
 
-
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+    
+  }
 
   loginByEmail(form:LoginI):Observable<any>{
-  
+    this.loggedIn = false;
     return this.http.post<any>(environment.urlApi+"auth/login",form)
   }
 }
