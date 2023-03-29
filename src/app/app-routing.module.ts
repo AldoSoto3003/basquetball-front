@@ -9,6 +9,7 @@ import { PosicionesComponent } from './components/posiciones/posiciones.componen
 import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RegistroUsuariosComponent } from './components/registro-usuarios/registro-usuarios.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path:"equipos", component: EquiposComponent, canActivate:[AuthGuard] },
   { path:"marcadores", component: MarcadoresComponent},
   { path:"posiciones", component: PosicionesComponent},
+  { path: "registroUsuario", component: RegistroUsuariosComponent},
   { path:"login",component: LoginComponent },
   { path:"error404",component:ErrorComponent },
   { path:"error500",component:Error500Component },
