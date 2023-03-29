@@ -19,11 +19,11 @@
         </li>
       </ul>
       <form class="d-flex">
-        <li class="d-flex" *ngIf="">
+        <li class="d-flex" *ngIf="!this.VerificarToken()">
           <a class="form-control" id="nav-item-login">Iniciar sesión</a>
         </li>
 
-        <li class="d-flex" *ngIf="">
+        <li class="d-flex" *ngIf="this.VerificarToken()">
           <a class="form-control" id="nav-item-login" routerLink="/login" (click)="cerrarSesion()">Cerrar sesión</a>
         </li>
       </form>

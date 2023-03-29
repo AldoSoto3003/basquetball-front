@@ -11,15 +11,25 @@ export class NavbarComponent {
   loggedIn:boolean = false;
   token: any;
   constructor(private authService:AuthService){
-    this.loggedIn = this.authService.loggedIn
+    this.loggedIn = localStorage.getItem("Token")?true:false; 
+  }
+
+  ngAfterInit(){
+    this.loggedIn = localStorage.getItem("Token")?true:false; 
   }
   
   VerificarToken(){ 
-    this.loggedIn = this.authService.loggedIn
+    return this.loggedIn = localStorage.getItem("Token")?true:false; 
   }
 
   cerrarSesion(){
-    localStorage.removeItem("Token")
+    const log = this.authService.logout().subscribe(x=>{console.log(x.data)
+      localStorage.removeItem("Token");
+    }
+    
+    )
+    
+
     this.loggedIn = false
   }
 }
