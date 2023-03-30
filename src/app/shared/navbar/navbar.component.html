@@ -17,9 +17,6 @@
         <li class="nav-item" >
             <a class="nav-link" id="nav-item" routerLink="marcadores">Marcadores</a>
         </li>
-        <li class="nav-item" >
-          <a class="nav-link" id="nav-item" routerLink="registrar-usuario">Registrar usuario</a>
-      </li>
       </ul>
       <form class="d-flex">
         <li class="d-flex" *ngIf="!this.VerificarToken()">
@@ -31,7 +28,7 @@
             Configuracion
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="home">Panel admin</a>
+            <a class="dropdown-item" href="admin">Panel admin</a>
             <a class="dropdown-item" href="#">Editar</a>
             <a class="dropdown-item" routerLink="/home/login" (click)="cerrarSesion()">Cerrar sesión</a>
           </div>

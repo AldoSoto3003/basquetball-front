@@ -14,11 +14,13 @@ import { CdkMenuModule } from '@angular/cdk/menu'
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { RouterModule } from '@angular/router';
+import { RegistroUsuariosComponent } from './components/registro-usuarios/registro-usuarios.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     AdminComponent,
+    RegistroUsuariosComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,9 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatDividerModule,
     MatListModule,
+  ],
+  exports:[
+    RegistroUsuariosComponent
   ]
 })
 export class AdminModule { }
