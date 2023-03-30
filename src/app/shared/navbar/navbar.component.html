@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">   
-      <img src="../../../assets/img/logo-basquetsoft.png" routerLink="home/" id="logo-navbar" width="200" height="50" alt="">
+    <a class="navbar-brand">   
+      <img src="../../../assets/img/logo-basquetsoft.png" id="logo-navbar" width="200" height="50" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,12 +20,26 @@
       </ul>
       <form class="d-flex">
         <li class="d-flex" *ngIf="!this.VerificarToken()">
-          <a class="form-control" id="nav-item-login">Iniciar sesión</a>
+          <a class="form-control" id="nav-item-login" routerLink="login">Iniciar sesión</a>
         </li>
 
-        <li class="d-flex" *ngIf="this.VerificarToken()">
-          <a class="form-control" id="nav-item-login" routerLink="/login" (click)="cerrarSesion()">Cerrar sesión</a>
-        </li>
+        <div class="dropdown" *ngIf="this.VerificarToken()">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Configuracion
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="home">Panel admin</a>
+            <a class="dropdown-item" href="#">Editar</a>
+            <a class="dropdown-item" routerLink="/home/login" (click)="cerrarSesion()">Cerrar sesión</a>
+          </div>
+        </div>
+
+        <!-- <li class="d-flex" class="dropdown" > -->
+          <!-- <a class="form-control" id="nav-item-login" routerLink="/login" (click)="cerrarSesion()">Cerrar sesión</a> -->
+
+        <!-- </li> -->
+
+
       </form>
     </div>
   </div>

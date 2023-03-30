@@ -1,4 +1,4 @@
-<div class="container text-center" id="login">
+<div class="container-fluid" id="login">
     <div class="row">
       <div class="col">
           <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)" class="login">
@@ -6,13 +6,13 @@
             <h1>Usuario</h1>
             <h1 class="correo">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
+                <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com" style="text-align: center;">
               </div>
             </h1>
             <h2 id="h2-contrasenia">Contraseña</h2>
             <h1 class="contraseña">
               <div class="form-floating">
-                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password" style="text-align: center;">
               </div>
             </h1>
             <button type="submit" class="botton-ingresar" style="color: white;">Ingresar</button>

@@ -9,15 +9,23 @@ import { PosicionesComponent } from './components/posiciones/posiciones.componen
 import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminComponent } from './admin/pages/admin/admin.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path:"home",component: HomeComponent, canActivate:[AuthGuard] },
-  { path:"equipos", component: EquiposComponent, canActivate:[AuthGuard] },
-  { path:"marcadores", component: MarcadoresComponent},
-  { path:"posiciones", component: PosicionesComponent},
-  { path:"login",component: LoginComponent },
+
+  { path:"home",component: HomeComponent, children:[
+    {path:"equipos", component:EquiposComponent},
+    {path:"marcadores", component: MarcadoresComponent},
+    {path:"posiciones", component: PosicionesComponent},
+    {path:"login",component: LoginComponent },
+  ]},
+
+  { path:"admin", component: AdminComponent, canActivate:[AuthGuard], children:[
+    //TODO: aqui iran las rutas hijas del admin
+  ] },
+  
   { path:"error404",component:ErrorComponent },
   { path:"error500",component:Error500Component },
   { path:"**", redirectTo: 'error404',

@@ -17,6 +17,9 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
 import { Error500Component } from './components/error500/error500.component';
 import { ErrorComponent } from './components/error/error.component';
+
+import { MatIconModule } from '@angular/material/icon';
+import { AdminModule } from './admin/admin.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,15 +30,20 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AccountModule,
-    SharedModule,
-    PagesModule,
+    
     MatSnackBarModule,
-    BrowserAnimationsModule
+    MatIconModule,
+    
+    AccountModule,
+    PagesModule,
+    SharedModule,
+    AdminModule,
+
   ],
  providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 

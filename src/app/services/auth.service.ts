@@ -32,6 +32,11 @@ export class AuthService {
     return this.http.post<any>(environment.urlApi+"auth/logout",null, {headers})
   }
 
+  // registerUser():Observable<any>{
+  //   const a = "a"
+  //   return a
+  // }
+
   verificarToken(){
     return localStorage.getItem("Token")?true:false; 
   }

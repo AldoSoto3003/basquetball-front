@@ -23,11 +23,9 @@ export class NavbarComponent {
   }
 
   cerrarSesion(){
-    const log = this.authService.logout().subscribe(x=>{console.log(x.data)
-      localStorage.removeItem("Token");
-    }
+    const log = this.authService.logout().subscribe(x=>{console.log(x.data)})
     
-    )
+    localStorage.removeItem("Token");
     
 
     this.loggedIn = false

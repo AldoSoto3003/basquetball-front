@@ -26,7 +26,7 @@ export class LoginComponent {
         if(dataResponse.Token){
           localStorage.setItem("Token",dataResponse.Token)
           this.api.loggedIn = true;
-          this.router.navigate(['home'])
+          this.router.navigate(['admin'])
         }
       },error=>this._snackBar.open((error.error.data?.tostring() || ''),"X",{duration:2000}))
     }
