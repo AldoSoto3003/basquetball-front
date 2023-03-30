@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EquiposComponent } from './equipos/equipos.component';
 import { PosicionesComponent } from './posiciones/posiciones.component';
 import { MarcadoresComponent } from './marcadores/marcadores.component';
+import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
 
 
 
@@ -11,7 +12,8 @@ import { MarcadoresComponent } from './marcadores/marcadores.component';
   declarations: [
     EquiposComponent,
     PosicionesComponent,
-    MarcadoresComponent
+    MarcadoresComponent,
+    RegistroUsuariosComponent
   ],
   imports: [
     CommonModule

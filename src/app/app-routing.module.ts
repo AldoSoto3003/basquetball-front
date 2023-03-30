@@ -10,6 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminComponent } from './admin/pages/admin/admin.component';
+import { RegistroUsuariosComponent } from './components/registro-usuarios/registro-usuarios.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path:"home",component: HomeComponent, children:[
     {path:"equipos", component:EquiposComponent},
     {path:"marcadores", component: MarcadoresComponent},
+    {path:"registrar-usuario", component: RegistroUsuariosComponent},
     {path:"posiciones", component: PosicionesComponent},
     {path:"login",component: LoginComponent },
   ]},
