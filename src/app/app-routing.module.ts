@@ -23,7 +23,7 @@ const routes: Routes = [
     {path:"login",component: LoginComponent },
   ]},
 
-  { path:"admin", component: AdminComponent, canActivate:[AuthGuard], children:[
+  { path:"admin", component: AdminComponent, children:[
     //TODO: aqui iran las rutas hijas del admin
     {path:"usuarios", component: RegistroUsuariosComponent},
   ] },
