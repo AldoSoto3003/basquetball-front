@@ -26,6 +26,10 @@
     --tran-03: all 0.2s ease;
 }
 
+.sidebar{
+    background-color: #e7e7e796;
+}
+
 body{
     min-height: 100vh;
     background-color: var(--primary-color);

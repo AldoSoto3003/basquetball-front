@@ -29,7 +29,7 @@ export class LoginComponent {
           this.api.loggedIn = true;
           this.router.navigate(['admin'])
         }
-      },error=>this._snackBar.open((error.error.data?.tostring() || ''),"X",{duration:2000}))
+      },error=>this._snackBar.open((error.error.data || ''),"X",{duration:2000}))
     }
   }
 

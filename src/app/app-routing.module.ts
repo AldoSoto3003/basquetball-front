@@ -10,9 +10,9 @@ import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminComponent } from './admin/pages/admin/admin.component';
-import { RegistroUsuariosComponent } from './components/registro-usuarios/registro-usuarios.component';
 import { CanchasComponent } from './components/canchas/canchas.component';
 
+import { RegistroUsuariosComponent } from './admin/components/registro-usuarios/registro-usuarios.component'
 
 
 const routes: Routes = [
@@ -20,15 +20,14 @@ const routes: Routes = [
 
   { path:"home",component: HomeComponent, children:[
     {path:"equipos", component:EquiposComponent},
-    {path:"canchas", component:CanchasComponent},
     {path:"marcadores", component: MarcadoresComponent},
-    {path:"registrar-usuario", component: RegistroUsuariosComponent},
     {path:"posiciones", component: PosicionesComponent},
     {path:"login",component: LoginComponent },
   ]},
 
-  { path:"admin", component: AdminComponent, canActivate:[AuthGuard], children:[
+  { path:"admin", component: AdminComponent, children:[
     //TODO: aqui iran las rutas hijas del admin
+    {path:"usuarios", component: RegistroUsuariosComponent},
     {path:"canchas", component:CanchasComponent},
   ] },
   

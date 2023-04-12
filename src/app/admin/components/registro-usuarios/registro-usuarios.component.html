@@ -1,0 +1,187 @@
+
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Nombre</th>
+      <th>Puesto</th>
+      <th>Acciones</th>
+      <th>Borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">John Doe</p>
+            <p class="text-muted mb-0">john.doe@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">Software engineer</p>
+        <p class="text-muted mb-0">IT department</p>
+      </td>
+      <td>
+        <button type="button" 
+          class="btn btn-primary">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button type="button"                 
+          class="btn btn-danger">
+          Delete
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+              class="rounded-circle"
+              alt=""
+              style="width: 45px; height: 45px"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Alex Ray</p>
+            <p class="text-muted mb-0">alex.ray@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">Consultant</p>
+        <p class="text-muted mb-0">Finance</p>
+      </td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-primary"
+                data-mdb-ripple-color="dark"
+                >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-danger"
+                data-mdb-ripple-color="dark"
+                >
+          Delete
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/7.jpg"
+              class="rounded-circle"
+              alt=""
+              style="width: 45px; height: 45px"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Kate Hunington</p>
+            <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">Designer</p>
+        <p class="text-muted mb-0">UI/UX</p>
+      </td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-primary"
+                data-mdb-ripple-color="dark"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-danger"
+                data-mdb-ripple-color="dark"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="registroUsuario">
+          <p class="fw-bold" id="usuariotxt1">Registro de Usuario</p>
+          <p class="fw-bold" id="perfiltxt">Mi Perfil</p>
+          <p class="fw-semibold" id="nombretxt">Nombre</p>
+          <input type="text" class="nombre">
+          <p class="fw-semibold" id="apellido1txt">Apellido1</p>
+          <input type="text" class="apellido1">
+          <p class="fw-semibold" id="apellido2txt">Apellido2</p>
+          <input type="text" class="apellido2">
+          <p class="fw-semibold" id="curptxt">Curp</p>
+          <input type="text" class="curp">
+          <p class="fw-semibold" id="nsstxt">Nss</p>
+          <input type="text" class="nss">
+          <p class="fw-semibold" id="cptxt">Cp</p>
+          <input type="text" class="cp">
+          <p class="fw-semibold" id="coloniatxt">Colonia</p>
+          <input type="text" class="colonia">
+          <p class="fw-semibold" id="calletxt">Calle</p>
+          <input type="text" class="calle">
+          <p class="fw-semibold" id="correoelectronicotxt">Correo Electronico</p>
+          <input type="text" class="correoelectronico">
+          <p class="fw-semibold" id="telefonotxt">Telefono</p>
+          <input type="text" class="telefono">
+          <p class="fw-semibold" id="generotxt">Genero</p>
+          <select class="form-select" id="genero" aria-label="Default select example">
+            <option selected>Genero</option>
+            <option value="1">hombre</option>
+            <option value="2">mujer</option>
+          </select>
+          <p class="fw-semibold" id="rolestxt">rol</p>
+          <select class="form-select" id="rol" aria-label="Default select example">
+            <option selected>Roles</option>
+            <option value="1">si</option>
+            <option value="2">no</option>
+            <option value="3">talvez</option>
+          </select>
+          <p class="fw-semibold" id="cargarimgtxt">Subir Imagen..</p>
+          <div class="mb-3" id="cargarimg">
+            <label for="formFileDisabled" class="form-label"></label>
+            <input class="form-control" type="file" id="formFileDisabled" disabled>
+          </div>
+        
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
