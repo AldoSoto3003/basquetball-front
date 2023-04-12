@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { ErrorHandlerService } from 'src/app/services/errorHandling.service';
 import Swal from 'sweetalert2';
 import { InformacionCanchas } from 'src/app/models/InformacionCanchas.model';
-import { UserService } from 'src/app/services/user.service';
+import { CanchasService } from 'src/app/services/canchas.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class CanchasComponent  implements OnInit{
   public message: string;
   
    //Inyeccion de Dependencias
-   constructor(private fb: FormBuilder, private userService: UserService,private errorService:ErrorHandlerService) {
+   constructor(private fb: FormBuilder, private canchasService: CanchasService,private errorService:ErrorHandlerService) {
     
    }
    ngOnInit(): void {
@@ -32,19 +32,22 @@ export class CanchasComponent  implements OnInit{
    }
     
    async ObtenerTodasLasCanchas(){
-    let datos=  await this.userService.ObtenerTodasLasCanchas().toPromise();
-    this.setDatos(datos?.data);
+    let datos = null
+    datos=  await this.canchasService.ObtenerTodasLasCanchas().toPromise();
+    // this.setDatos(datos?.data);
+    console.log(datos)
    }
  
-   setDatos(data:any){
-     this.contactFrom.controls["Nombre"].setValue(data.NombreCancha);
-     this.contactFrom.controls["Descripcion"].setValue(data.Descripcion);
-     this.contactFrom.controls["urlImagen"].setValue(data.urlImagen);
-     this.contactFrom.controls["Colonia"].setValue(data.Domicilio);
-     this.contactFrom.controls["ID_Asentamiento"].setValue(data.id_asenta_cpcons);
-     this.contactFrom.controls["CP"].setValue(data.cp);
-     this.contactFrom.controls["Estatus"].setValue(data.Estatus);
-   }
+  //  Esta funcion es para cargar en el formulario los datos recibidos por la api
+  //  setDatos(data:any){
+  //    this.contactFrom.controls["Nombre"].setValue(data.NombreCancha);
+  //    this.contactFrom.controls["Descripcion"].setValue(data.Descripcion);
+  //    this.contactFrom.controls["urlImagen"].setValue(data.urlImagen);
+  //    this.contactFrom.controls["Colonia"].setValue(data.Domicilio);
+  //    this.contactFrom.controls["ID_Asentamiento"].setValue(data.id_asenta_cpcons);
+  //    this.contactFrom.controls["CP"].setValue(data.cp);
+  //    this.contactFrom.controls["Estatus"].setValue(data.Estatus);
+  //  }
 
    OnSubmit(){
    if(this.contactFrom.valid)
@@ -52,7 +55,7 @@ export class CanchasComponent  implements OnInit{
   }
  
   ModificarDatos(){
-   this.userService.ActualizarCancha({
+   this.canchasService.ActualizarCancha({
     NombreCancha:this.contactFrom.controls["Nombre"].value,
     Descripcion:this.contactFrom.controls["Descripcion"].value,
     Domicilio:this.contactFrom.controls["Colonia"].value,
@@ -61,8 +64,6 @@ export class CanchasComponent  implements OnInit{
     Estatus:this.contactFrom.controls["Estatus"].value,
     urlImagen:   this.contactFrom.controls["urlImagen"].value,
      imagen:this.reader.result,
- 
-
    }).subscribe(x=>Swal.fire(x.message,x.data.toString(),"success").then(function(){
      window.location.reload();
    }),error=>Swal.fire(error.error.message,error.error.data,"error"))
@@ -72,12 +73,14 @@ export class CanchasComponent  implements OnInit{
   createForm(){
    this.contactFrom=this.fb.group({
     nombre: ['', Validators.required],
-     Direccion: ['', Validators.required],
-     Descripcion:['',[Validators.required]],
-     CP: ['', [Validators.required]],
-     Estatus:['',[Validators.required]],
-     urlImagen: ['', ],
-     ID_Asentamiento:['',Validators.required],
+    Direccion: ['', Validators.required],
+    Descripcion:['',[Validators.required]],
+    Calle: ['', Validators.required],
+    Colonia:['',[Validators.required]],
+    CP: ['', [Validators.required]],
+    Estatus:['',[Validators.required]],
+    urlImagen: ['', ],
+    ID_Asentamiento:['',Validators.required],
     });
   }
  

@@ -1,5 +1,4 @@
 export class InformacionCanchas {
-  
     Nombre: string
     Descripcion: string
     cp: string
