@@ -17,15 +17,22 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
 import { Error500Component } from './components/error500/error500.component';
 import { ErrorComponent } from './components/error/error.component';
-
 import { MatIconModule } from '@angular/material/icon';
 import { AdminModule } from './admin/admin.module';
+
+import { MatButtonModule } from '@angular/material/button';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { CanchasComponent } from './components/canchas/canchas.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
     Error500Component,
-    ErrorComponent
+    ErrorComponent,
+    CanchasComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,15 +42,18 @@ import { AdminModule } from './admin/admin.module';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    
     MatSnackBarModule,
     MatIconModule,
-    
     AccountModule,
     PagesModule,
     SharedModule,
     AdminModule,
-
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    
   ],
  providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
@@ -53,6 +63,7 @@ import { AdminModule } from './admin/admin.module';
       useClass: LoaderInterceptor,
       multi: true,
     },
+    
     ],
   bootstrap: [AppComponent]
 })

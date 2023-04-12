@@ -4,6 +4,8 @@ import { EquiposComponent } from './equipos/equipos.component';
 import { PosicionesComponent } from './posiciones/posiciones.component';
 import { MarcadoresComponent } from './marcadores/marcadores.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
+import { CanchasComponent } from "./canchas/CanchasComponent";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,15 +15,21 @@ import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios
     EquiposComponent,
     PosicionesComponent,
     MarcadoresComponent,
-    RegistroUsuariosComponent
+    RegistroUsuariosComponent,
+    CanchasComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+  
   ],
   exports:[
     EquiposComponent,
     PosicionesComponent,
-    MarcadoresComponent
+    MarcadoresComponent,
+   
+  
   ]
 })
 export class ComponentsModule { }

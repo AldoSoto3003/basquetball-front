@@ -1,0 +1,277 @@
+.principal {
+    position: absolute;
+        width: 400px;
+        height: 300px;
+        left: 500px;
+        top: 140px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 100px;
+        line-height: 100px;
+        color:#000000
+  }
+  .subtema{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    left: 139px;
+    top: 250px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+  }
+  .login {
+    box-sizing: border-box;
+  position: absolute;
+  width: 1383px;
+  height: 685px;
+  left: 40px;
+  top: 230px;
+  background: #E0DCDC;
+  border: 2px solid #989393;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  }
+  
+  .Nombre{
+    position: absolute;
+  width: 400px;
+  height: 45px;
+  left: 88px;
+  top: 50px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: #000000;
+  }
+  
+  .text_nombre{
+    position: absolute;
+  width: 365px;
+  height: 48px;
+  left: 88px;
+  top: 90px;
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  }
+  
+  .text_descripcion{
+    position: absolute;
+    width: 800px;
+    height: 98px;
+    left: 500px;
+    top: 80px;
+    background: #FDFAFA;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+  }
+  
+  .descripcion{
+    position: absolute;
+    width: 177px;
+    height: 45px;
+    left: 500px;
+    top: 50px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+  }
+  
+  .direccion{
+    position: absolute;
+  width: 141px;
+  height: 45px;
+  left: 89px;
+  top: 200px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: #000000;
+  }
+  
+  .CP{
+    position: absolute;
+  width: 41px;
+  height: 45px;
+  left: 89px;
+  top: 280px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: #000000;
+  }
+  
+  .text_CD{
+    position: absolute;
+  width: 111px;
+  height: 48px;
+  left: 154px;
+  top: 280px;
+  
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  }
+  
+  .COLONIA{
+    position: absolute;
+  width: 116px;
+  height: 45px;
+  left: 338px;
+  top: 280px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: #000000;
+  }
+  
+  .text_COLONIA{
+  position: absolute;
+  width: 250px;
+  height: 48px;
+  left: 440px;
+  top: 280px;
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  }
+  .CALLE{
+    position: absolute;
+    width: 77px;
+    height: 45px;
+    left: 849px;
+    top: 280px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+  }
+  .text_CALLE{
+    position: absolute;
+  width: 317px;
+  height: 48px;
+  left: 956px;
+  top: 280px;
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  }
+  .FOTO{
+    position: absolute;
+  width: 65px;
+  height: 45px;
+  left: 85px;
+  top: 400px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: #000000;
+  }
+  
+     .text_FOTO{
+      position: absolute;
+  width: 568px;
+  height: 89px;
+  left: 194px;
+  top: 400px;
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+     }
+  .Estatus{
+    position: absolute;
+    width: 109px;
+    height: 45px;
+    left: 68px;
+    top: 550px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+  }
+  
+  .text_Estatus{
+    position: absolute;
+    width: 191px;
+    height: 48px;
+    left: 192px;
+    top: 550px;
+    background: #FDFAFA;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+  }
+  .bottonGuardar{
+    position: absolute;
+  width: 172px;
+  height: 61px;
+  left: 900px;
+  top: 607px;
+  background: #1a4f16dc;
+  border-radius: 7px;
+  color: #E0DCDC;
+  }
+  .bottonBorrar{
+    position: absolute;
+  width: 172px;
+  height: 61px;
+  left: 1100px;
+  top: 607px;
+  background: #f42100;
+  border-radius: 7px;
+  color: #E0DCDC;
+  }
+  
+  .bottonNuevo{
+    position: absolute;
+  width: 172px;
+  height: 61px;
+  left: 1212px;
+  top: -100px;
+  
+  background: #4b52b8ce;
+  border-radius: 7px;
+  color: #E0DCDC;
+  }
+
+ 
+.container-error-message{
+    padding: 3px;
+    position: absolute;
+   width: 250px;
+    height: 45px;
+    left: 45px;
+    top: 70px;
+   
+   
+}
+.alert-danger{
+  padding: 3px;
+    position: absolute;
+   width: 250px;
+    height: 45px;
+    left: 45px;
+    top: 70px;
+
+ }

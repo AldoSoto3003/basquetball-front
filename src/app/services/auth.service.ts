@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginI } from '../interfaces/login.interface';
 import { environment } from 'src/environments/environment.prod';
-import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'

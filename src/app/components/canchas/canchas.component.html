@@ -1,0 +1,54 @@
+<div class="principal"> <h1> Editar información de una  localidad</h1></div>
+  <div class="subtema"> <h1> Datos de Cancha</h1></div>
+    <div class="card">
+    
+      <form [formGroup]="contactFrom" (ngSubmit)="OnSubmit()" data-aos="fade-up" aria-required="true">
+            <div class="login">  
+    
+   
+
+              
+                <input type="text" class="text_nombre" id="nombre" formControlName="nombre" 
+                    matInput placeholder="Teatro" required>
+                    <div class="Nombre"> <h1>Ingrese el Nombre de la cancha</h1>  </div>
+                <mat-error *ngIf="contactFrom.invalid" > </mat-error>
+                <br>
+            
+           
+
+      
+           
+         
+           
+            <div class="descripcion"> <h1> Descripcion</h1></div>
+            <div class="text_descripcion"> <input type="text" class="form-control" id="Descripcion" placeholder="infantil"  required  formControlName="Descripcion"></div>
+        
+            <div class="direccion"> <h1> Direccion</h1></div>
+ 
+            
+            <div class="CP"> <h1> CP</h1></div>
+            <div class="text_CD"> <input type="text" class="form-control" id="CP" placeholder="9129IKSAS8S"required formControlName="CP"></div>
+                
+            <div class="COLONIA"> <h1> Colonia</h1></div>
+            <div class="text_COLONIA"> <input type="text" class="form-control" id="Colonia" placeholder="Colonia"required formControlName="Colonia"></div>
+        
+            <div class="CALLE"> <h1> CALLE</h1></div>
+            <div class="text_CALLE"> <input type="text" class="form-control" id="CALLE" placeholder="JUAN ESCUTIA" required formControlName="CALLE"></div>
+              
+            <div class="FOTO"> <h1> FOTO</h1></div>
+            <div class="text_FOTO"> <input type="text" class="form-control" id="FOTO" placeholder="" required formControlName="urlImagen"></div>
+                
+            <div class="Estatus"> <h1> Estatus</h1></div>
+            <div class="text_Estatus"> <input type="text" class="form-control" id="Estatus" placeholder=""required formControlName="Estatus"></div>
+        
+            <button type="submit" class="bottonGuardar"  >Guardar</button>
+        
+            <button type="submit" class="bottonBorrar" >Borrar</button>
+        
+            <button type="submit" class="bottonNuevo" >Nuevo</button>
+          </div>
+            <div>
+          </div>
+      
+      </form>
+    </div>
