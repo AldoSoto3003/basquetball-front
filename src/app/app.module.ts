@@ -23,7 +23,7 @@ import { AdminModule } from './admin/admin.module';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { CanchasComponent } from './components/canchas/canchas.component';
+import { CanchasComponent } from './admin/components/canchas/canchas.component';
 
 
 @NgModule({
@@ -32,7 +32,6 @@ import { CanchasComponent } from './components/canchas/canchas.component';
     LoaderComponent,
     Error500Component,
     ErrorComponent,
-    CanchasComponent,
   ],
   imports: [
     BrowserModule,

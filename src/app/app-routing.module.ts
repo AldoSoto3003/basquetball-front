@@ -10,7 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminComponent } from './admin/pages/admin/admin.component';
-import { CanchasComponent } from './components/canchas/canchas.component';
+import { CanchasComponent } from './admin/components/canchas/canchas.component';
 
 import { RegistroUsuariosComponent } from './admin/components/registro-usuarios/registro-usuarios.component'
 
@@ -25,7 +25,7 @@ const routes: Routes = [
     {path:"login",component: LoginComponent },
   ]},
 
-  { path:"admin", component: AdminComponent, children:[
+  { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
     //TODO: aqui iran las rutas hijas del admin
     {path:"usuarios", component: RegistroUsuariosComponent},
     {path:"canchas", component:CanchasComponent},
