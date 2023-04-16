@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -19,6 +19,8 @@ import { Error500Component } from './components/error500/error500.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AdminModule } from './admin/admin.module';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -43,15 +45,19 @@ import { CanchasComponent } from './admin/components/canchas/canchas.component';
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
-    AccountModule,
-    PagesModule,
-    SharedModule,
-    AdminModule,
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
     MatTabsModule,
     MatFormFieldModule,
+
+    AdminModule,
+    AccountModule,
+    PagesModule,
+    SharedModule,
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     
   ],
  providers: [

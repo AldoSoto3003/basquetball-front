@@ -26,6 +26,7 @@ export class NavbarComponent {
     const log = this.authService.logout().subscribe(x=>{console.log(x.data)})
     
     localStorage.removeItem("Token");
+    localStorage.removeItem("informacion_usuario");
     
 
     this.loggedIn = false

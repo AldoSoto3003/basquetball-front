@@ -15,16 +15,20 @@ import { CdkMenuModule } from '@angular/cdk/menu'
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { RouterModule } from '@angular/router';
-import { RegistroUsuariosComponent } from './components/registro-usuarios/registro-usuarios.component';
+import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 import { CanchasComponent } from './components/canchas/canchas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarUsuarioComponent } from './components/usuarios/editar-usuario/editar-usuario.component';
+import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     AdminComponent,
     RegistroUsuariosComponent,
-    CanchasComponent
+    CanchasComponent,
+    EditarUsuarioComponent,
+    UsuariosComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule
   ],
   exports:[
-    RegistroUsuariosComponent
+    UsuariosComponent
   ]
 })
 export class AdminModule { }

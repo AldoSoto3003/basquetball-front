@@ -12,7 +12,10 @@ import { AuthGuard } from './guards/auth.guard';
 import { AdminComponent } from './admin/pages/admin/admin.component';
 import { CanchasComponent } from './admin/components/canchas/canchas.component';
 
-import { RegistroUsuariosComponent } from './admin/components/registro-usuarios/registro-usuarios.component'
+import { RegistroUsuariosComponent } from './admin/components/usuarios/registro-usuarios/registro-usuarios.component'
+import { Usuario } from './models/Usuario.model';
+import { UsuariosComponent } from './admin/components/usuarios/usuarios/usuarios.component';
+
 
 
 const routes: Routes = [
@@ -27,7 +30,7 @@ const routes: Routes = [
 
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
     //TODO: aqui iran las rutas hijas del admin
-    {path:"usuarios", component: RegistroUsuariosComponent},
+    {path:"usuarios", component: UsuariosComponent},
     {path:"canchas", component:CanchasComponent},
   ] },
   

@@ -1,0 +1,97 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Agregar usuario  
+</button>
+
+<div class="modal fade bd-example-modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-body">
+              <form action="" [formGroup]="nuevoForm" (ngSubmit)="postForm(nuevoForm)">
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Example file input</label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image">
+                </div>
+                  <div class="form-group row">
+                      <div class="form-group">
+                          <label for="">Nombre</label>
+                          <input type="text" class="form-control" placeholder="Nombres" formControlName="Nombres">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Apellido1</label>
+                        <input type="text" class="form-control" placeholder="ApellidoPaterno" formControlName="ApellidoPaterno">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Apellido2</label>
+                        <input type="text" class="form-control" placeholder="ApellidoMaterno" formControlName="ApellidoMaterno">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" placeholder="email" formControlName="email">
+                  </div>
+                  
+                  <div class="form-group">
+                   <label for="">Contraseña</label>
+                   <input type="text" class="form-control" placeholder="password" formControlName="password">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Domicilio</label>
+                    <input type="text" class="form-control" placeholder="Domicilio" formControlName="Domicilio">
+                  </div>
+
+                  </div>
+                  <div class="form-group row">
+                      <div class="col">
+                          <label for="">fecha de nacimiento</label>
+                          <input type="text" class="form-control" placeholder="fecha de nacimiento" formControlName="Fecha_Nacimiento">
+                      </div>
+                      <div class="col">
+                          <label for="">Id_Rol</label>
+                          <input type="text" class="form-control" placeholder="Id_Rol" formControlName="Id_Rol">
+                      </div>
+                      <div class="col">
+                          <label for="">Id_Genero</label>
+                          <input type="text" class="form-control" placeholder="Id_Genero" formControlName="Id_Genero">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col">
+                      <label for="">id_asenta</label>
+                      <input type="text" class="form-control" placeholder="Id_Genero" formControlName="id_asenta">
+                  </div>
+                      <div class="col">
+                          <label for="">CP</label>
+                          <input type="text" class="form-control" placeholder="CP" formControlName="CP">
+                      </div>
+                      <div class="col">
+                          <label for="">Numero de SS</label>
+                          <input type="text" class="form-control" placeholder="Numero de SS" formControlName="numSS">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col">
+                      <label for="">CURP</label>
+                      <input type="text" class="form-control" placeholder="curp" formControlName="curp">
+                  </div>
+                      <div class="col">
+                          <label for="">Telefono</label>
+                          <input type="text" class="form-control" placeholder="Telefono" formControlName="telefono">
+                      </div>
+                  </div>
+                  <div class="col">
+                    <label for="">Referencia</label>
+                    <input type="text" class="form-control" placeholder="Referencia" formControlName="referencia">
+                 </div>
+              
+                  <br><br>
+              
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSalir()">Salir</button>
+              </form>
+      </div>
+    </div>
+  </div>
+</div>
