@@ -16,6 +16,7 @@ export class RegistroUsuariosComponent {
   constructor( private userService: UserService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService){}
 
   usuarios !: ListaUsuariosI[];
+  imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
 
   nuevoForm = new FormGroup({
     Nombres : new FormControl('',Validators.required),

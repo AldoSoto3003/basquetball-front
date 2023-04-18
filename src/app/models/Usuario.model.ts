@@ -27,6 +27,7 @@ export interface ListaUsuariosI {
     Estatus:       string;
     datos_usuario: DatosUsuario | null;
     rol:           Rol;
+    password: string;
 }
 
 export interface DatosUsuario {

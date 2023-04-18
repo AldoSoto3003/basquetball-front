@@ -16,9 +16,10 @@ export class EditarUsuarioComponent {
   
   constructor( private userService: UserService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService){}
 
-  id = this.activerouter.snapshot.paramMap.get('id');
+  @Input() id:number;
+
   usuarios !: ListaUsuariosI[];
-  imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+  url = "../../../../src/assets/img/default.png"
 
   editarForm = new FormGroup({
     id: new FormControl(''),
@@ -33,10 +34,10 @@ export class EditarUsuarioComponent {
     Id_Genero : new FormControl('',Validators.required),
     id_asenta : new FormControl('',Validators.required),
     CP : new FormControl('',Validators.required),
-    numSS : new FormControl('',Validators.required),
-    curp : new FormControl('',),
-    telefono : new FormControl('',Validators.required),
     referencia : new FormControl('',Validators.required),
+    numSS : new FormControl('',Validators.required),
+    telefono : new FormControl('',Validators.required),
+    curp : new FormControl('',),
     Estatus : new FormControl('',Validators.required),
     image : new FormControl('',Validators.required),
   })
@@ -46,29 +47,7 @@ export class EditarUsuarioComponent {
   }
 
   ngOnInit():void{
-    this.userService.obtenerUnUsuario(this.id).subscribe( data => {
-      this.usuarios = data.data
-      this.editarForm.patchValue({
-        'id': this.id,
-        'Nombres': data.data.datos_usuario.Nombres,
-        'ApellidoPaterno': data.data.datos_usuario.ApellidoPaterno,
-        'ApellidoMaterno': data.data.datos_usuario.ApellidoMaterno,
-        'email': data.data.email,
-        'password': 'aldo',
-        'Domicilio': data.data.datos_usuario.Domicilio,
-        'Fecha_Nacimiento': String(data.data.datos_usuario.Fecha_Nacimiento),
-        'Id_Rol': String(data.data.Id_Rol),
-        'Id_Genero': String(data.data.ID_Genero),
-        'id_asenta': String(data.data.datos_usuario.id_asenta_cpcons),
-        'CP': String(data.data.datos_usuario.cp),
-        'numSS': data.data.datos_usuario.numSS,
-        'curp': data.data.datos_usuario.curp,
-        'telefono': data.data.datos_usuario.telefono,
-        'referencia': data.data.datos_usuario.referencia,
-        'Estatus': data.data.Estatus,
-      })     
-    })
-  
+    
   } 
 
   postForm(form:any){
@@ -85,32 +64,28 @@ export class EditarUsuarioComponent {
   onEdit(){
     this.userService.obtenerUnUsuario(this.id).subscribe( data => {
       this.usuarios = data.data
-      this.editarForm.patchValue({
-        'id': this.id,
+      this.editarForm.setValue({
+        'id': String(data.data.urlImagen),
+        'email': data.data.email,
+        'password': 'aldo',
+        'image': '',
+        'Id_Genero': String(data.data.ID_Genero),
+        'Id_Rol': String(data.data.Id_Rol),
+        'Estatus': data.data.Estatus,
         'Nombres': data.data.datos_usuario.Nombres,
         'ApellidoPaterno': data.data.datos_usuario.ApellidoPaterno,
         'ApellidoMaterno': data.data.datos_usuario.ApellidoMaterno,
-        'email': data.data.email,
-        'password': 'aldo',
         'Domicilio': data.data.datos_usuario.Domicilio,
         'Fecha_Nacimiento': String(data.data.datos_usuario.Fecha_Nacimiento),
-        'Id_Rol': String(data.data.Id_Rol),
-        'Id_Genero': String(data.data.ID_Genero),
         'id_asenta': String(data.data.datos_usuario.id_asenta_cpcons),
         'CP': String(data.data.datos_usuario.cp),
-        'numSS': data.data.datos_usuario.numSS,
-        'curp': data.data.datos_usuario.curp,
-        'telefono': data.data.datos_usuario.telefono,
         'referencia': data.data.datos_usuario.referencia,
-        'Estatus': data.data.Estatus,
+        'numSS': data.data.datos_usuario.numSS,
+        'telefono': data.data.datos_usuario.telefono,
+        'curp': data.data.datos_usuario.curp,
       })     
     })
     console.log(this.editarForm)
-    this.ngOnInit()
   }
-
-
-  onSalir(){
-    this.router.navigate(['admin/usuarios'])
-  }
+  onSalir(){}
 }

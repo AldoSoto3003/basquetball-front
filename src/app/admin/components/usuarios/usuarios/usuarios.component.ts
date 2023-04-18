@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListaUsuariosI } from 'src/app/models/Usuario.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,18 +10,20 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsuariosComponent {
   usuarios !: ListaUsuariosI[];
-
+  
+  
   constructor(private router:Router, private userService:UserService){ }
+
 
   ngOnInit():void{
     this.userService.obtenerUsuarios().subscribe( data => {
       let dataResponse:any[] = data.data
       this.usuarios = dataResponse
     })
+    }
 
-    this.userService.obtenerUnUsuario(1).subscribe( data => {
-      console.log(data)
-    })
+    onEdit(idUsuario:any){
+      this.router.navigate(['admin/editarusuario',idUsuario])
     }
 
     onDelete(idUsuario:any){

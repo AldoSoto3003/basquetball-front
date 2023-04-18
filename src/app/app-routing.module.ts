@@ -15,6 +15,7 @@ import { CanchasComponent } from './admin/components/canchas/canchas.component';
 import { RegistroUsuariosComponent } from './admin/components/usuarios/registro-usuarios/registro-usuarios.component'
 import { Usuario } from './models/Usuario.model';
 import { UsuariosComponent } from './admin/components/usuarios/usuarios/usuarios.component';
+import { EditarUsuarioComponent } from './admin/components/usuarios/editar-usuario/editar-usuario.component';
 
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
     //TODO: aqui iran las rutas hijas del admin
     {path:"usuarios", component: UsuariosComponent},
+    {path:"editarusuario/:id",component:EditarUsuarioComponent},
     {path:"canchas", component:CanchasComponent},
   ] },
   
