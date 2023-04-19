@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AdminModule } from './admin/admin.module';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -58,6 +59,7 @@ import { CanchasComponent } from './admin/components/canchas/canchas.component';
 
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    SweetAlert2Module.forRoot()
     
   ],
  providers: [

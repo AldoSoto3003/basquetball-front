@@ -21,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarUsuarioComponent } from './components/usuarios/editar-usuario/editar-usuario.component';
 import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
 import { NgbAlertModule, NgbDatepicker, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriasComponent } from './components/categorias/categoria/categorias.component';
+import { RegistrarCategoriaComponent } from './components/categorias/registrar-categoria/registrar-categoria.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { NgbAlertModule, NgbDatepicker, NgbDatepickerModule } from '@ng-bootstra
     RegistroUsuariosComponent,
     CanchasComponent,
     EditarUsuarioComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    CategoriasComponent,
+    RegistrarCategoriaComponent
   ],
   imports: [
     CommonModule,

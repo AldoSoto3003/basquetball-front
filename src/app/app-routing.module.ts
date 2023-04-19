@@ -16,6 +16,8 @@ import { RegistroUsuariosComponent } from './admin/components/usuarios/registro-
 import { Usuario } from './models/Usuario.model';
 import { UsuariosComponent } from './admin/components/usuarios/usuarios/usuarios.component';
 import { EditarUsuarioComponent } from './admin/components/usuarios/editar-usuario/editar-usuario.component';
+import { CategoriaService } from './services/categorias.service';
+import { CategoriasComponent } from './admin/components/categorias/categoria/categorias.component';
 
 
 
@@ -34,6 +36,7 @@ const routes: Routes = [
     {path:"usuarios", component: UsuariosComponent},
     {path:"editarusuario/:id",component:EditarUsuarioComponent},
     {path:"canchas", component:CanchasComponent},
+    {path:'categorias',component:CategoriasComponent}
   ] },
   
   { path:"error404",component:ErrorComponent },

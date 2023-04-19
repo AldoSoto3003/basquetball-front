@@ -5,6 +5,7 @@ import { LoginI } from '../interfaces/login.interface';
 import { environment } from 'src/environments/environment.prod';
 import { Petition } from '../models/Petition.model';
 import { Usuario } from '../models/Usuario.model';
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -33,12 +34,11 @@ export class AuthService {
     return this.http.post<any>(environment.urlApi+"auth/logout",null, {headers})
   }
 
-  // registerUser():Observable<any>{
-  //   const a = "a"
-  //   return a
-  // }
-
   verificarToken(){
     return localStorage.getItem("Token")?true:false; 
   }
+
+  
+
+ 
 }
