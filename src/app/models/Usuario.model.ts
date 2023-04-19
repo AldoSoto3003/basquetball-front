@@ -15,13 +15,13 @@ export class Usuario{
     telefono:string;
     curp: string;
     Estatus: string;
-    image: string;
+    image: any;
 }
 
 export interface ListaUsuariosI {
     id:            number;
     email:         string;
-    urlImagen:     string;
+    urlImagen:     any;
     Id_Rol:        number;
     ID_Genero:     number;
     Estatus:       string;

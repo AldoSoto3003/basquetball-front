@@ -6,6 +6,8 @@ import { UserService } from 'src/app/services/user.service';
 import { ListaUsuariosI } from 'src/app/models/Usuario.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertasService } from 'src/app/services/alertas.service';
+import { Generos } from 'src/app/models/Generos.interface';
+import { Roles } from 'src/app/models/roles.interface';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -18,6 +20,8 @@ export class EditarUsuarioComponent {
 
   id = this.activerouter.snapshot.paramMap.get('id');
   usuarios !: ListaUsuariosI[];
+  roles !: Roles[];
+  generos !: Generos[];
   imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
 
   editarForm = new FormGroup({
@@ -34,8 +38,8 @@ export class EditarUsuarioComponent {
     id_asenta : new FormControl('',Validators.required),
     CP : new FormControl('',Validators.required),
     numSS : new FormControl('',Validators.required),
-    curp : new FormControl('',),
     telefono : new FormControl('',Validators.required),
+    curp : new FormControl('',),
     referencia : new FormControl('',Validators.required),
     Estatus : new FormControl('',Validators.required),
     image : new FormControl('',Validators.required),
@@ -46,6 +50,14 @@ export class EditarUsuarioComponent {
   }
 
   ngOnInit():void{
+        //Obtener los roles de la BDD
+    this.userService.ObtenerLosRoles().subscribe( data => {
+      this.roles = data.data
+    })
+
+    this.userService.ObtenerLosGeneros().subscribe(data=>{
+      this.generos = data.data
+    })
     this.userService.obtenerUnUsuario(this.id).subscribe( data => {
       this.usuarios = data.data
       this.editarForm.patchValue({
@@ -109,6 +121,15 @@ export class EditarUsuarioComponent {
     this.ngOnInit()
   }
 
+  onFileChanged(event){
+    if (event.target.files){
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event:any) => {
+        this.imageURL = event.target.result
+      }
+    }
+  }
 
   onSalir(){
     this.router.navigate(['admin/usuarios'])

@@ -4,3 +4,8 @@
     margin-right: auto;
 
 }
+
+.container{
+    max-width: 60%;
+    border-style: double;
+}

@@ -37,4 +37,23 @@ export class UserService {
     return this.http.delete<any>(environment.urlApi+"EliminarUsuario?id="+id,{headers})
   }
 
+  ObtenerLosRoles():Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token }
+    return this.http.get<any>(environment.urlApi+"ObtenerRoles",{headers})
+  }
+
+  ObtenerLosGeneros():Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token }
+    return this.http.get<any>(environment.urlApi+"ObtenerGeneros",{headers})
+  }
+
+  ObtenerCodigoPostal(id:any):Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token }
+    return this.http.post<any>(environment.urlApi+"ObtenerCPEspecifico",id,{headers})
+  }
+
+
 }

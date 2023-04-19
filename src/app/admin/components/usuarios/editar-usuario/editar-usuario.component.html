@@ -1,9 +1,9 @@
 <div class="container">
   <form action="" [formGroup]="editarForm" (ngSubmit)="postForm(editarForm)">
-    <div class="form-group">
-      <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="avatar2" [src]="imageURL"/>
-      <label for="exampleFormControlFile1">Example file input</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1" accept="image/*" formControlName="image" >
+    <div class="mb-3">
+      <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="" width="200" height="200" [src]="imageURL" />
+      <label for="exampleFormControlFile1">Subir fotografia</label>
+      <input class="form-control" type="file" id="formFile" accept="image/*" formControlName="image" (change)="onFileChanged($event )" >
     </div>
     <div class="form-group row">
       <div class="form-group">
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
           <label for="">Contraseña</label>
-          <input type="text" class="form-control" placeholder="password" formControlName="password">
+          <input type="password" class="form-control" placeholder="password" formControlName="password">
         </div>            
         <div class="form-group">
           <label for="">Domicilio</label>
@@ -39,8 +39,11 @@
           <input type="text" class="form-control" placeholder="fecha de nacimiento" formControlName="Fecha_Nacimiento">
         </div>
         <div class="col">
-          <label for="">Id_Rol</label>
-          <input type="text" class="form-control" placeholder="Id_Rol" formControlName="Id_Rol">
+          <label class="form-label">Rol</label>
+          <select class="form-select" required formControlName="Id_Rol">
+            <option selected disabled value="{{this.editarForm}}">Elige...</option>
+            <option *ngFor="let rol of roles" [ngValue]="rol.Id_Rol"> {{ rol.name }} </option>
+          </select>
         </div>
         <div class="col">
           <label for="">Id_Genero</label>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,6 +20,7 @@ import { CanchasComponent } from './components/canchas/canchas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarUsuarioComponent } from './components/usuarios/editar-usuario/editar-usuario.component';
 import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
+import { NgbAlertModule, NgbDatepicker, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,12 @@ import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.compo
     MatIconModule,
     MatDividerModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    
+    NgbDatepickerModule,
+    NgbDatepicker,
+    NgbAlertModule,
+    JsonPipe
   ],
   exports:[
     UsuariosComponent

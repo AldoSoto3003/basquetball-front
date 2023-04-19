@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaUsuariosI } from 'src/app/models/Usuario.model';
@@ -13,7 +14,6 @@ export class UsuariosComponent {
   
   
   constructor(private router:Router, private userService:UserService){ }
-
 
   ngOnInit():void{
     this.userService.obtenerUsuarios().subscribe( data => {
