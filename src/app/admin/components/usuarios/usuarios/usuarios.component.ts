@@ -19,6 +19,7 @@ export class UsuariosComponent {
     this.userService.obtenerUsuarios().subscribe( data => {
       let dataResponse:any[] = data.data
       this.usuarios = dataResponse
+      console.log(this.usuarios)
     })
     }
 

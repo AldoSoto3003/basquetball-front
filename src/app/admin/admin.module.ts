@@ -22,6 +22,7 @@ import { EditarUsuarioComponent } from './components/usuarios/editar-usuario/edi
 import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
 import { NgbAlertModule, NgbDatepicker, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   declarations: [
     SidebarComponent,

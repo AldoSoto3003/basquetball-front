@@ -33,16 +33,16 @@ export class RegistroUsuariosComponent {
   get telefonoNoValido(){ return this.nuevoForm.get('telefono')?.invalid && this.nuevoForm.get('telefono').touched }
   get referenciaNoValido(){ return this.nuevoForm.get('referencia')?.invalid && this.nuevoForm.get('referencia').touched }
 
+  imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
 
-  model: NgbDateStruct;
   usuarios !: ListaUsuariosI[];
   roles !: Roles[];
   generos !: Generos[];
   codigo_postal !: CodigoPostal[];
   codigo_postal_para_obtener_asentamientos = ''
   curp_regex:string = ''
+  base64:string;
 
-  imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
 
 
   nuevoForm = new FormGroup({
@@ -52,7 +52,7 @@ export class RegistroUsuariosComponent {
     email : new FormControl('',[Validators.required,Validators.email]),
     password : new FormControl('',[Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/)]),
     Domicilio : new FormControl('',Validators.required),
-    Fecha_Nacimiento : new FormControl('',Validators.required),
+    Fecha_Nacimiento : new FormControl('2000/03/30',Validators.required),
     Id_Rol : new FormControl('',Validators.required),
     Id_Genero : new FormControl('',Validators.required),
     id_asenta : new FormControl('',Validators.required),
@@ -85,11 +85,11 @@ export class RegistroUsuariosComponent {
 
   postForm(form:any){
     if (form.valid){
+      
       console.log('Este es el form',form)
-      this.alertService.showSuccess('Formulario valido','Exito')
-      // this.userService.registrarUnUsuario(form.value).subscribe( data => {
-      //   console.log(data)
-      // })
+      this.userService.registrarUnUsuario(form.value).subscribe( data => {
+        console.log(data)
+      }), error => this.alertService.showError('Error',error)
 
     }else{
       console.log('Este es el form',form)
@@ -103,6 +103,10 @@ export class RegistroUsuariosComponent {
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event:any) => {
         this.imageURL = event.target.result
+        this.base64 = reader.result as string;
+        this.nuevoForm.patchValue({
+          'image':this.base64
+        })
       }
     }
   }

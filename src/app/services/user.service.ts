@@ -37,6 +37,13 @@ export class UserService {
     return this.http.delete<any>(environment.urlApi+"EliminarUsuario?id="+id,{headers})
   }
 
+  EditarUnUsuario(form:any):Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token }
+    return this.http.put<any>(environment.urlApi+"ModificarUsuario",form,{headers})
+
+  }
+
   ObtenerLosRoles():Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
