@@ -1,7 +1,7 @@
 
 <div class="form-outline" style="margin-bottom: 15px;">
-  <button class="btn btn-primary">Agregar Categ</button>
-  <input type="search" class="form-control" placeholder="Buscar.." id="datatable-search-input" style="width: 90%; float: right;">
+  <button class="btn btn-primary" (click)="onRegister()">Agregar Categ</button>
+  <input type="search" class="form-control" placeholder="Buscar.." id="datatable-search-input" style="width: 85%; float: right;">
 </div>
 <table class="table align-middle mb-0 bg-white">
     <thead class="bg-light">
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let categoria of categorias">
+      <tr *ngFor="let categoria of categorias | paginate: { itemsPerPage:5, currentPage:p } ">
         <td>
           <div class="d-flex align-items-center">
             <div class="ms-3">
@@ -39,4 +39,13 @@
       </tr>
     </tbody>
   </table>
+  
+
+<div class="d-flex justify-content-center" >
+  <pagination-controls
+  (pageChange)="p = $event"
+  previousLabel="Atras"
+  nextLabel="Adelante"
+  ></pagination-controls>
+</div>
   

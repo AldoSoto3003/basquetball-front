@@ -7,16 +7,16 @@ import { AlertasService } from 'src/app/services/alertas.service';
 import { CategoriaService } from 'src/app/services/categorias.service';
 
 @Component({
-  selector: 'app-registrar-categoria',
-  templateUrl: './registrar-categoria.component.html',
-  styleUrls: ['./registrar-categoria.component.css']
+  selector: 'app-editar-categoria',
+  templateUrl: './editar-categoria.component.html',
+  styleUrls: ['./editar-categoria.component.css']
 })
-export class RegistrarCategoriaComponent {
-
+export class EditarCategoriaComponent {
+  
   get nombreNoValido(){ return this.nuevoForm.get('Nombres')?.invalid && this.nuevoForm.get('Nombres').touched }
 
   constructor( private categoriasService:CategoriaService,private router:Router, private alertService:AlertasService
-    ,private dialogRef: MatDialogRef<RegistrarCategoriaComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: CategoriaI){}
+    ,private dialogRef: MatDialogRef<EditarCategoriaComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: CategoriaI){}
 
   categorias !: CategoriaI[];
 
@@ -42,6 +42,5 @@ export class RegistrarCategoriaComponent {
   }
 
   onSalir(){}
-
 
 }

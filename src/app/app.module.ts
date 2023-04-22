@@ -26,7 +26,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { CanchasComponent } from './admin/components/canchas/canchas.component';
+import { CategoriasPipe } from './pipes/categorias.pipe';
+
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CanchasComponent } from './admin/components/canchas/canchas.component';
     LoaderComponent,
     Error500Component,
     ErrorComponent,
+    CategoriasPipe,
   ],
   imports: [
     BrowserModule,

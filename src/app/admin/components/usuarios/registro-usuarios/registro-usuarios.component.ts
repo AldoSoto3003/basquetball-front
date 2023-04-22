@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatosUsuario, Usuario } from 'src/app/models/Usuario.model';
 import { UserService } from 'src/app/services/user.service';
@@ -10,6 +10,8 @@ import { Roles } from 'src/app/models/roles.interface';
 import { Generos } from 'src/app/models/Generos.interface';
 import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
 import { NgbDateStruct, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
 
 @Component({
   selector: 'app-registro-usuarios',
@@ -18,7 +20,8 @@ import { NgbDateStruct, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RegistroUsuariosComponent {
 
-  constructor( private userService: UserService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService){ }
+  constructor( private userService: UserService ,private activerouter:ActivatedRoute, private router:Router, 
+    private alertService:AlertasService,private dialogRef: MatDialogRef<EditarUsuarioComponent>, @Inject(MAT_DIALOG_DATA) public usuarioActual: ListaUsuariosI){ }
 
   get nombreNoValido(){ return this.nuevoForm.get('Nombres')?.invalid && this.nuevoForm.get('Nombres').touched }
   get ApellidoPaternoNoValido(){ return this.nuevoForm.get('ApellidoPaterno')?.invalid && this.nuevoForm.get('ApellidoPaterno').touched }
@@ -33,8 +36,6 @@ export class RegistroUsuariosComponent {
   get telefonoNoValido(){ return this.nuevoForm.get('telefono')?.invalid && this.nuevoForm.get('telefono').touched }
   get referenciaNoValido(){ return this.nuevoForm.get('referencia')?.invalid && this.nuevoForm.get('referencia').touched }
 
-  imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-
   usuarios !: ListaUsuariosI[];
   roles !: Roles[];
   generos !: Generos[];
@@ -42,6 +43,11 @@ export class RegistroUsuariosComponent {
   codigo_postal_para_obtener_asentamientos = ''
   curp_regex:string = ''
   base64:string;
+
+  imageURL:any = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+  reader = new FileReader();
+  public imagePath:any;
+  public message: string;
 
 
 
@@ -52,7 +58,7 @@ export class RegistroUsuariosComponent {
     email : new FormControl('',[Validators.required,Validators.email]),
     password : new FormControl('',[Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/)]),
     Domicilio : new FormControl('',Validators.required),
-    Fecha_Nacimiento : new FormControl('2000/03/30',Validators.required),
+    Fecha_Nacimiento : new FormControl('2000/03/30',[Validators.required]),
     Id_Rol : new FormControl('',Validators.required),
     Id_Genero : new FormControl('',Validators.required),
     id_asenta : new FormControl('',Validators.required),
@@ -89,6 +95,7 @@ export class RegistroUsuariosComponent {
       console.log('Este es el form',form)
       this.userService.registrarUnUsuario(form.value).subscribe( data => {
         console.log(data)
+        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
       }), error => this.alertService.showError('Error',error)
 
     }else{
@@ -97,16 +104,14 @@ export class RegistroUsuariosComponent {
     }
   }
 
+
   onFileChanged(event){
     if (event.target.files){
-      const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (event:any) => {
+      this.reader.readAsDataURL(event.target.files[0]);
+      this.reader.onload = (event:any) => {
         this.imageURL = event.target.result
-        this.base64 = reader.result as string;
-        this.nuevoForm.patchValue({
-          'image':this.base64
-        })
+        this.base64 = this.reader.result as string;
+        this.nuevoForm.controls["image"].setValue(this.base64)
       }
     }
   }

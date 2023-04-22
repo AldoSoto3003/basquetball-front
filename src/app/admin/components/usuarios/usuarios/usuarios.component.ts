@@ -1,9 +1,11 @@
-import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ViewChildren } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ListaUsuariosI } from 'src/app/models/Usuario.model';
 import { UserService } from 'src/app/services/user.service';
-import Swal from 'sweetalert2'
+import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
+import { RegistroUsuariosComponent } from '../registro-usuarios/registro-usuarios.component';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -12,26 +14,56 @@ import Swal from 'sweetalert2'
 })
 export class UsuariosComponent {
   usuarios !: ListaUsuariosI[];
+  p: number = 1;
+
+  @ViewChildren(EditarUsuarioComponent)  
+  editarUsuario: EditarUsuarioComponent;
   
-  
-  constructor(private router:Router, private userService:UserService){ }
+  public search:string = '';
+
+  constructor(private router:Router, private userService:UserService,private dialog:MatDialog){ }
 
   ngOnInit():void{
     this.userService.obtenerUsuarios().subscribe( data => {
       let dataResponse:any[] = data.data
       this.usuarios = dataResponse
-      console.log(this.usuarios)
     })
     }
 
-    onEdit(idUsuario:any){
-      this.router.navigate(['admin/editarusuario',idUsuario])
-    }
+  onSearch(busqueda:string){
+    this.search = busqueda
+  }
+  openDialogEditar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
+    this.dialog.open(EditarUsuarioComponent, {
+      width: 'auto',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data:data
+    });
+  }
 
-    onDelete(idUsuario:any){
-      this.userService.EliminarUnUsuario(idUsuario).subscribe( data => {
-        this.ngOnInit()
-      })
-    }
+  openDialogRegistrar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
+    this.dialog.open(RegistroUsuariosComponent, {
+      width: 'auto',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data:data
+    });
+  }
+
+  onRegister(){
+    this.openDialogRegistrar('0ms','0ms')
+  }
+
+  onEdit(user:any){
+    this.openDialogEditar('0ms','0ms',user)
+  }
+
+
+  onDelete(idUsuario:any){
+    this.userService.EliminarUnUsuario(idUsuario).subscribe( data => {
+      this.ngOnInit()
+    })
+  }
 
 }

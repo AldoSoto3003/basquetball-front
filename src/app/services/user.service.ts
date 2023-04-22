@@ -41,7 +41,6 @@ export class UserService {
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
     return this.http.put<any>(environment.urlApi+"ModificarUsuario",form,{headers})
-
   }
 
   ObtenerLosRoles():Observable<any>{

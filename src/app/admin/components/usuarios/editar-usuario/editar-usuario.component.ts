@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatosUsuario, Usuario } from 'src/app/models/Usuario.model';
 import { UserService } from 'src/app/services/user.service';
 
 import { ListaUsuariosI } from 'src/app/models/Usuario.model';
@@ -9,6 +8,7 @@ import { AlertasService } from 'src/app/services/alertas.service';
 import { Generos } from 'src/app/models/Generos.interface';
 import { Roles } from 'src/app/models/roles.interface';
 import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -17,7 +17,8 @@ import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
 })
 export class EditarUsuarioComponent {
   
-  constructor( private userService: UserService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService){}
+  constructor( private userService: UserService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService,
+    public dialogRef: MatDialogRef<EditarUsuarioComponent>, @Inject(MAT_DIALOG_DATA) public usuarioActual: ListaUsuariosI){}
 
   get nombreNoValido(){ return this.editarForm.get('Nombres')?.invalid && this.editarForm.get('Nombres').touched }
   get ApellidoPaternoNoValido(){ return this.editarForm.get('ApellidoPaterno')?.invalid && this.editarForm.get('ApellidoPaterno').touched }
@@ -32,11 +33,7 @@ export class EditarUsuarioComponent {
   get telefonoNoValido(){ return this.editarForm.get('telefono')?.invalid && this.editarForm.get('telefono').touched }
   get referenciaNoValido(){ return this.editarForm.get('referencia')?.invalid && this.editarForm.get('referencia').touched }
 
-
-
-  id = this.activerouter.snapshot.paramMap.get('id');
-  imageURL = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-
+  
   usuarios !: ListaUsuariosI[];
   roles !: Roles[];
   generos !: Generos[];
@@ -44,6 +41,12 @@ export class EditarUsuarioComponent {
   codigo_postal_para_obtener_asentamientos = ''
   curp_regex:string = ''
   base64:string;
+  
+  imageURL:any = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+  reader = new FileReader();
+  public imagePath:any;
+  public message: string;
+
 
   editarForm = new FormGroup({
     id: new FormControl(''),
@@ -63,11 +66,11 @@ export class EditarUsuarioComponent {
     curp : new FormControl('',),
     referencia : new FormControl('',Validators.required),
     Estatus : new FormControl('',Validators.required),
-    image : new FormControl('',Validators.required),
+    imagen : new FormControl('',Validators.required),
   })
 
   ngOnInit():void{
-        //Obtener los roles de la BDD
+    //Obtener los roles de la BDD
     this.userService.ObtenerLosRoles().subscribe( data => {
       this.roles = data.data
     })
@@ -76,91 +79,58 @@ export class EditarUsuarioComponent {
       this.generos = data.data
     })
 
-    this.userService.obtenerUnUsuario(this.id).subscribe( data => {
-      
-      this.usuarios = data.data
-      console.log(this.usuarios)
-      
-      this.editarForm.patchValue({
-        'id': this.id,
-        'Nombres': data.data.datos_usuario.Nombres,
-        'ApellidoPaterno': data.data.datos_usuario.ApellidoPaterno,
-        'ApellidoMaterno': data.data.datos_usuario.ApellidoMaterno,
-        'email': data.data.email,
-        'password': '',
-        'Domicilio': data.data.datos_usuario.Domicilio,
-        'Fecha_Nacimiento': String(data.data.datos_usuario.Fecha_Nacimiento),
-        'Id_Rol': String(data.data.Id_Rol),
-        'Id_Genero': String(data.data.ID_Genero),
-        'id_asenta': String(data.data.datos_usuario.id_asenta_cpcons),
-        'CP': String(data.data.datos_usuario.cp),
-        'numSS': data.data.datos_usuario.numSS,
-        'curp': data.data.datos_usuario.curp,
-        'telefono': data.data.datos_usuario.telefono,
-        'referencia': data.data.datos_usuario.referencia,
-        'Estatus': data.data.Estatus,
-      })     
-    })
-  
+    this.setDatos()
   } 
 
-  postForm(form:any){
+  onUpdate(form:any){
     if (form.valid){
-      form.value.Fecha_Nacimiento = '2000/03/30'
-      console.log('Este es el form',form.value)
-      this.alertService.showSuccess('Formulario valido','Exito')
+      console.log('Valido',form.value)
+      
       this.userService.EditarUnUsuario(form.value).subscribe( data => {
-        console.log(data)
-      })
+        this.alertService.showSuccess('Formulario valido','Exito')
+      }), error =>{ this.alertService.showError('Ocurrio un error',error.error.data)}
 
     }else{
-      console.log('Este es el form',form.value)
+      console.log('No valido',form.value)
       this.alertService.showError('Formulario no valido','Fallo')
     }
   }
 
-  onEdit(){
-    this.userService.obtenerUnUsuario(this.id).subscribe( data => {
-      this.usuarios = data.data
-      this.editarForm.patchValue({
-        'id': this.id,
-        'Nombres': data.data.datos_usuario.Nombres,
-        'ApellidoPaterno': data.data.datos_usuario.ApellidoPaterno,
-        'ApellidoMaterno': data.data.datos_usuario.ApellidoMaterno,
-        'email': data.data.email,
-        'password': 'aldo',
-        'Domicilio': data.data.datos_usuario.Domicilio,
-        'Fecha_Nacimiento': String(data.data.datos_usuario.Fecha_Nacimiento),
-        'Id_Rol': String(data.data.Id_Rol),
-        'Id_Genero': String(data.data.ID_Genero),
-        'id_asenta': String(data.data.datos_usuario.id_asenta_cpcons),
-        'CP': String(data.data.datos_usuario.cp),
-        'numSS': data.data.datos_usuario.numSS,
-        'curp': data.data.datos_usuario.curp,
-        'telefono': data.data.datos_usuario.telefono,
-        'referencia': data.data.datos_usuario.referencia,
-        'Estatus': data.data.Estatus,
-      })     
-    })
-    console.log(this.editarForm)
-    this.ngOnInit()
+  setDatos(){
+    this.base64 = this.usuarioActual.urlImagen
+    this.editarForm.controls["id"].setValue(String(this.usuarioActual.id))
+    this.editarForm.controls["Nombres"].setValue(this.usuarioActual.datos_usuario.Nombres)
+    this.editarForm.controls["ApellidoPaterno"].setValue(this.usuarioActual.datos_usuario.ApellidoPaterno)
+    this.editarForm.controls["ApellidoMaterno"].setValue(this.usuarioActual.datos_usuario.ApellidoMaterno)
+    this.editarForm.controls["email"].setValue(this.usuarioActual.email)
+    this.editarForm.controls["password"].setValue('')
+    this.editarForm.controls["Domicilio"].setValue(this.usuarioActual.datos_usuario.Domicilio)
+    this.editarForm.controls["Fecha_Nacimiento"].setValue(String(this.usuarioActual.datos_usuario.Fecha_Nacimiento))
+    this.editarForm.controls["Id_Rol"].setValue(String(this.usuarioActual.Id_Rol))
+    this.editarForm.controls["CP"].setValue(this.usuarioActual.datos_usuario.cp)
+    // this.editarForm.controls["id_asenta"].setValue(String(this.usuarioActual.datos_usuario.id_asenta_cpcons))
+    this.editarForm.controls["curp"].setValue(this.usuarioActual.datos_usuario.curp)
+    this.editarForm.controls["telefono"].setValue(this.usuarioActual.datos_usuario.telefono)
+    this.editarForm.controls["Id_Genero"].setValue(String(this.usuarioActual.ID_Genero))
+    this.editarForm.controls["numSS"].setValue(this.usuarioActual.datos_usuario.numSS)
+    this.editarForm.controls["referencia"].setValue(this.usuarioActual.datos_usuario.referencia)
+    this.editarForm.controls["Estatus"].setValue("Activo")
+    this.imageURL = this.base64
   }
 
   onFileChanged(event){
     if (event.target.files){
-      const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (event:any) => {
+      this.reader.readAsDataURL(event.target.files[0]);
+      this.reader.onload = (event:any) => {
         this.imageURL = event.target.result
-        this.base64 = reader.result as string;
-        this.editarForm.patchValue({
-          'image':this.base64
-        })
+        this.base64 = this.reader.result as string;
+        this.editarForm.controls["imagen"].setValue(this.base64)
       }
     }
   }
 
   obtenerAsentamientos(){
+    this.codigo_postal_para_obtener_asentamientos = this.editarForm.controls["CP"].value
     if (this.codigo_postal_para_obtener_asentamientos.length == 5){
       const codigo_postal = {'CP':this.codigo_postal_para_obtener_asentamientos}
       this.userService.ObtenerCodigoPostal(codigo_postal).subscribe(data=>{

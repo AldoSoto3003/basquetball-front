@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { OverlayModule } from '@angular/cdk/overlay'
 import { CdkMenuModule } from '@angular/cdk/menu'
@@ -23,6 +24,9 @@ import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.compo
 import { NgbAlertModule, NgbDatepicker, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriasComponent } from './components/categorias/categoria/categorias.component';
 import { RegistrarCategoriaComponent } from './components/categorias/registrar-categoria/registrar-categoria.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { UsuariosPipe } from '../pipes/usuarios.pipe';
+import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
 
 
 @NgModule({
@@ -34,13 +38,16 @@ import { RegistrarCategoriaComponent } from './components/categorias/registrar-c
     EditarUsuarioComponent,
     UsuariosComponent,
     CategoriasComponent,
-    RegistrarCategoriaComponent
+    RegistrarCategoriaComponent,
+    UsuariosPipe,
+    EditarCategoriaComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    
 
     OverlayModule,
     CdkMenuModule,
@@ -52,11 +59,13 @@ import { RegistrarCategoriaComponent } from './components/categorias/registrar-c
     MatDividerModule,
     MatListModule,
     MatFormFieldModule,
+    MatDialogModule,
     
     NgbDatepickerModule,
     NgbDatepicker,
     NgbAlertModule,
-    JsonPipe
+    JsonPipe,
+    NgxPaginationModule,
   ],
   exports:[
     UsuariosComponent

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EquiposComponent } from './components/equipos/equipos.component';
 import { LoginComponent } from './account/login/login.component';
-import { LoginPruebasComponent } from './account/login-pruebas/login-pruebas.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MarcadoresComponent } from './components/marcadores/marcadores.component';
 import { PosicionesComponent } from './components/posiciones/posiciones.component';
@@ -32,9 +31,7 @@ const routes: Routes = [
   ]},
 
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
-    //TODO: aqui iran las rutas hijas del admin
     {path:"usuarios", component: UsuariosComponent},
-    {path:"editarusuario/:id",component:EditarUsuarioComponent},
     {path:"canchas", component:CanchasComponent},
     {path:'categorias',component:CategoriasComponent}
   ] },
