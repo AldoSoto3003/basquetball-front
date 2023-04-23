@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <!-- | paginate: { itemsPerPage:2, currentPage:p }  -->
-      <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage:10, currentPage:p } | UsuariosFilter:search" >
+      <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage:5, currentPage:p } | UsuariosFilter:search" >
         <td>
           <div class="d-flex align-items-center">
             <img
@@ -48,12 +48,12 @@
     </tbody>
   </table>
 
-  <div class="d-flex justify-content-center">
-    <pagination-controls
-    (pageChange)="p = $event"
-    previousLabel="Atras"
-    nextLabel="Adelante"
-    ></pagination-controls>
-  </div>
+<div class="d-flex justify-content-center">
+  <pagination-controls
+  (pageChange)="p = $event"
+  previousLabel="Atras"
+  nextLabel="Adelante"
+  ></pagination-controls>
+</div>
   
   

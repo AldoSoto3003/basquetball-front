@@ -13,14 +13,14 @@ import { CategoriaService } from 'src/app/services/categorias.service';
 })
 export class EditarCategoriaComponent {
   
-  get nombreNoValido(){ return this.nuevoForm.get('Nombres')?.invalid && this.nuevoForm.get('Nombres').touched }
+  get nombreNoValido(){ return this.editarForm.get('Nombres')?.invalid && this.editarForm.get('Nombres').touched }
 
   constructor( private categoriasService:CategoriaService,private router:Router, private alertService:AlertasService
     ,private dialogRef: MatDialogRef<EditarCategoriaComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: CategoriaI){}
 
   categorias !: CategoriaI[];
 
-  nuevoForm = new FormGroup({
+  editarForm = new FormGroup({
     NombreCategoria: new FormControl('',Validators.required),
     Descripcion: new FormControl('',Validators.required),
     EdadMin: new FormControl('',Validators.required),
@@ -29,11 +29,9 @@ export class EditarCategoriaComponent {
     EdadMujerMax: new FormControl('',Validators.required),
   })
 
-  ngOnInit(){
+  ngOnInit(){}
 
-  }
-
-  onRegister(form:any){
+  enEditar(form:any){
     if (form.valid){
       console.log(form.value)
     }else{

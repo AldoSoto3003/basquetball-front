@@ -23,7 +23,7 @@ export class RegistrarCategoriaComponent {
   nuevoForm = new FormGroup({
     NombreCategoria: new FormControl('',Validators.required),
     Descripcion: new FormControl('',Validators.required),
-    EdadMin: new FormControl('',Validators.required),
+    EdadMin: new FormControl('',[Validators.required]),
     EdadMax: new FormControl('',Validators.required),
     EdadMujerMin: new FormControl('',Validators.required),
     EdadMujerMax: new FormControl('',Validators.required),
@@ -34,11 +34,15 @@ export class RegistrarCategoriaComponent {
   }
 
   onRegister(form:any){
-    if (form.valid){
-      console.log(form.value)
-    }else{
-      console.log(form.value)
-    }
+      if (form.valid){
+        console.log('Este es el form',form)
+        this.categoriasService.registrarUnaCategoria(form.value).subscribe( data => {
+          if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
+        }), error => this.alertService.showError('Error',error)
+      }else{
+        console.log('Este es el form',form)
+        this.alertService.showError('Formulario no valido','Fallo')
+      }
   }
 
   onSalir(){}

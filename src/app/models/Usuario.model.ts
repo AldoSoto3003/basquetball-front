@@ -1,22 +1,3 @@
-export class Usuario{
-    ApellidoPaterno: string;
-    ApellidoMaterno: string;
-    email: string;
-    password: string;
-    Nombres: string;
-    Domicilio: string;
-    Id_Rol: number;
-    ID_Genero: number;
-    id_asenta: number;
-    CP: string;
-    referencia: string;
-    Fecha_Nacimiento: string;
-    numSS:string;
-    telefono:string;
-    curp: string;
-    Estatus: string;
-    image: any;
-}
 
 export interface ListaUsuariosI {
     id:            number;
@@ -47,4 +28,30 @@ export interface DatosUsuario {
 export interface Rol {
     Id_Rol: number;
     name:   string;
+}
+
+
+
+
+
+
+
+export class Usuario{
+    ApellidoPaterno: string;
+    ApellidoMaterno: string;
+    email: string;
+    password: string;
+    Nombres: string;
+    Domicilio: string;
+    Id_Rol: number;
+    ID_Genero: number;
+    id_asenta: number;
+    CP: string;
+    referencia: string;
+    Fecha_Nacimiento: string;
+    numSS:string;
+    telefono:string;
+    curp: string;
+    Estatus: string;
+    image: any;
 }

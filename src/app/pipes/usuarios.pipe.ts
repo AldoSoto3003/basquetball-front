@@ -8,7 +8,9 @@ export class UsuariosPipe implements PipeTransform {
 
   transform( usuarios:ListaUsuariosI[],search: string): ListaUsuariosI[] {
     
-    if( search.length === 0) return usuarios;
+    if( search.length === 0){
+
+    }
 
     search = search.toUpperCase()
     const fitleredUsuarios = usuarios.filter( usuario => usuario.datos_usuario.Nombres.toUpperCase().includes( search ));

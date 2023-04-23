@@ -61,7 +61,9 @@ export class UsuariosComponent {
 
 
   onDelete(idUsuario:any){
+    console.log(idUsuario)
     this.userService.EliminarUnUsuario(idUsuario).subscribe( data => {
+      console.log(data)
       this.ngOnInit()
     })
   }
