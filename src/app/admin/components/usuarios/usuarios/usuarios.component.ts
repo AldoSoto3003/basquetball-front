@@ -33,6 +33,7 @@ export class UsuariosComponent {
   onSearch(busqueda:string){
     this.search = busqueda
   }
+  
   openDialogEditar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
     this.dialog.open(EditarUsuarioComponent, {
       width: 'auto',

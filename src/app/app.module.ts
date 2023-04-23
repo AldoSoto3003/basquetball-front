@@ -36,7 +36,6 @@ import { CategoriasPipe } from './pipes/categorias.pipe';
     LoaderComponent,
     Error500Component,
     ErrorComponent,
-    CategoriasPipe,
   ],
   imports: [
     BrowserModule,

@@ -27,6 +27,7 @@ import { RegistrarCategoriaComponent } from './components/categorias/registrar-c
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UsuariosPipe } from '../pipes/usuarios.pipe';
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
+import { CategoriasPipe } from '../pipes/categorias.pipe';
 
 
 @NgModule({
@@ -39,8 +40,11 @@ import { EditarCategoriaComponent } from './components/categorias/editar-categor
     UsuariosComponent,
     CategoriasComponent,
     RegistrarCategoriaComponent,
-    UsuariosPipe,
     EditarCategoriaComponent,
+    
+    
+    UsuariosPipe,
+    CategoriasPipe,
   ],
   imports: [
     CommonModule,

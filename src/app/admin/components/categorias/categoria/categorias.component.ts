@@ -17,12 +17,17 @@ export class CategoriasComponent {
 
   categorias: CategoriaI[];
   p:number = 1;
+  public searchCategoria : string = ""
 
   ngOnInit(){
     this.categoriaService.ObtenerTodasLasCategorias().subscribe( data => {
       console.log(data)
       this.categorias = data.data
     }), error => { console.log('error categoria oninit',error)}
+  }
+
+  onSearch(busqueda:string){
+    this.searchCategoria = busqueda
   }
 
   onRegister(){

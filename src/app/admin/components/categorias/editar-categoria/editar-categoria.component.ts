@@ -29,7 +29,9 @@ export class EditarCategoriaComponent {
     EdadMujerMax: new FormControl('',Validators.required),
   })
 
-  ngOnInit(){}
+  ngOnInit(){
+    console.log(this.categoriaActual)
+  }
 
   enEditar(form:any){
     if (form.valid){
@@ -37,6 +39,10 @@ export class EditarCategoriaComponent {
     }else{
       console.log(form.value)
     }
+  }
+
+  setValues(){
+
   }
 
   onSalir(){}
