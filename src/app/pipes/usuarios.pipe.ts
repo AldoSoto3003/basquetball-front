@@ -9,7 +9,7 @@ export class UsuariosPipe implements PipeTransform {
   transform( usuarios:ListaUsuariosI[],search: string): ListaUsuariosI[] {
     
     if( search.length === 0){
-
+      return usuarios
     }
 
     search = search.toUpperCase()
