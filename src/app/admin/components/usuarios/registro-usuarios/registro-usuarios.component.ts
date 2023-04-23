@@ -31,10 +31,12 @@ export class RegistroUsuariosComponent {
   get DomicilioNoValido(){ return this.nuevoForm.get('Domicilio')?.invalid && this.nuevoForm.get('Domicilio').touched }
   get fechaNoValido(){ return this.nuevoForm.get('Fecha_Nacimiento')?.invalid && this.nuevoForm.get('Fecha_Nacimiento').touched }
   get numSSNoValido(){ return this.nuevoForm.get('numSS')?.invalid && this.nuevoForm.get('numSS').touched }
-  get cpNoValido(){ return this.nuevoForm.get('cp')?.invalid && this.nuevoForm.get('cp').touched }
+  get cpNoValido(){ return this.nuevoForm.get('CP')?.invalid && this.nuevoForm.get('CP').touched }
   get curpNoValido(){ return this.nuevoForm.get('curp')?.invalid && this.nuevoForm.get('curp').touched }
   get telefonoNoValido(){ return this.nuevoForm.get('telefono')?.invalid && this.nuevoForm.get('telefono').touched }
   get referenciaNoValido(){ return this.nuevoForm.get('referencia')?.invalid && this.nuevoForm.get('referencia').touched }
+  get rolNoValido(){ return this.nuevoForm.get('Id_Rol')?.invalid && this.nuevoForm.get('Id_Rol').touched }
+  get asentaNoValido(){ return this.nuevoForm.get('id_asenta')?.invalid && this.nuevoForm.get('id_asenta').touched }
 
   usuarios !: ListaUsuariosI[];
   roles !: Roles[];
@@ -56,7 +58,7 @@ export class RegistroUsuariosComponent {
     ApellidoPaterno : new FormControl('',Validators.required),
     ApellidoMaterno : new FormControl('',Validators.required),
     email : new FormControl('',[Validators.required,Validators.email]),
-    password : new FormControl('',[Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/)]),
+    password : new FormControl('',[Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,10}$/)]),
     Domicilio : new FormControl('',Validators.required),
     Fecha_Nacimiento : new FormControl('2000/03/30',[Validators.required]),
     Id_Rol : new FormControl('',Validators.required),
@@ -94,8 +96,8 @@ export class RegistroUsuariosComponent {
       
       console.log('Este es el form',form)
       this.userService.registrarUnUsuario(form.value).subscribe( data => {
-        console.log(data)
         if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
+        else{this.alertService.showError(data.message,'Error')}
       }), error => this.alertService.showError('Error',error)
 
     }else{
