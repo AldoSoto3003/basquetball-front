@@ -9,7 +9,6 @@ import { ErrorComponent } from './components/error/error.component';
 import { Error500Component } from './components/error500/error500.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminComponent } from './admin/pages/admin/admin.component';
-import { CanchasComponent } from './admin/components/canchas/canchas.component';
 
 import { RegistroUsuariosComponent } from './admin/components/usuarios/registro-usuarios/registro-usuarios.component'
 import { Usuario } from './models/Usuario.model';
@@ -17,6 +16,7 @@ import { UsuariosComponent } from './admin/components/usuarios/usuarios/usuarios
 import { EditarUsuarioComponent } from './admin/components/usuarios/editar-usuario/editar-usuario.component';
 import { CategoriaService } from './services/categorias.service';
 import { CategoriasComponent } from './admin/components/categorias/categoria/categorias.component';
+import { CanchasComponent } from './admin/components/canchas/canchas/canchas.component';
 
 
 

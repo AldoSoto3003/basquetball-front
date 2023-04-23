@@ -17,7 +17,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { RouterModule } from '@angular/router';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
-import { CanchasComponent } from './components/canchas/canchas.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarUsuarioComponent } from './components/usuarios/editar-usuario/editar-usuario.component';
 import { UsuariosComponent } from './components/usuarios/usuarios/usuarios.component';
@@ -28,6 +28,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UsuariosPipe } from '../pipes/usuarios.pipe';
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
 import { CategoriasPipe } from '../pipes/categorias.pipe';
+import { CanchasComponent } from './components/canchas/canchas/canchas.component';
+import { EditarCanchasComponent } from './components/canchas/editar-canchas/editar-canchas.component';
+import { RegistrarCanchasComponent } from './components/canchas/registrar-canchas/registrar-canchas.component';
+
 
 
 @NgModule({
@@ -35,7 +39,6 @@ import { CategoriasPipe } from '../pipes/categorias.pipe';
     SidebarComponent,
     AdminComponent,
     RegistroUsuariosComponent,
-    CanchasComponent,
     EditarUsuarioComponent,
     UsuariosComponent,
     CategoriasComponent,
@@ -45,6 +48,9 @@ import { CategoriasPipe } from '../pipes/categorias.pipe';
     
     UsuariosPipe,
     CategoriasPipe,
+    CanchasComponent,
+    EditarCanchasComponent,
+    RegistrarCanchasComponent,
   ],
   imports: [
     CommonModule,
