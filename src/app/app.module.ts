@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CategoriasPipe } from './pipes/categorias.pipe';
+import { CanchasPipe } from './pipes/canchas.pipe';
 
 
 
@@ -36,6 +37,7 @@ import { CategoriasPipe } from './pipes/categorias.pipe';
     LoaderComponent,
     Error500Component,
     ErrorComponent,
+    CanchasPipe,
   ],
   imports: [
     BrowserModule,

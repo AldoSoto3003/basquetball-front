@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment.prod';
 import { Petition } from '../models/Petition.model';
 import { Subject, tap } from 'rxjs';
-import { InformacionCanchas } from '../models/InformacionCanchas.model';
+import { CanchasI } from '../models/InformacionCanchas.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +21,14 @@ export class CanchasService {
   }
   
 
-  RegistrarCancha(data: any): Observable<Petition<InformacionCanchas>> {
-    return this.http.post<Petition<InformacionCanchas>>(environment.urlApi + "RegistrarCancha", JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
-
+  RegistrarCancha(form:any):Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
+    return this.http.post<any>(environment.urlApi+"RegistrarCancha",form,{headers})
   }
 
-  ActualizarCancha(data:any):Observable<Petition<InformacionCanchas>>{
-    return this.http.put<Petition<InformacionCanchas>>(environment.urlApi+"ActualizarCancha",JSON.stringify(data),{
+  ActualizarCancha(data:any):Observable<Petition<CanchasI>>{
+    return this.http.put<Petition<CanchasI>>(environment.urlApi+"ActualizarCancha",JSON.stringify(data),{
       headers:{
           authorization: "bearer " + localStorage.getItem("data")!,
         'Content-Type': 'application/json'
@@ -38,8 +39,8 @@ export class CanchasService {
 
    //modificar estatus
 
-   ModificarEstatus(data: any): Observable<Petition<InformacionCanchas>> {
-    return this.http.put<Petition<InformacionCanchas>>(
+   ModificarEstatus(data: any): Observable<Petition<CanchasI>> {
+    return this.http.put<Petition<CanchasI>>(
       environment.urlApi + 'ModificarEstatus',
       JSON.stringify(data),
       {
@@ -51,12 +52,22 @@ export class CanchasService {
     );
   }
 
-  ObtenerTodasLasCanchas():Observable<Petition<InformacionCanchas>>{
+  ObtenerTodasLasCanchas():Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token,'Content-Type': 'application/json'}
-    return this.http.get<Petition<InformacionCanchas>>(environment.urlApi+"ObtenerTodasLasCanchas",{headers});
+    return this.http.get<any>(environment.urlApi+"ObtenerTodasLasCanchas",{headers});
   }
 
 
+  ObtenerCodigoPostal(id:any):Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token }
+    return this.http.post<any>(environment.urlApi+"ObtenerCPEspecifico",id,{headers})
+  }
+  EditarCanchas(form:any):Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token }
+    return this.http.put<any>(environment.urlApi+"ModificarCancha",form,{headers})
+  }
 
 }
