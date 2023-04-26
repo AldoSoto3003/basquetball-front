@@ -31,6 +31,14 @@ import { CategoriasPipe } from '../pipes/categorias.pipe';
 import { CanchasComponent } from './components/canchas/canchas/canchas.component';
 import { EditarCanchasComponent } from './components/canchas/editar-canchas/editar-canchas.component';
 import { RegistrarCanchasComponent } from './components/canchas/registrar-canchas/registrar-canchas.component';
+import { RegistraredicionesComponent } from './components/ediciones/registrarediciones/registrarediciones.component';
+import { EditarEdicionesComponent } from './components/ediciones/editar-ediciones/editar-ediciones.component';
+import { EdicionesComponent } from './components/ediciones/ediciones/ediciones.component';
+import { RegistrarjugadoresComponent } from './components/Jugadores-equipos/registrarjugadores/registrarjugadores.component';
+import { JugadoresComponent } from './components/Jugadores-equipos/jugadores/jugadores.component';
+import { RegistrarequiposComponent } from './components/equipos/registrarequipos/registrarequipos.component';
+import { EditarequipoComponent } from './components/equipos/editarequipo/editarequipo.component';
+import { EquiposComponent } from './components/equipos/equipos-A/equipos.component';
 
 
 
@@ -51,6 +59,14 @@ import { RegistrarCanchasComponent } from './components/canchas/registrar-cancha
     CanchasComponent,
     EditarCanchasComponent,
     RegistrarCanchasComponent,
+    RegistraredicionesComponent,
+    EditarEdicionesComponent,
+    EdicionesComponent,
+    RegistrarjugadoresComponent,
+    JugadoresComponent,
+    RegistrarequiposComponent,
+    EditarequipoComponent,
+    EquiposComponent,
   ],
   imports: [
     CommonModule,

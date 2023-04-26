@@ -1,0 +1,23 @@
+
+<div mat-dialog-content>
+    <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+        <div class="col">
+            <label for="">id_torneo</label>
+            <input type="text" class="form-control" placeholder="num_torneo" formControlName="id_torneo">
+        </div>
+        <div class="col">
+            <label for="">id_edicion</label>
+            <input type="text" class="form-control" placeholder="num_edicion" formControlName="num_edicion">
+        </div>
+        <div class="col">
+          <label for="">Descripción</label>
+          <input type="text" class="form-control" placeholder="Descripcion" formControlName="descripcion">
+      </div>
+       
+        <div class="d-flex justify-content-center" style="padding-top: 5%;">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+        </div>
+    </form>
+  </div>
+  
