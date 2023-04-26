@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EquiposComponent } from './components/equipos/equipos.component';
+
 import { LoginComponent } from './account/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MarcadoresComponent } from './components/marcadores/marcadores.component';
@@ -17,6 +17,9 @@ import { EditarUsuarioComponent } from './admin/components/usuarios/editar-usuar
 import { CategoriaService } from './services/categorias.service';
 import { CategoriasComponent } from './admin/components/categorias/categoria/categorias.component';
 import { CanchasComponent } from './admin/components/canchas/canchas/canchas.component';
+import { EdicionesComponent } from './admin/components/ediciones/ediciones/ediciones.component';
+import { JugadoresComponent } from './admin/components/Jugadores-equipos/jugadores/jugadores.component';
+import { EquiposComponent } from './admin/components/equipos/equipos-A/equipos.component';
 
 
 
@@ -24,7 +27,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path:"home",component: HomeComponent, children:[
-    {path:"equipos", component:EquiposComponent},
+    
     {path:"marcadores", component: MarcadoresComponent},
     {path:"posiciones", component: PosicionesComponent},
     {path:"login",component: LoginComponent },
@@ -33,7 +36,11 @@ const routes: Routes = [
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
     {path:"usuarios", component: UsuariosComponent},
     {path:"canchas", component:CanchasComponent},
-    {path:'categorias',component:CategoriasComponent}
+    {path:'categorias',component:CategoriasComponent},
+    {path:'ediciones',component:EdicionesComponent},
+    {path:'jugadores',component:JugadoresComponent},
+    {path:'equipos-A',component:EquiposComponent}
+
   ] },
   
   { path:"error404",component:ErrorComponent },

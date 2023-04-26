@@ -1,10 +1,13 @@
-export class InformacionCanchas {
-    Nombre: string
-    Descripcion: string
-    cp: string
-    colonia: string
-    calle: string
-    urlImagen: string
-    estatus: number
-  }
-  
+export class CanchasI {
+  id:               number;
+  NombreCancha:     string;
+  Descripcion:      string;
+  urlImagen:        string;
+  Latitud:          number;
+  Longitud:         number;
+  Altitud:          number;
+  Domicilio:        string;
+  id_asenta_cpcons: number;
+  cp:               string;
+  Estatus:          string;
+}
