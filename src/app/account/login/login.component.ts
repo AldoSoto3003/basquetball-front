@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
 import { Usuario } from 'src/app/models/Usuario.model';
 import { ErrorHandlerService } from 'src/app/services/errorHandling.service';
+import { AlertasService } from 'src/app/services/alertas.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginComponent {
     password: new FormControl('',[Validators.required,Validators.minLength(5)])
   })
 
-  constructor( private api:AuthService, private router:Router,private _snackBar: MatSnackBar,private errorService: ErrorHandlerService) { }
+  constructor( private api:AuthService, private router:Router,private _snackBar: MatSnackBar,private errorService: ErrorHandlerService, private alertService:AlertasService) { }
 
   async onLogin(form){
     if (form.valid){
@@ -34,12 +35,12 @@ export class LoginComponent {
 
            this.api.authme().subscribe(response => {
             localStorage.setItem("informacion_usuario", JSON.stringify(response.data));
-          }, error => this.errorService.handleError(error))
+          }, error => this.alertService.showError("Error",error))
           
           this.router.navigate(['admin'])
         }
-      },error=>this._snackBar.open((error.error.data || ''),"X",{duration:2000}))
-    }
+      },error=>this.alertService.showError("Error",error.error.data))
+    }else{ this.alertService.showError("Error","formulario invalido")}
   }
 
   showModal(error){

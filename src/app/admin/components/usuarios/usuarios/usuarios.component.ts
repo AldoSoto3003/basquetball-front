@@ -5,6 +5,7 @@ import { ListaUsuariosI } from 'src/app/models/Usuario.model';
 import { UserService } from 'src/app/services/user.service';
 import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
 import { RegistroUsuariosComponent } from '../registro-usuarios/registro-usuarios.component';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,22 +14,34 @@ import { RegistroUsuariosComponent } from '../registro-usuarios/registro-usuario
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent {
+  
+  constructor(private router:Router, private userService:UserService,private dialog:MatDialog){ }
+  
+  public search:string = '';
   usuarios !: ListaUsuariosI[];
   p: number = 1;
+  subscription:Subscription;
+
 
   @ViewChildren(EditarUsuarioComponent)  
   editarUsuario: EditarUsuarioComponent;
-  
-  public search:string = '';
-
-  constructor(private router:Router, private userService:UserService,private dialog:MatDialog){ }
 
   ngOnInit():void{
     this.userService.obtenerUsuarios().subscribe( data => {
       let dataResponse:any[] = data.data
       this.usuarios = dataResponse
     })
-    }
+
+    this.actualizarCategorias();
+  }
+
+  actualizarCategorias(){
+    this.subscription = this.userService.refresh.subscribe(() => {
+      this.userService.obtenerUsuarios().subscribe(data => {
+        this.usuarios = data.data
+      })
+    })
+  }
 
   onSearch(busqueda:string){
     this.search = busqueda
@@ -59,7 +72,6 @@ export class UsuariosComponent {
   onEdit(user:any){
     this.openDialogEditar('0ms','0ms',user)
   }
-
 
   onDelete(idUsuario:any){
     console.log(idUsuario)

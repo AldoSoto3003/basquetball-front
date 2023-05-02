@@ -5,6 +5,7 @@ import { CategoriaService } from 'src/app/services/categorias.service';
 import { RegistrarCategoriaComponent } from '../registrar-categoria/registrar-categoria.component';
 import { EditarCategoriaComponent } from '../editar-categoria/editar-categoria.component';
 import { AlertasService } from 'src/app/services/alertas.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categorias',
@@ -15,6 +16,7 @@ export class CategoriasComponent {
 
   constructor( private categoriaService:CategoriaService,private alertService:AlertasService ,private dialog:MatDialog){}
 
+  subscription:Subscription;
   categorias: CategoriaI[];
   p:number = 1;
   public searchCategoria : string = ""
@@ -24,6 +26,16 @@ export class CategoriasComponent {
       console.log(data)
       this.categorias = data.data
     }), error => { console.log('error categoria oninit',error)}
+
+    this.actualizarCategorias();
+  }
+
+  actualizarCategorias(){
+    this.subscription = this.categoriaService.refresh.subscribe(() => {
+      this.categoriaService.ObtenerTodasLasCategorias().subscribe(data => {
+        this.categorias = data.data
+      })
+    })
   }
 
   onSearch(busqueda:string){
@@ -61,5 +73,7 @@ export class CategoriasComponent {
       data:data
     });
   }
+
+
 
 }

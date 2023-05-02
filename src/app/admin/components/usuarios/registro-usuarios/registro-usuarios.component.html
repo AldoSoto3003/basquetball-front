@@ -59,7 +59,7 @@
       <div class="form-group row">
         <div class="col">
           <label for="">CP</label>
-          <input type="text" class="form-control" placeholder="CP" formControlName="CP" (change)="obtenerAsentamientos()" [class.is-invalid]="cpNoValido">
+          <input type="text" class="form-control" placeholder="CP" formControlName="CP" (change)="obtenerAsentamientos()" [(ngModel)]="codigo_postal_para_obtener_asentamientos" [class.is-invalid]="cpNoValido">
           <small *ngIf="cpNoValido" class="text-danger">Campo requerido</small>
         </div>
         
