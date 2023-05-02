@@ -1,4 +1,4 @@
-<div class="container-fluid" id="login">
+<!-- <div class="container-fluid" id="login">
     <div class="row">
       <div class="col">
           <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)" class="login">
@@ -23,6 +23,58 @@
         <picture class="img-login">
           <img src="../assets/img/R.jpg" class="figure-img img-fluid rounded" alt="...">
         </picture>
+  </div>
+</div>
+   -->
+
+
+
+<div class="container w-75 mt-5 rounded-4 shadow">
+  <div class="row gx-5 align-items-stretch">
+      <div class="col bg-white p-5 rounded-end">
+          <div class="text-end">
+              <img src="img/logo.png" width="48" alt="">
+          </div>
+          <h1 class="fw-bold text-center py-5">Bienvenido</h1>
+          
+          <!-- LOGIN -->
+          
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)" class="login">
+              <div class="mb-4">
+                  <label for="email" class="form-label">Correo electronico</label>
+                  <input type="email" class="form-control" name="email" formControlName="email" id="email" placeholder="name@example.com">
+              </div>
+              <div class="mb-4">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" name="password"  formControlName="password" id="password" placeholder="Password">
+              </div>
+              <div class="mb-4 form-check">
+                  <!-- <input type="checkbox" name="connected" class="form-check-input" id=""> -->
+                  <!-- <label for="connected" class="form-check-label">Mantenerme conectado</label> -->
+              </div>
+
+              <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+              </div>
+
+              <div class="my-3">
+                  <!-- <span>¿No tienes cuenta? <a href="#">Registrate</a></span> <br> -->
+                  <span>¿Olvidaste tu contraseña? <a >Recuperar contraseña</a></span>
+              </div>
+          </form>
+
+          <!-- LOGIN CON REDES SOCIALES -->
+
+          <div class="container w-100 my-5">
+              <div class="row text-center">
+
+              </div>
+          </div>
+      </div>
+
+      <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+          
+      </div>
   </div>
 </div>
   
