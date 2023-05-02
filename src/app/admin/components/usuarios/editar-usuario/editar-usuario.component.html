@@ -29,12 +29,6 @@
           <input type="text" class="form-control" placeholder="email" formControlName="email" [class.is-invalid] = 'emailNoValido'>
           <small *ngIf="emailNoValido" class="text-danger">Campo requerido, debe coincidir con un formato email</small>
         </div>
-      
-        <div class="col">
-         <label for="">Contraseña</label>
-         <input type="password" class="form-control" placeholder="password" formControlName="password" [class.is-invalid] = 'passwordNoValido'>
-         <small *ngIf="passwordNoValido" class="text-danger">Campo requerido, de 8 a 10 caracteres,con mayusculas, minusculas y numeros</small>
-        </div>
         <div class="col">
           <label for="">Domicilio</label>
           <input type="text" class="form-control" placeholder="Domicilio" formControlName="Domicilio" [class.is-invalid] = 'DomicilioNoValido'>

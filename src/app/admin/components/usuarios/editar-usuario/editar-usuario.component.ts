@@ -24,7 +24,6 @@ export class EditarUsuarioComponent {
     get ApellidoPaternoNoValido(){ return this.editarForm.get('ApellidoPaterno')?.invalid && this.editarForm.get('ApellidoPaterno').touched }
     get ApellidoMaternoNoValido(){ return this.editarForm.get('ApellidoMaterno')?.invalid && this.editarForm.get('ApellidoMaterno').touched }
     get emailNoValido(){ return this.editarForm.get('email')?.invalid && this.editarForm.get('email').touched }
-    get passwordNoValido(){ return this.editarForm.get('password')?.invalid && this.editarForm.get('password').touched }
     get DomicilioNoValido(){ return this.editarForm.get('Domicilio')?.invalid && this.editarForm.get('Domicilio').touched }
     get fechaNoValido(){ return this.editarForm.get('Fecha_Nacimiento')?.invalid && this.editarForm.get('Fecha_Nacimiento').touched }
     get numSSNoValido(){ return this.editarForm.get('numSS')?.invalid && this.editarForm.get('numSS').touched }
@@ -57,7 +56,6 @@ export class EditarUsuarioComponent {
     ApellidoPaterno : new FormControl('',Validators.required),
     ApellidoMaterno : new FormControl('',Validators.required),
     email : new FormControl('',Validators.required),
-    password : new FormControl('',[Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,10}$/)]),
     Domicilio : new FormControl('',Validators.required),
     Fecha_Nacimiento : new FormControl('',Validators.required),
     Id_Rol : new FormControl('',Validators.required),
@@ -90,12 +88,18 @@ export class EditarUsuarioComponent {
       console.log('Valido',form.value)
       
       this.userService.EditarUnUsuario(form.value).subscribe( data => {
-        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
-        else{this.alertService.showError(data.message,'Error')}
+        if (data.status == 200){
+          this.dialogRef.close(true)
+          this.alertService.showSuccess(data.message,'Correcto')
+        }else{
+          this.dialogRef.close(false)
+          this.alertService.showError(data.message,'Error')
+        }
       }), error =>{ this.alertService.showError('Ocurrio un error',error.error.data)}
 
     }else{
       console.log('No valido',form.value)
+      this.dialogRef.close(false)
       this.alertService.showError('Formulario no valido','Fallo')
     }
   }
@@ -107,7 +111,6 @@ export class EditarUsuarioComponent {
     this.editarForm.controls["ApellidoPaterno"].setValue(this.usuarioActual.datos_usuario.ApellidoPaterno)
     this.editarForm.controls["ApellidoMaterno"].setValue(this.usuarioActual.datos_usuario.ApellidoMaterno)
     this.editarForm.controls["email"].setValue(this.usuarioActual.email)
-    this.editarForm.controls["password"].setValue('')
     this.editarForm.controls["Domicilio"].setValue(this.usuarioActual.datos_usuario.Domicilio)
     this.editarForm.controls["Fecha_Nacimiento"].setValue(String(this.usuarioActual.datos_usuario.Fecha_Nacimiento))
     this.editarForm.controls["Id_Rol"].setValue(String(this.usuarioActual.Id_Rol))
