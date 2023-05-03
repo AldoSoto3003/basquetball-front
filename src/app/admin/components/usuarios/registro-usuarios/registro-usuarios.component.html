@@ -9,15 +9,18 @@
       <div class="form-group row">
           <div class="col">
               <label for="">Nombre</label>
-              <input type="text" class="form-control" placeholder="Nombres" formControlName="Nombres">
+              <input type="text" class="form-control" placeholder="Nombres" formControlName="Nombres" [class.is-invalid] = 'nombreNoValido'>
+              <small *ngIf="nombreNoValido" class="text-danger">Campo requerido</small>
           </div>
           <div class="col">
             <label for="">Apellido1</label>
-            <input type="text" class="form-control" placeholder="ApellidoPaterno" formControlName="ApellidoPaterno">
+            <input type="text" class="form-control" placeholder="ApellidoPaterno" formControlName="ApellidoPaterno" [class.is-invalid] = 'ApellidoPaternoNoValido'>
+            <small *ngIf="ApellidoPaternoNoValido" class="text-danger">Campo requerido</small>
           </div>
           <div class="col">
             <label for="">Apellido2</label>
-            <input type="text" class="form-control" placeholder="ApellidoMaterno" formControlName="ApellidoMaterno">
+            <input type="text" class="form-control" placeholder="ApellidoMaterno" formControlName="ApellidoMaterno" [class.is-invalid] = 'ApellidoMaternoNoValido'>
+            <small *ngIf="ApellidoMaternoNoValido" class="text-danger">Campo requerido</small>
           </div>
       </div>
       <div class="form-group row">
@@ -30,39 +33,43 @@
         <div class="col">
          <label for="">Contraseña</label>
          <input type="password" class="form-control" placeholder="password" formControlName="password" [class.is-invalid] = 'passwordNoValido'>
-         <small *ngIf="passwordNoValido" class="text-danger">Campo requerido, de 8 a 16 caracteres,con mayusculas, minusculas y numeros</small>
+         <small *ngIf="passwordNoValido" class="text-danger">Campo requerido, de 8 a 10 caracteres,con mayusculas, minusculas y numeros</small>
         </div>
         <div class="col">
           <label for="">Domicilio</label>
           <input type="text" class="form-control" placeholder="Domicilio" formControlName="Domicilio" [class.is-invalid] = 'DomicilioNoValido'>
+          <small *ngIf="DomicilioNoValido" class="text-danger">Campo requerido</small>
         </div>
       </div>
       <div class="form-group row">
         <div class="col">
           <label for="">Fecha de nacimiento</label>
           <input type="date" class="form-control" placeholder="2000/01/01"  [class.is-invalid] = 'fechaNoValido'>
+          <small *ngIf="fechaNoValido" class="text-danger">Campo requerido</small>
         </div>
         <div class="col">
           <label class="form-label">Rol</label>
-          <select class="form-select" required formControlName="Id_Rol">
+          <select class="form-select" required formControlName="Id_Rol" [class.is-invalid] = 'rolNoValido'>
             <option selected disabled value="">Elige...</option>
             <option *ngFor="let rol of roles" [ngValue]="rol.Id_Rol"> {{ rol.name }} </option>
           </select>
+          <small *ngIf="rolNoValido" class="text-danger">Campo requerido</small>
         </div>
       </div>
       <div class="form-group row">
         <div class="col">
           <label for="">CP</label>
-          <input type="text" class="form-control" placeholder="CP" formControlName="CP" [(ngModel)]="codigo_postal_para_obtener_asentamientos" (change)="obtenerAsentamientos()" [class.is-invalid]="cpNoValido">
+          <input type="text" class="form-control" placeholder="CP" formControlName="CP" (change)="obtenerAsentamientos()" [(ngModel)]="codigo_postal_para_obtener_asentamientos" [class.is-invalid]="cpNoValido">
           <small *ngIf="cpNoValido" class="text-danger">Campo requerido</small>
         </div>
         
         <div class="col">
           <label class="form-label">Colonia</label>
-          <select class="form-select" required formControlName="id_asenta">
+          <select class="form-select" required formControlName="id_asenta"  [class.is-invalid] = 'asentaNoValido'>
             <option selected disabled value="">Elige...</option>
             <option *ngFor="let codigo of codigo_postal" [ngValue]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
           </select>
+          <small *ngIf="asentaNoValido" class="text-danger">Campo requerido</small>
         </div>
       </div>
       <div class="form-group row">
@@ -80,10 +87,11 @@
       <div class="form-group row">
         <div class="col">
           <label class="form-label">Genero</label>
-          <select class="form-select" required formControlName="Id_Genero">
+          <select class="form-select" required formControlName="Id_Genero" [class.is-invalid]="curpNoValido">
             <option selected disabled value="">Elige...</option>
             <option *ngFor="let genero of generos" [ngValue]="genero.ID_Genero"> {{ genero.Descripcion }} </option>
           </select>
+          <small *ngIf="curpNoValido" class="text-danger">Campo requerido</small>
         </div>
         <div class="col">
           <label for="">Numero de SS</label>
@@ -94,6 +102,7 @@
       <div class="col">
         <label for="">Referencia</label>
         <input type="text" class="form-control" placeholder="Referencia" formControlName="referencia" [class.is-invalid] = 'referenciaNoValido'>
+        <small *ngIf="referenciaNoValido" class="text-danger">Campo requerido</small>
      </div>
      <br><br>
   
