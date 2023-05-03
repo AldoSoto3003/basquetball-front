@@ -30,13 +30,13 @@
       <div class="form-group row">
         <div class="col">
           <label for="">CP</label>
-          <input type="text" class="form-control" placeholder="CP" formControlName="CP" [(ngModel)]="codigo_postal_para_obtener_asentamientos" (change)="obtenerAsentamientos()" [class.is-invalid]="cpNoValido">
+          <input type="text" class="form-control" placeholder="cp" formControlName="cp" [(ngModel)]="codigo_postal_para_obtener_asentamientos" (change)="obtenerAsentamientos()" [class.is-invalid]="cpNoValido">
           <small *ngIf="cpNoValido" class="text-danger">Campo requerido</small>
         </div>
         
         <div class="col">
           <label class="form-label">Colonia</label>
-          <select class="form-select" required formControlName="id_asenta">
+          <select class="form-select" required formControlName="id_asenta_cpcons">
             <option selected disabled value="">Elige...</option>
             <option *ngFor="let codigo of codigo_postal" [ngValue]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
           </select>

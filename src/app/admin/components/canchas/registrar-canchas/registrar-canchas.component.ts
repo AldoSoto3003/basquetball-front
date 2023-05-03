@@ -75,6 +75,7 @@ export class RegistrarCanchasComponent {
   }
 
   obtenerAsentamientos(){
+    this.codigo_postal_para_obtener_asentamientos = this.nuevoForm.controls["CP"].value
     if (this.codigo_postal_para_obtener_asentamientos.length == 5){
       const codigo_postal = {'CP':this.codigo_postal_para_obtener_asentamientos}
       this.CanchasService.ObtenerCodigoPostal(codigo_postal).subscribe(data=>{
