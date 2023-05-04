@@ -17,9 +17,7 @@ import { EditarUsuarioComponent } from './admin/components/usuarios/editar-usuar
 import { CategoriaService } from './services/categorias.service';
 import { CategoriasComponent } from './admin/components/categorias/categoria/categorias.component';
 import { CanchasComponent } from './admin/components/canchas/canchas/canchas.component';
-import { EdicionesComponent } from './admin/components/ediciones/ediciones/ediciones.component';
 import { JugadoresComponent } from './admin/components/Jugadores-equipos/jugadores/jugadores.component';
-import { EquiposComponent } from './admin/components/equipos/equipos-A/equipos.component';
 
 
 
@@ -37,10 +35,8 @@ const routes: Routes = [
     {path:"usuarios", component: UsuariosComponent},
     {path:"canchas", component:CanchasComponent},
     {path:'categorias',component:CategoriasComponent},
-    {path:'ediciones',component:EdicionesComponent},
-    {path:'jugadores',component:JugadoresComponent},
-    {path:'equipos-A',component:EquiposComponent}
-
+    {path: 'JugadoresEquipo',component:JugadoresComponent},
+    
   ] },
   
   { path:"error404",component:ErrorComponent },

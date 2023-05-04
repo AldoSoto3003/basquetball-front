@@ -1,17 +1,25 @@
+import { DatosUsuario } from "./Usuario.model";
+
 export interface JugadoresI {
-    id:               number;
-    Nombre:           string;
-    Descripcion:      string;
-    urlImagen:        string;
-    id_asenta_cpcons: number;
-    cp:               string;
-    ID_Usuario:       number;
-    Estatus:          string;
-    jugadores:        Jugadore;
+  id: number;
+  Nombre: string;
+  ID_Usuario: number;
+  jugadores: Jugadore[];
+  datos: datosU[];
 }
 
-export interface Jugadore {
-    id_equipo:     number;
-    id_jugador:    number;
-    DorsalJugador: number;
+export interface datosU{
+    Nombres:          string;
+    ApellidoPaterno:  string;
+    ApellidoMaterno:  string;
 }
+export interface Jugadore {
+  id_equipo: number;
+  id_jugador: number;
+  Nombre: string;
+  DorsalJugador: number;
+  IdJugador: number;
+
+}
+
+  

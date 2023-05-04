@@ -28,8 +28,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CategoriasPipe } from './pipes/categorias.pipe';
 import { CanchasPipe } from './pipes/canchas.pipe';
-
-
+import { JugadoresComponent } from './admin/components/Jugadores-equipos/jugadores/jugadores.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -54,12 +54,12 @@ import { CanchasPipe } from './pipes/canchas.pipe';
     MatSnackBarModule,
     MatTabsModule,
     MatFormFieldModule,
+    CommonModule,
 
     AdminModule,
     AccountModule,
     PagesModule,
     SharedModule,
-
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SweetAlert2Module.forRoot()
