@@ -9,10 +9,16 @@ export class AlertasService {
   constructor( private toast:ToastrService) { }
 
   showSuccess(titulo,texto){
-    this.toast.success(texto,titulo);
+    this.toast.success(texto,titulo,{
+      positionClass:'toast-bottom-center',
+      tapToDismiss: true
+    });
   }
 
   showError(titulo,texto){
-    this.toast.error(texto,titulo);
+    this.toast.error(texto,titulo,{
+      positionClass:'toast-bottom-center',
+      tapToDismiss: true
+    });
   }
 }

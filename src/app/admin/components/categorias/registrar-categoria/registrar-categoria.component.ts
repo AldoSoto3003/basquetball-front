@@ -37,11 +37,16 @@ export class RegistrarCategoriaComponent {
       if (form.valid){
         console.log('Este es el form',form)
         this.categoriasService.registrarUnaCategoria(form.value).subscribe( data => {
-          if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
-          else{this.alertService.showError(data.message,'Error')}
+          if (data.status == 200){
+            this.alertService.showSuccess(data.message,'Correcto')
+            this.dialogRef.close(true)
+          }else{
+            this.dialogRef.close(false)
+            this.alertService.showError(data.message,'Error')
+          }
         }), error => this.alertService.showError('Error',error)
       }else{
-        console.log('Este es el form',form)
+        this.dialogRef.close(false)
         this.alertService.showError('Formulario no valido','Fallo')
       }
   }

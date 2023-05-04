@@ -39,11 +39,14 @@ export class EditarCategoriaComponent {
   enEditar(form:any){
     if (form.valid){
       this.categoriasService.EditarUnaCategoria(form.value).subscribe( data =>{ 
-        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
-        else{this.alertService.showError(data.message,'Error')}
+        if (data.status == 200){
+          this.alertService.showSuccess(data.message,'Correcto');
+          this.dialogRef.close(true)
+        }else{this.alertService.showError(data.message,'Error')}
       }),error => { console.log(error)}
     }else{
-      console.log(form.value)
+      this.dialogRef.close(false)
+      this.alertService.showError("Error","formulario incorrecto");
     }
   }
 

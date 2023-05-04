@@ -1,28 +1,37 @@
-<div class="container-fluid" id="login">
-    <div class="row">
-      <div class="col">
+
+<div class="container w-75 mt-5 rounded-4 shadow" id="login">
+  <div class="row gx-5 align-items-stretch">
+      <div class="col bg-white p-5 rounded-end">
+          <div class="text-end">
+              <img src="img/logo.png" width="48" alt="">
+          </div>
+          <h1 class="fw-bold text-center py-5">INICIAR SESIÓN</h1>
+          
+          <!-- LOGIN -->
+          
           <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)" class="login">
-            <h2>Iniciar Sesión</h2>
+            <h2>Iniciar Seccion</h2>
             <h1>Usuario</h1>
             <h1 class="correo">
               <div class="form-floating mb-3">
                 <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com" style="text-align: center;">
               </div>
-            </h1>
-            <h2 id="h2-contrasenia">Contraseña</h2>
-            <h1 class="contraseña">
-              <div class="form-floating">
-                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password" style="text-align: center;">
+
+              <div class="my-3">
+                  <span>¿Olvidaste tu contraseña? <a href="#">Recuperar contraseña</a></span>
               </div>
-            </h1>
-            <button type="submit" class="botton-ingresar" style="color: white;">Ingresar</button>
           </form>
-        </div>
+
+          <div class="container w-100 my-5">
+              <div class="row text-center">
+
+              </div>
+          </div>
       </div>
-      <div class="col">
-        <picture class="img-login">
-          <img src="../assets/img/R.jpg" class="figure-img img-fluid rounded" alt="...">
-        </picture>
+
+      <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+          
+      </div>
   </div>
 </div>
   

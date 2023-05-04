@@ -96,12 +96,15 @@ export class RegistroUsuariosComponent {
       
       console.log('Este es el form',form)
       this.userService.registrarUnUsuario(form.value).subscribe( data => {
-        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
-        else{this.alertService.showError(data.message,'Error')}
+        if (data.status == 200){
+          this.dialogRef.close(true)
+          this.alertService.showSuccess(data.message,'Correcto')
+        }else{
+          this.alertService.showError(data.message,'Error')
+        }
       }), error => this.alertService.showError('Error',error)
 
     }else{
-      console.log('Este es el form',form)
       this.alertService.showError('Formulario no valido','Fallo')
     }
   }
@@ -119,11 +122,15 @@ export class RegistroUsuariosComponent {
   }
 
   obtenerAsentamientos(){
+
     if (this.codigo_postal_para_obtener_asentamientos.length == 5){
       const codigo_postal = {'CP':this.codigo_postal_para_obtener_asentamientos}
+      console.log(codigo_postal)
       this.userService.ObtenerCodigoPostal(codigo_postal).subscribe(data=>{
         this.codigo_postal = data.data
       })
+    }else{
+      console.log("No se cumple")
     }
   }
 
