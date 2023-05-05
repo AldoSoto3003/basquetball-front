@@ -39,6 +39,8 @@ import { JugadoresComponent } from './components/Jugadores-equipos/jugadores/jug
 import { RegistrarequiposComponent } from './components/equipos/registrarequipos/registrarequipos.component';
 import { EditarequipoComponent } from './components/equipos/editarequipo/editarequipo.component';
 import { EquiposComponent } from './components/equipos/equipos-A/equipos.component';
+import { CanchasPipe } from '../pipes/canchas.pipe';
+import { EquiposPipe } from '../pipes/equipos.pipe';
 
 
 
@@ -56,6 +58,8 @@ import { EquiposComponent } from './components/equipos/equipos-A/equipos.compone
     
     UsuariosPipe,
     CategoriasPipe,
+    CanchasPipe,
+    EquiposPipe,
     CanchasComponent,
     EditarCanchasComponent,
     RegistrarCanchasComponent,

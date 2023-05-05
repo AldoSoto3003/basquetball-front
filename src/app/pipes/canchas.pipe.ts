@@ -3,19 +3,20 @@ import { CanchasI } from '../models/InformacionCanchas.model';
 
 
 @Pipe({
-  name: 'canchasFilter'
+  name: 'CanchasFilter'
 })
 export class CanchasPipe implements PipeTransform {
 
-  transform(canchas:CanchasI[] , search : string): CanchasI[] {
+  transform(cancha:CanchasI[] , search : string): CanchasI[] {
+    
     console.log(search)
    if(search.length == 0){
-    return canchas
+    return cancha
    }
 
    search = search.toUpperCase()
 
-   const fitleredUsuarios = canchas.filter( categoria => categoria.NombreCancha.toUpperCase().includes( search ));
+   const fitleredUsuarios = cancha.filter( categoria => categoria.NombreCancha.toUpperCase().includes( search ));
    return fitleredUsuarios;
   }
 

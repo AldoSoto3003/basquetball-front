@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChildren } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { equiposI } from 'src/app/models/equipos.interface';
 import { AlertasService } from 'src/app/services/alertas.service';
@@ -12,13 +12,14 @@ import { RegistrarequiposComponent } from '../registrarequipos/registrarequipos.
   styleUrls: ['./equipos.component.css']
 })
 export class EquiposComponent {
-  
-  constructor( private EquiposService:EquiposService,private alertService:AlertasService ,private dialog:MatDialog){}
-
-
   ediciones: equiposI[]
   p:number = 1;
   public searchCategoria : string = ""
+  @ViewChildren(EditarequipoComponent)
+  editarEquipo:EditarequipoComponent;
+  public search:string = '';
+  
+  constructor( private EquiposService:EquiposService,private alertService:AlertasService ,private dialog:MatDialog){}
 
 
   ngOnInit(){
@@ -28,7 +29,7 @@ export class EquiposComponent {
     }), error => { console.log('error categoria oninit',error)}
   }
   onSearch(busqueda:string){
-    this.searchCategoria = busqueda
+    this.search = busqueda
   }
   onRegister(){
     this.openDialogRegistrar('0ms','0ms')

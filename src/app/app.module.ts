@@ -36,8 +36,7 @@ import { CanchasPipe } from './pipes/canchas.pipe';
     AppComponent,
     LoaderComponent,
     Error500Component,
-    ErrorComponent,
-    CanchasPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
