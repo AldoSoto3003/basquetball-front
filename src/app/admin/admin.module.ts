@@ -32,36 +32,54 @@ import { CanchasComponent } from './components/canchas/canchas/canchas.component
 import { EditarCanchasComponent } from './components/canchas/editar-canchas/editar-canchas.component';
 import { RegistrarCanchasComponent } from './components/canchas/registrar-canchas/registrar-canchas.component';
 import { JugadoresComponent } from './components/Jugadores-equipos/jugadores/jugadores.component';
+import { RegistrarequiposComponent } from './components/equipos/registrarequipos/registrarequipos.component';
+import { EditarequipoComponent } from './components/equipos/editarequipo/editarequipo.component';
+import { EquiposComponent } from './components/equipos/equipos-A/equipos.component';
+import { CanchasPipe } from '../pipes/canchas.pipe';
+import { EquiposPipe } from '../pipes/equipos.pipe';
 import { RegistrajugadorComponent } from './components/registrajugador/registrajugador.component';
+import { EdicionesComponent } from './components/ediciones/ediciones/ediciones.component';
+import { EditarEdicionesComponent } from './components/ediciones/editar-ediciones/editar-ediciones.component';
+import { RegistraredicionesComponent } from './components/ediciones/registrarediciones/registrarediciones.component';
+
 
 
 @NgModule({
   declarations: [
-    SidebarComponent,
-    AdminComponent,
+    UsuariosComponent,
     RegistroUsuariosComponent,
     EditarUsuarioComponent,
-    UsuariosComponent,
+    
+    EdicionesComponent,
+    EditarEdicionesComponent,
+    RegistraredicionesComponent,
+
+    CanchasComponent,
+    SidebarComponent,
+    AdminComponent,
     CategoriasComponent,
     RegistrarCategoriaComponent,
     EditarCategoriaComponent,
     JugadoresComponent,
-    
-    
-    UsuariosPipe,
-    CategoriasPipe,
-    CanchasComponent,
     EditarCanchasComponent,
     RegistrarCanchasComponent,
-    RegistrajugadorComponent,
+    EquiposComponent,
+    RegistrarequiposComponent,
+    EditarequipoComponent,
+    
+    RegistrajugadorComponent, //ESTE COMPONENTE AISLADO QUE SIGNIFICA  ?!?!?!?!?!?!?!?
+
+    CategoriasPipe,
+    CanchasPipe,
+    EquiposPipe,
+    UsuariosPipe,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    
-
+  
     OverlayModule,
     CdkMenuModule,
 
@@ -81,7 +99,6 @@ import { RegistrajugadorComponent } from './components/registrajugador/registraj
     NgxPaginationModule,
   ],
   exports:[
-    UsuariosComponent
   ]
 })
 export class AdminModule { }

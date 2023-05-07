@@ -1,9 +1,9 @@
 <div mat-dialog-content>
   <form action="" [formGroup]="nuevoForm" (ngSubmit)="postForm(nuevoForm)">
     <div class="mb-3">
-      <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="" width="200" height="200" [src]="imageURL" />
+      <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="" width="200" height="200" [src]=" imagen" />
       <label for="exampleFormControlFile1">Subir fotografia</label>
-      <input class="form-control" type="file" id="formFile" accept="image/*" formControlName="image" (change)="onFileChanged($event )" >
+      <input class="form-control" type="file" id="formFile" accept="image/*" formControlName="imagen" (change)="onFileChanged($event )" >
     </div>
       <div class="form-group row">
           <div class="col">
@@ -24,9 +24,28 @@
           <input type="text" class="form-control" placeholder="Domicilio" formControlName="Domicilio" [class.is-invalid] = 'DomicilioNoValido'>
         </div>
       </div>
+
+
       <div class="form-group row">
-     
+        <div class="col">
+          <label for="">Latitud</label>
+          <input type="text" class="form-control" placeholder="Descripcion" formControlName="Latitud" [class.is-invalid] = 'DescripcionNoValido'>
+        </div>
+
+        <div class="col">
+          <label for="">Longitud</label>
+          <input type="text" class="form-control" placeholder="Descripcion" formControlName="Longitud" [class.is-invalid] = 'DescripcionNoValido'>
+        </div>
+
+
+        <div class="col">
+          <label for="">Altitud</label>
+          <input type="text" class="form-control" placeholder="Descripcion" formControlName="Altitud" [class.is-invalid] = 'DescripcionNoValido'>
+        </div>
       </div>
+
+
+
       <div class="form-group row">
         <div class="col">
           <label for="">CP</label>
@@ -36,7 +55,7 @@
         
         <div class="col">
           <label class="form-label">Colonia</label>
-          <select class="form-select" required formControlName="id_asenta_cpcons">
+          <select class="form-select" required formControlName="id_asentamiento">
             <option selected disabled value="">Elige...</option>
             <option *ngFor="let codigo of codigo_postal" [ngValue]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
           </select>
