@@ -1,5 +1,5 @@
 <div class="form-outline" style="margin-bottom: 15px;">
-    <button class="btn btn-primary" (click)="onRegister()">Agregar Ediciones</button>
+    <button class="btn btn-primary" (click)="onRegister()">Agregar Equipos</button>
     <input type="search" class="form-control" placeholder="Buscar.." #txtSearch 
       id="datatable-search-input" style="width: 85%; float: right;" (keyup)="onSearch(txtSearch.value)">
   </div>
@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let categoria of ediciones | paginate: { itemsPerPage:5, currentPage:p }  ">
+        <tr *ngFor="let categoria of ediciones | paginate: { itemsPerPage:5, currentPage:p }  | EquipoFilter:search ">
           <td>
             <div class="d-flex align-items-center">
               <div class="ms-3">

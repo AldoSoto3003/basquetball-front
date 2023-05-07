@@ -10,19 +10,29 @@
           <!-- LOGIN -->
           
           <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)" class="login">
-            <h2>Iniciar Seccion</h2>
-            <h1>Usuario</h1>
-            <h1 class="correo">
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com" style="text-align: center;">
+              <div class="mb-4">
+                  <label for="email" class="form-label" >Correo electronico</label>
+                  <input type="email" class="form-control" name="email" formControlName="email" id="email" placeholder="name@example.com">
+              </div>
+              <div class="mb-4">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" name="password"  formControlName="password" id="password" placeholder="Password">
+              </div>
+              <div class="mb-4 form-check">
+                  <!-- TODO : STAY CONNECTED -->
+                  <!-- <input type="checkbox" name="connected" class="form-check-input" id=""> -->
+                  <!-- <label for="connected" class="form-check-label">Mantenerme conectado</label> -->
+              </div>
+
+              <div class="d-grid">
+                  <button type="submit" class="btn btn-primary" id="btn-login">Iniciar sesion</button>
               </div>
 
               <div class="my-3">
                   <span>¿Olvidaste tu contraseña? <a href="#">Recuperar contraseña</a></span>
               </div>
-        
-            </h1>
           </form>
+
           <div class="container w-100 my-5">
               <div class="row text-center">
 

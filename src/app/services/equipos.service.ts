@@ -26,6 +26,8 @@ export class EquiposService {
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
     return this.http.post<any>(environment.urlApi+"RegistrarEquipo",form,{headers})
   }
+
+  
   EliminarEquipo(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }

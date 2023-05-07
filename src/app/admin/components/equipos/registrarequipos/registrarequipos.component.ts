@@ -6,6 +6,7 @@ import { EditarequipoComponent } from '../editarequipo/editarequipo.component';
 import { Router } from '@angular/router';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { equiposI } from 'src/app/models/equipos.interface';
+import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
 
 @Component({
   selector: 'app-registrarequipos',
@@ -14,38 +15,70 @@ import { equiposI } from 'src/app/models/equipos.interface';
 })
 export class RegistrarequiposComponent {
 
+
+
+
+  get nombreNoValido(){ return this.nuevoForm.get('Nombres')?.invalid && this.nuevoForm.get('Nombres').touched }
+
   constructor( private EquiposService:EquiposService,private router:Router, private alertService:AlertasService
-    ,private dialogRef: MatDialogRef<EditarequipoComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: equiposI){}
+    ,private dialogRef: MatDialogRef<RegistrarequiposComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: equiposI){}
 
     categorias !: equiposI[];
-
-
-    editarForm = new FormGroup({
-      id: new FormControl('',Validators.required),
-      descripcion: new FormControl('',Validators.required),
+    codigo_postal !: CodigoPostal[];
+    base64:string;
+    codigo_postal_para_obtener_asentamientos = ''
+    imagen:any = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+    reader = new FileReader();
+    public imagePath:any;
+    
+    nuevoForm = new FormGroup({
       Nombre: new FormControl('',Validators.required),
-      id_asenta_cpcons:new FormControl('',Validators.required),
-      ID_Usuario:new FormControl('',Validators.required),
-      cp:new FormControl('',Validators.required),
-      Estatus: new FormControl('',Validators.required),
+      Descripcion: new FormControl('',Validators.required),
+      id_asentamiento: new FormControl('',Validators.required),
+      cp: new FormControl('',Validators.required),
+      id_persona: new FormControl('',Validators.required),
+      imagen : new FormControl('',Validators.required), 
     })
 
-    ngOnInit(){
-      console.log(this.categoriaActual)
-    }
+    ngOnInit(){ }
 
-    enEditar(form:any){
-      if (form.valid){
-        console.log(form.value)
-      }else{
-        console.log(form.value)
+
+    onRegister(form:any){
+    if (form.valid){
+      
+      console.log('Este es el form',form.value)
+      this.EquiposService.RegistrarEquipo(form.value).subscribe( data => {
+        console.log(data)
+        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
+      }), error => this.alertService.showError('Error',error)
+
+    }else{
+      console.log('Este es el form',form)
+      this.alertService.showError('Formulario no valido','Fallo')
+    }
+  }
+  
+  onFileChanged(event){
+    if (event.target.files){
+      this.reader.readAsDataURL(event.target.files[0]);
+      this.reader.onload = (event:any) => {
+        this.imagen = event.target.result
+        this.base64 = this.reader.result as string;
+        this.nuevoForm.controls["imagen"].setValue(this.base64)
       }
     }
-    setValues(){
+  }
 
+  obtenerAsentamientos(){
+    this.codigo_postal_para_obtener_asentamientos = this.nuevoForm.controls["cp"].value
+    if (this.codigo_postal_para_obtener_asentamientos.length == 5){
+      const codigo_postal = {'CP':this.codigo_postal_para_obtener_asentamientos}
+      console.log(codigo_postal)
+      this.EquiposService.ObtenerCodigoPostal(codigo_postal).subscribe(data=>{
+        this.codigo_postal = data.data
+      })
     }
-  
-    onSalir(){}
-  
+  }
+  onSalir(){}
 
 }

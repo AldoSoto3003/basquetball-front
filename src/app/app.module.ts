@@ -36,8 +36,7 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     LoaderComponent,
     Error500Component,
-    ErrorComponent,
-    CanchasPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
