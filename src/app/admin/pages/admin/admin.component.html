@@ -4,79 +4,79 @@
             <!--<img src="images/logo.png" alt="">-->
         </div>
         <a href="admin" style="text-decoration: none;">
-            <span class="logo_name" >BasquetSoft</span>
+            <span class="logo_name">BasquetSoft</span>
         </a>
     </div>
 
     <div class="menu-items">
         <ul class="nav-links">
-            <li><a routerLink="usuarios">
-                <i class="uil uil-estate"></i>
-                <span class="link-name">Usuarios</span>
-            </a></li>
+            <li *ngIf="admonGeneral || Jugador || admonTorneo || entrenador"><a routerLink="usuarios">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Usuarios</span>
+                </a></li>
             <!-- <li><a >
                 <i class="uil uil-files-landscapes"></i>
                 <span class="link-name">Jugadores</span>
             </a></li> -->
 
-            <li><a routerLink="localidades">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Localidades</span>
-            </a></li>
-            
-            <li><a routerLink="optenerterc">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Torneo Edicion Rama Categoria</span>
-            </a></li>
+            <li *ngIf="admonGeneral || entrenador"><a routerLink="localidades">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Localidades</span>
+                </a></li>
 
-            <li><a routerLink="jugadores">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Jugadores Equipos</span>
-            </a></li> 
+            <li *ngIf="admonTorneo"><a routerLink="optenerterc">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Torneo Edicion Rama Categoria</span>
+                </a></li>
 
-            <li><a routerLink="torneo">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Torneos</span>
-            </a></li>
+            <li *ngIf="entrenador"><a routerLink="jugadores">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Jugadores Equipos</span>
+                </a></li>
 
-            <li><a routerLink="equiposTorneo">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Equipo Torneos</span>
-            </a></li>
+            <li *ngIf="admonGeneral || admonTorneo "><a routerLink="torneo">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Torneos</span>
+                </a></li>
 
-            <li><a routerLink="torneocanchas">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Torneo Cancha</span>
-            </a></li>
+            <li *ngIf="entrenador"><a routerLink="equiposTorneo">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Equipo Torneos</span>
+                </a></li>
 
-            <li><a routerLink="equipos-A">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Equipos</span>
-            </a></li>
+            <li *ngIf="admonGeneral"><a routerLink="torneocanchas">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Torneo Cancha</span>
+                </a></li>
 
-            <li><a routerLink="canchas">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Canchas</span>
-            </a></li>
-            <li><a routerLink="ediciones">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Ediciones</span>
-            </a></li>
+            <li *ngIf="admonTorneo || entrenador"><a routerLink="equipos-A">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Equipos</span>
+                </a></li>
+
+            <li *ngIf="admonGeneral"><a routerLink="canchas">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Canchas</span>
+                </a></li>
+            <li *ngIf="admonTorneo"><a routerLink="ediciones">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Ediciones</span>
+                </a></li>
             <!-- <li><a >
                 <i class="uil uil-thumbs-up"></i>
                 <span class="link-name">Torneos</span>
             </a></li> -->
-            <li *ngIf="admonGeneral || Jugador"><a routerLink="categorias">
-                <i class="uil uil-thumbs-up"></i>
-                <span class="link-name">Categoria</span>
-            </a></li>
+            <li *ngIf="admonGeneral"><a routerLink="categorias">
+                    <i class="uil uil-thumbs-up"></i>
+                    <span class="link-name">Categoria</span>
+                </a></li>
         </ul>
-        
+
         <ul class="logout-mode">
             <li><a (click)="cerrarSesion()">
-                <i class="uil uil-signout"></i>
-                <a class="btn btn-danger" id="btn-logout">Cerrar sesion </a>
-            </a></li>
+                    <i class="uil uil-signout"></i>
+                    <a class="btn btn-danger" id="btn-logout">Cerrar sesion </a>
+                </a></li>
         </ul>
     </div>
 </nav>
@@ -84,5 +84,3 @@
 <section class="dashboard">
     <router-outlet></router-outlet>
 </section>
-
-
