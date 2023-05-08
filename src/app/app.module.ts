@@ -18,7 +18,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { Error500Component } from './components/error500/error500.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MatIconModule } from '@angular/material/icon';
-import { AdminModule } from './admin/admin.module';
+
 
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -26,8 +26,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { CategoriasPipe } from './pipes/categorias.pipe';
-import { CanchasPipe } from './pipes/canchas.pipe';
+import { AdminModule } from './admin/admin.module';
+
+
+
 
 
 
@@ -53,6 +55,7 @@ import { CanchasPipe } from './pipes/canchas.pipe';
     MatSnackBarModule,
     MatTabsModule,
     MatFormFieldModule,
+ 
 
     AdminModule,
     AccountModule,

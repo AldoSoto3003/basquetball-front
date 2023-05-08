@@ -1,0 +1,44 @@
+
+<div mat-dialog-content>
+    <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+      <div class="mb-3">
+        <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="" width="200" height="200" [src]="imagen" />
+        <label for="exampleFormControlFile1">Subir fotografia</label>
+        <input class="form-control" type="file" id="formFile" accept="image/*" formControlName="imagen" (change)="onFileChanged($event )" >
+      </div>
+        <div class="col">
+            <label for=""> Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="Nombre">
+        </div>
+        <div class="col">
+            <label for="">ID_Usuario</label>
+            <input type="text" class="form-control" placeholder="ID_Usuario" formControlName="id_persona">
+        </div>
+        <div class="col">
+          <label for="">Descripción</label>
+          <input type="text" class="form-control" placeholder="Descripcion" formControlName="Descripcion">
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label for="">CP</label>
+          <input type="text" class="form-control" placeholder="CP" formControlName="cp" [(ngModel)]="codigo_postal_para_obtener_asentamientos" (change)="obtenerAsentamientos()">
+        
+        </div>
+        
+        <div class="col">
+          <label class="form-label">Colonia</label>
+          <select class="form-select" required formControlName="id_asentamiento">
+            <option selected disabled value="">Elige...</option>
+            <option *ngFor="let codigo of codigo_postal" [ngValue]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
+          </select>
+        </div>
+      </div>
+    
+       
+        <div class="d-flex justify-content-center" style="padding-top: 5%;">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+        </div>
+    </form>
+  </div>
+  

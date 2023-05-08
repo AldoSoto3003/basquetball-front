@@ -41,6 +41,23 @@ import { EditarequipoComponent } from './components/equipos/editarequipo/editare
 import { EquiposComponent } from './components/equipos/equipos-A/equipos.component';
 import { CanchasPipe } from '../pipes/canchas.pipe';
 import { EquiposPipe } from '../pipes/equipos.pipe';
+import { EdicionesPipe } from '../pipes/ediciones.pipe';
+import { EquipotorneoComponent } from './components/equiposTorneo/equipotorneo/equipotorneo.component';
+import { EquipoTorneoRegistrarComponent } from './components/equiposTorneo/equipo-torneo-registrar/equipo-torneo-registrar.component';
+import { LocalidadesComponent } from './components/Localidades/localidades/localidades.component';
+import { RegistrarLocalidadesComponent } from './components/Localidades/registrar-localidades/registrar-localidades.component';
+import { EditarLocalidadesComponent } from './components/Localidades/editar-localidades/editar-localidades.component';
+import { LocalidadPipe } from '../pipes/localidad.pipe';
+import { OptenerTercComponent } from './components/TorneoEdicionRamaCateoria/optenerterc/optener-terc.component';
+import { ModificarTercComponent } from './components/TorneoEdicionRamaCateoria/modificar-terc/modificar-terc.component';
+import { RegistrarTercComponent } from './components/TorneoEdicionRamaCateoria/registrar-terc/registrar-terc.component';
+import { TorneocanchasComponent } from './components/TorneoCanchas/torneocanchas/torneocanchas.component';
+import { RegistrartorneocanchasComponent } from './components/TorneoCanchas/registrartorneocanchas/registrartorneocanchas.component';
+import { EditarTorneoCanchaComponent } from './components/TorneoCanchas/editar-torneo-cancha/editar-torneo-cancha.component';
+import { TorneoComponent } from './components/Torneo/torneo/torneo.component';
+import { RegistrarTorneoComponent } from './components/Torneo/registrar-torneo/registrar-torneo.component';
+import { EditarTorneoComponent } from './components/Torneo/editar-torneo/editar-torneo.component';
+
 
 
 
@@ -60,6 +77,8 @@ import { EquiposPipe } from '../pipes/equipos.pipe';
     CategoriasPipe,
     CanchasPipe,
     EquiposPipe,
+    EdicionesPipe,
+    LocalidadPipe,
     CanchasComponent,
     EditarCanchasComponent,
     RegistrarCanchasComponent,
@@ -71,6 +90,21 @@ import { EquiposPipe } from '../pipes/equipos.pipe';
     RegistrarequiposComponent,
     EditarequipoComponent,
     EquiposComponent,
+    EquipotorneoComponent,
+    EquipoTorneoRegistrarComponent,
+    LocalidadesComponent,
+    RegistrarLocalidadesComponent,
+    EditarLocalidadesComponent,
+    OptenerTercComponent,
+    ModificarTercComponent,
+    RegistrarTercComponent,
+    TorneocanchasComponent,
+    RegistrartorneocanchasComponent,
+    EditarTorneoCanchaComponent,
+    TorneoComponent,
+    RegistrarTorneoComponent,
+    EditarTorneoComponent,
+
   ],
   imports: [
     CommonModule,

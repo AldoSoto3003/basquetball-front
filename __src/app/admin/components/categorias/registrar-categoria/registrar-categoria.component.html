@@ -1,0 +1,42 @@
+
+<div mat-dialog-content>
+    <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+        <div class="col">
+            <label for="">Nombre de la categoria</label>
+            <input type="text" class="form-control" placeholder="Nombre de la categoria" formControlName="NombreCategoria">
+        </div>
+        <div class="col">
+          <label for="">Descripción</label>
+          <input type="text" class="form-control" placeholder="Descripcion" formControlName="Descripcion">
+      </div>
+        <div class="form-group row">
+            <div class="col">
+              <label for="">Edad minima varones</label>
+              <input type="number" class="form-control" placeholder="Edad minima varon" formControlName="EdadMin">
+            </div>
+            <div class="col">
+              <label for="">Edad maxima varones</label>
+              <input type="number" class="form-control" placeholder="Edad maxima varon" formControlName="EdadMax">
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col">
+            <label for="">Edad minima Hembras</label>
+            <input type="number" class="form-control" placeholder="Edad minima hembra" formControlName="EdadMujerMin">
+          </div>
+          <div class="col">
+            <label for="">Edad maxima Hembras</label>
+            <input type="number" class="form-control" placeholder="Edad maxima hembra" formControlName="EdadMujerMax">
+          </div>
+        </div>
+        
+
+        <div class="d-flex justify-content-center" style="padding-top: 5%;">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+        </div>
+    </form>
+  </div>
+  
+  
