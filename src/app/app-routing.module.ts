@@ -20,6 +20,12 @@ import { CanchasComponent } from './admin/components/canchas/canchas/canchas.com
 import { EdicionesComponent } from './admin/components/ediciones/ediciones/ediciones.component';
 import { JugadoresComponent } from './admin/components/Jugadores-equipos/jugadores/jugadores.component';
 import { EquiposComponent } from './admin/components/equipos/equipos-A/equipos.component';
+import { EquipoTorneoRegistrarComponent } from './admin/components/equiposTorneo/equipo-torneo-registrar/equipo-torneo-registrar.component';
+import { LocalidadesComponent } from './admin/components/Localidades/localidades/localidades.component';
+import { OptenerTercComponent } from './admin/components/TorneoEdicionRamaCateoria/optenerterc/optener-terc.component';
+
+import { TorneocanchasComponent } from './admin/components/TorneoCanchas/torneocanchas/torneocanchas.component';
+import { TorneoComponent } from './admin/components/Torneo/torneo/torneo.component';
 
 
 
@@ -39,7 +45,12 @@ const routes: Routes = [
     {path:'categorias',component:CategoriasComponent},
     {path:'ediciones',component:EdicionesComponent},
     {path:'jugadores',component:JugadoresComponent},
-    {path:'equipos-A',component:EquiposComponent}
+    {path:'equipos-A',component:EquiposComponent},
+    {path:'equiposTorneo',component:EquipoTorneoRegistrarComponent},
+    {path:'localidades',component:LocalidadesComponent},
+    {path:'optenerterc',component:OptenerTercComponent},
+    {path:'torneocanchas',component:TorneocanchasComponent},
+    {path:'torneo',component:TorneoComponent}
 
   ] },
   

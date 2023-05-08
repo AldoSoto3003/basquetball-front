@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let categoria of ediciones | paginate: { itemsPerPage:5, currentPage:p }  ">
+        <tr *ngFor="let categoria of ediciones | paginate: { itemsPerPage:5, currentPage:p } | EdicionesFilter:search  ">
           <td>
             <div class="d-flex align-items-center">
               <div class="ms-3">

@@ -1,0 +1,48 @@
+<div mat-dialog-content>
+    <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+
+        
+        <div class="col">
+            <label for="">Torneo</label>
+            <input type="text" class="form-control" placeholder="Torneo" formControlName="id_torneo">
+        </div>
+        <div class="col">
+            <label for="">Edicion</label>
+            <input type="text" class="form-control" placeholder="Edicion" formControlName="id_edicion">
+        </div>
+        <div class="col">
+          <label for="">Rama</label>
+          <input type="text" class="form-control" placeholder="Rama" formControlName="id_rama">
+      </div>
+      <div class="col">
+        <label for="">categoria</label>
+        <input type="text" class="form-control" placeholder="Categoria" formControlName="id_categoria">
+    </div>
+    <div class="col">
+        <label for="">localidad</label>
+        <input type="text" class="form-control" placeholder="localidad" formControlName="id_localidad">
+    </div>
+
+    <div class="col">
+        <label for="">fechaInicial</label>
+        <input type="date" class="form-control" placeholder="2000/01/01"  [class.is-invalid] = 'fechaInicialValido'>
+        <small *ngIf="fechaInicialValido" class="text-danger">Campo requerido</small>
+      </div>
+
+
+      <div class="col">
+        <label for="">fecha Final</label>
+        <input type="date" class="form-control" placeholder="2000/01/01"  [class.is-invalid] = 'fechafinalValido'>
+        <small *ngIf="fechafinalValido" class="text-danger">Campo requerido</small>
+      </div>
+
+
+    
+
+        <div class="d-flex justify-content-center" style="padding-top: 5%;">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+        </div>
+    </form>
+  </div>
+  

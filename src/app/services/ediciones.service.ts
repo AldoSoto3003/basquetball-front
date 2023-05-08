@@ -21,18 +21,18 @@ private _refresh$ = new Subject<void>();
      ObtenerTodasLasEdiciones():Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token,'Content-Type': 'application/json'}
-    return this.http.get<any>(environment.urlApi+"getediciones",{headers});
+    return this.http.get<any>(environment.urlApi+"ObtenerEdicionesTorneo",{headers});
   }
   
  RegistrarEdicion(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
-    return this.http.post<any>(environment.urlApi+"addEdicion",form,{headers})
+    return this.http.post<any>(environment.urlApi+"AgregarEdicionTorneo",form,{headers})
   }
   
    obtenerUnaEdicion(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.get<any>(environment.urlApi+"getedicionidtorneo="+id,{headers})
+    return this.http.get<any>(environment.urlApi+"ObtenerEdicionTorneo="+id,{headers})
   }
 }

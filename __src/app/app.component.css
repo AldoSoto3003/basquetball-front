@@ -1,0 +1,61 @@
+.img-login {
+  position: absolute;
+  width: 836px;
+  height: 552px;
+  left: 516px;
+  top: 58px;
+
+
+  mix-blend-mode: normal;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+
+}
+
+.login {
+  position: absolute;
+  width: 375px;
+  height: 552px;
+  left: 41px;
+  top: 58px;
+
+  background: #EBE8E8;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.correo {
+  position: absolute;
+  width: 268px;
+  height: 48px;
+  left: 76px;
+  top: 241px;
+
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.contraseña {
+  position: absolute;
+  width: 268px;
+  height: 48px;
+  left: 76px;
+  top: 375px;
+
+  background: #FDFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.botton-ingresar {
+  position: absolute;
+  width: 172px;
+  height: 57px;
+  left: 131px;
+  top: 479px;
+
+  background: #FF4F11;
+  border-radius: 3px;
+}

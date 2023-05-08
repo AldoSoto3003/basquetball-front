@@ -1,0 +1,26 @@
+
+
+<div mat-dialog-content>
+    <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+        <div class="col">
+            <label for="">equipo</label>
+            <input type="text" class="form-control" placeholder="id_equipo" formControlName="id_equipo">
+        </div>
+        <div class="col">
+          <label for="">jugador</label>
+          <input type="text" class="form-control" placeholder="id_jugador" formControlName="id_jugador">
+      </div>
+        <div class="form-group row">
+            <div class="col">
+              <label for="">DorsalJugador</label>
+              <input type="number" class="form-control" placeholder="DorsalJugador" formControlName="DorsalJugador">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center" style="padding-top: 5%;">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+        </div>
+    </form>
+  </div>
+  

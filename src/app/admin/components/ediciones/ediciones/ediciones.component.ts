@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChildren } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { edicionesI } from 'src/app/models/ediciones.interface';
 import { AlertasService } from 'src/app/services/alertas.service';
@@ -20,6 +20,10 @@ export class EdicionesComponent {
   p:number = 1;
   public searchCategoria : string = ""
 
+  @ViewChildren(EditarEdicionesComponent)
+  editarCancha:EditarEdicionesComponent;
+  public search:string = '';
+
   ngOnInit(){
     this.edicionesserver.ObtenerTodasLasEdiciones().subscribe( data => {
       console.log(data)
@@ -28,7 +32,7 @@ export class EdicionesComponent {
   }
 
   onSearch(busqueda:string){
-    this.searchCategoria = busqueda
+    this.search = busqueda
   }
   onRegister(){
     this.openDialogRegistrar('0ms','0ms')

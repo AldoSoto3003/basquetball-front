@@ -1,0 +1,66 @@
+<div class="form-outline" style="margin-bottom: 15px;">
+    <button class="btn btn-primary" (click)="onRegister()">Agregar Ediciones</button>
+    <input type="search" class="form-control" placeholder="Buscar.." #txtSearch 
+      id="datatable-search-input" style="width: 85%; float: right;" (keyup)="onSearch(txtSearch.value)">
+  </div>
+  <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th>Torneo</th>
+          <th>Edicion</th>
+          <th>Descripcion</th>
+          <th>id</th>
+          <th>Nombre de torneo</th>
+          <th>Estatus</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of ediciones | paginate: { itemsPerPage:5, currentPage:p }  ">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1"> {{categoria.torneo.id}}   </p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1"> {{categoria.id_edicion}} </p>
+            
+          </td>
+          <td>
+            <p class="fw-normal mb-1"> {{categoria.descripcion}} </p>
+           
+          </td>
+          <td>
+            <p class="fw-normal mb-1"> {{categoria.torneo.id}} </p>
+           
+          </td>
+          <td>
+            <p class="fw-normal mb-1"> {{categoria.torneo.NombreTorneo}} </p>
+           
+          </td>
+          <td>
+            <p class="fw-normal mb-1"> {{categoria.torneo.Estatus}} </p>
+           
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="onEdit( categoria.id_edicion)">Editar</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete( 'a' )">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+  
+  <div class="d-flex justify-content-center" >
+    <pagination-controls
+    (pageChange)="p = $event"
+    previousLabel="Atras"
+    nextLabel="Adelante"
+    ></pagination-controls>
+  </div>
+    

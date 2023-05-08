@@ -1,0 +1,75 @@
+<div class="form-outline" style="margin-bottom: 15px;">
+  <button class="btn btn-primary" (click)="onRegister()">Agregar Cancha</button>
+  <input type="search" class="form-control" placeholder="Buscar.." #txtSearch 
+    id="datatable-search-input" style="width: 85%; float: right;" (keyup)="onSearch(txtSearch.value)">
+</div>
+
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>NombreCancha</th>
+        <th>Descripcion</th>
+        <th>Domicilio</th>
+        <th>Latitud</th>
+        <th>Longitud</th>
+        <th>Altitud</th>
+        <th>CP</th>
+        <th>Estatus</th>
+        <th>Acciones</th>
+        <th>Borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- | canchasFilter:search -->
+      <tr *ngFor="let cancha of canchas  | paginate: { itemsPerPage:5, currentPage:p  } | CanchasFilter:search " >
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="{{ cancha.urlImagen }}"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1"> {{cancha.NombreCancha}}  </p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1"> {{cancha.Descripcion}}  </p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{cancha.Domicilio}} </p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{cancha.Latitud}} </p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{cancha.Longitud}} </p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{cancha.Altitud}} </p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{cancha.cp}} </p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{cancha.Estatus}} </p>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="onEdit( cancha)">Editar</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="onDelete( 'a' )">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+    (pageChange)="p = $event"
+    previousLabel="Atras"
+    nextLabel="Adelante"
+    ></pagination-controls>
+  </div>
+  
