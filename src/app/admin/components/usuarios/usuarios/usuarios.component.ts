@@ -22,9 +22,17 @@ export class UsuariosComponent {
   p: number = 1;
   subscription:Subscription;
 
+  tienePermisoDeAgregar: boolean = true
 
   @ViewChildren(EditarUsuarioComponent)  
   editarUsuario: EditarUsuarioComponent;
+
+  ngAfterViewInit(){
+    const rol = localStorage.getItem("rol")
+    if (rol == "3"){
+      this.tienePermisoDeAgregar = false
+    }
+  }
 
   ngOnInit():void{
     this.userService.obtenerUsuarios().subscribe( data => {

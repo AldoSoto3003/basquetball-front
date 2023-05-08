@@ -33,6 +33,8 @@ export class AdminComponent implements AfterViewInit  {
   ObtenerDatos() {
     this.authService.authme().subscribe(x => {
       localStorage.setItem("informacion_usuario", JSON.stringify(x.data));
+      localStorage.setItem("rol",JSON.stringify(x.data.Id_Rol))
+      localStorage.setItem("email",JSON.stringify(x.data.email))
       console.log(x.data.Id_Rol)
       switch(x.data.Id_Rol){
         case 1:
@@ -60,7 +62,10 @@ export class AdminComponent implements AfterViewInit  {
   cerrarSesion(){
     const log = this.authService.logout().subscribe(x=>{console.log(x.data)})    
     localStorage.removeItem("Token");
+    localStorage.removeItem("token");
     localStorage.removeItem("informacion_usuario");
+    localStorage.removeItem("rol");
+    localStorage.removeItem("email");
     this.router.navigate(['home'])
   }
 
