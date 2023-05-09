@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { edicionesI } from 'src/app/models/ediciones.interface';
+import { TorneoI } from 'src/app/models/torneo.interface';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { EdicionesService } from 'src/app/services/ediciones.service';
 
@@ -20,6 +21,7 @@ export class RegistraredicionesComponent {
     ,private dialogRef: MatDialogRef<RegistraredicionesComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: edicionesI){}
 
     categorias !: edicionesI[];
+    torneo!: TorneoI [];
 
     nuevoForm = new FormGroup({
       id_torneo: new FormControl('',Validators.required),
@@ -28,6 +30,13 @@ export class RegistraredicionesComponent {
     })
 
     ngOnInit(){
+      let token = localStorage.getItem('Token')
+
+
+      this.editarserver.obtenerTorneos().subscribe( data => {
+        this.torneo = data.data
+      })
+
 
     }
     onRegister(form:any){

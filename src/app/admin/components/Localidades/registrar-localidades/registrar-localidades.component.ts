@@ -33,10 +33,10 @@ export class RegistrarLocalidadesComponent {
 
 
   nuevoForm = new FormGroup({
-    NombreCancha : new FormControl('',Validators.required),
+    NombreLocalidad : new FormControl('',Validators.required),
     Domicilio : new FormControl('',Validators.required),
     id_asentamiento : new FormControl('',Validators.required),
-    cp : new FormControl('',[Validators.required,Validators.pattern(/^\d{5}$/)]),
+    cp : new FormControl('',Validators.required), 
     urlImagen : new FormControl('',Validators.required),    
   })
 

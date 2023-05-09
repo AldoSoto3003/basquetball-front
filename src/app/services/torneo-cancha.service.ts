@@ -33,4 +33,16 @@ export class TorneoCanchaService {
     return this.http.put<any>(environment.urlApi+"ModificarTorneoCanchas",form,{headers})
   }
 
+  obtenerTorneos():Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
+    return this.http.get<any>(environment.urlApi+"ObtenerTorneos", {headers})
+  }
+
+  ObtenerTodasLasCanchas():Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token,'Content-Type': 'application/json'}
+    return this.http.get<any>(environment.urlApi+"ObtenerTodasLasCanchas",{headers});
+  }
+
 }

@@ -57,6 +57,12 @@ import { EditarTorneoCanchaComponent } from './components/TorneoCanchas/editar-t
 import { TorneoComponent } from './components/Torneo/torneo/torneo.component';
 import { RegistrarTorneoComponent } from './components/Torneo/registrar-torneo/registrar-torneo.component';
 import { EditarTorneoComponent } from './components/Torneo/editar-torneo/editar-torneo.component';
+import { TorneoalbitroComponent } from './components/TorneoAlbitro/torneoalbitro/torneoalbitro.component';
+import { RegistrartorneoalbitroComponent } from './components/TorneoAlbitro/registrartorneoalbitro/registrartorneoalbitro.component';
+import { EditartorneoalbitroComponent } from './components/TorneoAlbitro/editartorneoalbitro/editartorneoalbitro.component';
+import { OptenerTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/optenertercej/optener-tercej.component';
+import { ModificarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/modificar-tercej/modificar-tercej.component';
+import { RegistrarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/registrar-tercej/registrar-tercej.component';
 
 
 
@@ -104,6 +110,12 @@ import { EditarTorneoComponent } from './components/Torneo/editar-torneo/editar-
     TorneoComponent,
     RegistrarTorneoComponent,
     EditarTorneoComponent,
+    TorneoalbitroComponent,
+    RegistrartorneoalbitroComponent,
+    EditartorneoalbitroComponent,
+    OptenerTercejComponent,
+    ModificarTercejComponent,
+    RegistrarTercejComponent,
 
   ],
   imports: [

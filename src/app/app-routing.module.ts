@@ -26,6 +26,8 @@ import { OptenerTercComponent } from './admin/components/TorneoEdicionRamaCateor
 
 import { TorneocanchasComponent } from './admin/components/TorneoCanchas/torneocanchas/torneocanchas.component';
 import { TorneoComponent } from './admin/components/Torneo/torneo/torneo.component';
+import { TorneoalbitroComponent } from './admin/components/TorneoAlbitro/torneoalbitro/torneoalbitro.component';
+import { OptenerTercejComponent } from './admin/components/TorneoEdiRamaCatEquipoJug/optenertercej/optener-tercej.component';
 
 
 
@@ -50,7 +52,9 @@ const routes: Routes = [
     {path:'localidades',component:LocalidadesComponent},
     {path:'optenerterc',component:OptenerTercComponent},
     {path:'torneocanchas',component:TorneocanchasComponent},
-    {path:'torneo',component:TorneoComponent}
+    {path:'torneo',component:TorneoComponent},
+    {path:'torneoalbitro',component:TorneoalbitroComponent},
+    {path:'optenertercej',component:OptenerTercejComponent}
 
   ] },
   

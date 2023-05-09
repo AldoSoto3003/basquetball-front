@@ -10,13 +10,12 @@
             </select>
           </div>
 
+
           <div class="col">
-            <label class="form-label">Canchas</label>
-            <select class="form-select" required formControlName="id_cancha">
-              <option selected disabled value="">Elige...</option>
-              <option *ngFor="let rol of canchas" [ngValue]="rol.id"> {{ rol.NombreCancha}} </option>
-            </select>
-          </div>
+            <label for=""> Albitro</label>
+            <input type="text" class="form-control" placeholder="Id ALBITRO" formControlName="id_arbitro">
+        </div>
+        
        
         <div class="d-flex justify-content-center" style="padding-top: 5%;">
           <button type="submit" class="btn btn-primary">Guardar</button>
