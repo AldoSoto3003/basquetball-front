@@ -7,4 +7,7 @@ export interface TorneoEdicionRamaCategoriaI{
     fechaInicial: string;
     fechaFinal:   string;
     Estatus:      string;
+    NumEquiposMin: number;
+	NumEquiposMax: number;
+    
 }

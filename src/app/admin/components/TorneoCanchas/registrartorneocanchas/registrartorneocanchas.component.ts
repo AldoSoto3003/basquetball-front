@@ -2,7 +2,9 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CanchasI } from 'src/app/models/InformacionCanchas.model';
 import { TorneoCanchaI } from 'src/app/models/TorneoCancha.interface';
+import { TorneoI } from 'src/app/models/torneo.interface';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { TorneoCanchaService } from 'src/app/services/torneo-cancha.service';
 
@@ -19,6 +21,8 @@ export class RegistrartorneocanchasComponent {
     ,private dialogRef: MatDialogRef<RegistrartorneocanchasComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual: TorneoCanchaI){}
 
     categorias !: TorneoCanchaI[];
+    torneo !: TorneoI[];
+    canchas!: CanchasI[];
 
     nuevoForm = new FormGroup({
       id_torneo: new FormControl('',Validators.required),
@@ -27,6 +31,14 @@ export class RegistrartorneocanchasComponent {
     })
 
     ngOnInit(){
+      let token = localStorage.getItem('Token')
+      this.TorneoCanchaService.obtenerTorneos().subscribe( data => {
+        this.torneo = data.data
+      })
+
+      this.TorneoCanchaService.ObtenerTodasLasCanchas().subscribe( data => {
+        this.canchas = data.data
+      })
 
     }
     onRegister(form:any){

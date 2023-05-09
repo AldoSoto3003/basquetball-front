@@ -6,34 +6,30 @@ import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
-export class EdicionesService {
+export class TorneoAlbitroService {
 
-private _refresh$ = new Subject<void>();
+  private _refresh$ = new Subject<void>();
 
   get refresh() {
     return this._refresh$;
   }
 
-
-
   constructor(private http: HttpClient) { }
 
-     ObtenerTodasLasEdiciones():Observable<any>{
-    const token = localStorage.getItem("Token")
-    const headers = { Authorization: "bearer "+ token,'Content-Type': 'application/json'}
-    return this.http.get<any>(environment.urlApi+"ObtenerEdicionesTorneo",{headers});
-  }
-  
- RegistrarEdicion(form:any):Observable<any>{
+  RegistrarTorneoArbitro(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
-    return this.http.post<any>(environment.urlApi+"AgregarEdicionTorneo",form,{headers})
+    return this.http.post<any>(environment.urlApi+"RegistrarTorneoArbitro",form,{headers})
   }
-  
-   obtenerUnaEdicion(id:any):Observable<any>{
+  ModificarTorneoArbitro(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.get<any>(environment.urlApi+"ObtenerEdicionTorneo="+id,{headers})
+    return this.http.put<any>(environment.urlApi+"ModificarTorneoArbitro",form,{headers})
+  }
+  ObtenerTorneoArbitro():Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
+    return this.http.get<any>(environment.urlApi+"ObtenerTorneoArbitro", {headers})
   }
   obtenerTorneos():Observable<any>{
     const token = localStorage.getItem("Token")

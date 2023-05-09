@@ -6,7 +6,6 @@
   <table class="table align-middle mb-0 bg-white">
       <thead class="bg-light">
         <tr>
-          <th>ID</th>
           <th>Nombre Torneo</th>
           <th>Estatus</th>
           <th>Editar</th>
@@ -18,19 +17,16 @@
           <td>
             <div class="d-flex align-items-center">
               <div class="ms-3">
-                <p class="fw-bold mb-1"> {{categoria.id}}   </p>
+                <p class="fw-bold mb-1"> {{categoria.NombreTorneo}}   </p>
               </div>
             </div>
           </td>
           <td>
-            <p class="fw-normal mb-1"> {{categoria.NombreTorneo}} </p>
-            
-          </td>
-
-          <td>
             <p class="fw-normal mb-1"> {{categoria.Estatus}} </p>
             
           </td>
+
+         
           
           <td>
             <button type="button" class="btn btn-primary" (click)="onEdit( categoria.id)">Editar</button>
