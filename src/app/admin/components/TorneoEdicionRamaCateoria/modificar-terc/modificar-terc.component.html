@@ -1,1 +1,86 @@
-<p>modificar-terc works!</p>
+<div class="container">
+
+    <form action="" [formGroup]="editarForm" (ngSubmit)="onUpdate(editarForm)">
+
+
+    
+        
+        <div class="col">
+            <label class="form-label">Torneo</label>
+            <select class="form-select" required formControlName="id_torneo">
+              <option selected disabled value="">Elige...</option>
+              <option *ngFor="let rol of roles" [ngValue]="rol.id"> {{ rol.NombreTorneo }} </option>
+            </select>
+          </div>
+    
+          <div class="col">
+            <label class="form-label">Edicioes</label>
+            <select class="form-select" required formControlName="id_edicion">
+              <option selected disabled value="">Elige...</option>
+              <option *ngFor="let rol of ediciones" [ngValue]="rol.id_torneo"> {{ rol.descripcion }} </option>
+            </select>
+          </div>
+    
+    
+          <div class="col">
+            <label class="form-label">Ramas</label>
+            <select class="form-select" required formControlName="id_rama">
+              <option selected disabled value="">Elige...</option>
+              <option *ngFor="let rol of rama" [ngValue]="rol.id"> {{ rol.NombreRama }} </option>
+            </select>
+          </div>
+            
+          <div class="col">
+            <label class="form-label">Categorias</label>
+            <select class="form-select" required formControlName="id_categoria">
+              <option selected disabled value="">Elige...</option>
+              <option *ngFor="let rol of cat" [ngValue]="rol.id"> {{ rol.NombreCategoria }} </option>
+            </select>
+          </div>
+    
+          <div class="col">
+            <label class="form-label">Localidad</label>
+            <select class="form-select" required formControlName="id_localidad">
+              <option selected disabled value="">Elige...</option>
+              <option *ngFor="let rol of localidad" [ngValue]="rol.id"> {{ rol.NombreLocalidad }} </option>
+            </select>
+          </div>
+            
+          <div class="form-group row">
+            <div class="col">
+                <label for="">Estatus</label>
+                <input type="text" class="form-control" placeholder="Estatus" formControlName="Estatus">
+            </div> 
+    
+           
+    
+      
+        </div>
+    
+        <div class="col">
+            <label for="">fechaInicial</label>
+            <input type="date" class="form-control" placeholder="2000/01/01" formControlName="fechaInicial"  [class.is-invalid] = 'fechaInicialValido'>
+            <small *ngIf="fechaInicialValido" class="text-danger">Campo requerido</small>
+          </div>
+    
+    
+          <div class="col">
+            <label for="">fecha Final</label>
+            <input type="date" class="form-control" placeholder="2000/01/01"  formControlName="fechaFinal"  [class.is-invalid] = 'fechafinalValido'>
+            <small *ngIf="fechafinalValido" class="text-danger">Campo requerido</small>
+          </div>
+  
+  
+      
+
+      
+     
+           
+      <br><br>
+                      
+      <div class="d-flex justify-content-center" style="padding-top: 5%;">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+      </div>
+    </form>                
+  </div>

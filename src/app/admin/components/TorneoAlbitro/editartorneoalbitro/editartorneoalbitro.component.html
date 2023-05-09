@@ -1,8 +1,7 @@
-
-<div mat-dialog-content>
-    <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
-       
+<div mat-dialog-content >
+    <form action="" [formGroup]="editarForm" (ngSubmit)="enEditar(editarForm)">
         <div class="col">
+
             <label class="form-label">Torneo</label>
             <select class="form-select" required formControlName="id_torneo">
               <option selected disabled value="">Elige...</option>
@@ -10,14 +9,17 @@
             </select>
           </div>
 
-          <div class="col">
-            <label class="form-label">Canchas</label>
-            <select class="form-select" required formControlName="id_cancha">
-              <option selected disabled value="">Elige...</option>
-              <option *ngFor="let rol of canchas" [ngValue]="rol.id"> {{ rol.NombreCancha}} </option>
-            </select>
-          </div>
-       
+        <div class="col">
+            <label for="">Albitro</label>
+            <input type="text" class="form-control" placeholder=" id_arbitro" formControlName="id_arbitro">
+        </div>
+
+        <div class="col">
+            <label for="">Estatus</label>
+            <input type="text" class="form-control" placeholder=" Estatus" formControlName="Estatus">
+        </div>
+      
+      
         <div class="d-flex justify-content-center" style="padding-top: 5%;">
           <button type="submit" class="btn btn-primary">Guardar</button>
           <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>

@@ -2,6 +2,7 @@ import { Component,Inject  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
 import { LocalidadesI } from 'src/app/models/localidades.interface';
 import { AlertasService } from 'src/app/services/alertas.service';
@@ -28,7 +29,7 @@ export class EditarLocalidadesComponent {
    codigo_postal !: CodigoPostal[];
    codigo_postal_para_obtener_asentamientos = ''
    base64:string;
-
+   model: NgbDateStruct;
 
    urlImagen:any = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
    reader = new FileReader();
@@ -37,13 +38,11 @@ export class EditarLocalidadesComponent {
 
 
   editarForm = new FormGroup({
-    id:new FormControl(''),
-    NombreLocalidad: new FormControl('',Validators.required),     
-    urlImagen:    new FormControl('',Validators.required),             
-    Domicilio:    new FormControl('',Validators.required),        
-    id_asenta_cpcons: new FormControl('',Validators.required),
-    CP:           new FormControl('',Validators.required),              
-    Estatus:      new FormControl('',Validators.required),       
+    NombreLocalidad : new FormControl('',Validators.required),
+    Domicilio : new FormControl('',Validators.required),
+    id_asentamiento : new FormControl('',Validators.required),
+    cp : new FormControl('',Validators.required), 
+    urlImagen : new FormControl('',Validators.required),          
   })
 
 
@@ -66,15 +65,11 @@ export class EditarLocalidadesComponent {
   }
 
 setDatos(){
-
-
+  
   this.base64=this.categoriaActual.urlImagen
-  this.editarForm.controls["id"].setValue(String(this.categoriaActual.id))
-  this.editarForm.controls["Nombrelocalidad"].setValue(this.categoriaActual.NombreLocalidad)
+  this.editarForm.controls["NombreLocalidad"].setValue(this.categoriaActual.NombreLocalidad)
   this.editarForm.controls["Domicilio"].setValue(this.categoriaActual.Domicilio)
-  this.editarForm.controls["CP"].setValue(this.categoriaActual.cp)
-  // this.editarForm.controls["id_asenta"].setValue(this.categoriaActual.id_asenta_cpcons)
-  this.editarForm.controls["Estatus"].setValue("Activo")
+  this.editarForm.controls["cp"].setValue(this.categoriaActual.cp)
   this.urlImagen = this.base64
 }
 
@@ -84,7 +79,7 @@ onFileChanged(event){
     this.reader.onload = (event:any) => {
       this.urlImagen = event.target.result
       this.base64 = this.reader.result as string;
-      this.editarForm.controls["imagen"].setValue(this.base64)
+      this.editarForm.controls["urlImagen"].setValue(this.base64)
     }
   }
 }
@@ -93,7 +88,7 @@ onFileChanged(event){
 
 
 obtenerAsentamientos(){
-  this.codigo_postal_para_obtener_asentamientos = this.editarForm.controls["cp"].value
+  this.codigo_postal_para_obtener_asentamientos = this. editarForm.controls["cp"].value
   if (this.codigo_postal_para_obtener_asentamientos.length == 5){
     const codigo_postal = {'CP':this.codigo_postal_para_obtener_asentamientos}
     console.log(codigo_postal)
@@ -102,9 +97,7 @@ obtenerAsentamientos(){
     })
   }
 }
-  
-  onSalir(){
-    this.router.navigate(['admin/localidades'])
-  }
+
+onSalir(){}
 
 }

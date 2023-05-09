@@ -10,12 +10,9 @@
           <th>Edicion</th>
           <th>Rama</th>
           <th>categoria</th>
-          <th>localidad</th>
-          <th>Equipos Min</th>
-          <th>Equipos Max</th>
-          <th>Fecha inicial</th>
-          <th>Fecha Final</th>
-          <th>Estatus</th>
+          <th>Jugador</th>
+          <th>Equipo</th>
+        
           <th>Editar</th>
           <th>Borrar</th>
         </tr>
@@ -42,25 +39,12 @@
            
           </td>
           <td>
-            <p class="fw-normal mb-1"> {{categoria.id_localidad}} </p>
+            <p class="fw-normal mb-1"> {{categoria.id_jugador}} </p>
            
           </td>
           <td>
-            <p class="fw-normal mb-1"> {{categoria.NumEquiposMin}} </p>
+            <p class="fw-normal mb-1"> {{categoria.id_equipo}} </p>
            
-          </td>
-          <td>
-            <p class="fw-normal mb-1"> {{categoria.NumEquiposMax}} </p>
-           
-          </td>
-          <td>
-            <p class="fw-normal mb-1"> {{categoria.fechaInicial}} </p>
-          </td>
-          <td>
-            <p class="fw-normal mb-1"> {{categoria.fechaFinal}} </p>
-          </td>
-          <td>
-            <p class="fw-normal mb-1"> {{categoria.Estatus}} </p>
           </td>
           <td>
             <button type="button" class="btn btn-primary" (click)="onEdit( categoria.id_torneo)">Editar</button>
