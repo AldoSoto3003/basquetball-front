@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "basquet-soft"
+  },
+  "targets": {
+    "basquet-soft": {
+      "hosting": {
+        "basquetball-front": [
+          "basquet-soft-2d498"
+        ]
+      }
+    }
+  }
+}
