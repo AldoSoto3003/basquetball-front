@@ -35,7 +35,7 @@ export class AdminComponent implements AfterViewInit  {
       localStorage.setItem("informacion_usuario", JSON.stringify(x.data));
       localStorage.setItem("rol",JSON.stringify(x.data.Id_Rol))
       localStorage.setItem("email",JSON.stringify(x.data.email))
-      console.log(x.data.Id_Rol)
+      
       switch(x.data.Id_Rol){
         case 1:
           this.admonGeneral = true;

@@ -28,6 +28,8 @@ import { TorneocanchasComponent } from './admin/components/TorneoCanchas/torneoc
 import { TorneoComponent } from './admin/components/Torneo/torneo/torneo.component';
 import { TorneoalbitroComponent } from './admin/components/TorneoAlbitro/torneoalbitro/torneoalbitro.component';
 import { OptenerTercejComponent } from './admin/components/TorneoEdiRamaCatEquipoJug/optenertercej/optener-tercej.component';
+import { UsuariosGuard } from './guards/usuarios.guard';
+import { TorneosGuard } from './guards/torneos.guard';
 
 
 
@@ -42,7 +44,7 @@ const routes: Routes = [
   ]},
 
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
-    {path:"usuarios", component: UsuariosComponent},
+    {path:"usuarios", component: UsuariosComponent, canActivate:[UsuariosGuard]},
     {path:"canchas", component:CanchasComponent},
     {path:'categorias',component:CategoriasComponent},
     {path:'ediciones',component:EdicionesComponent},
@@ -52,7 +54,7 @@ const routes: Routes = [
     {path:'localidades',component:LocalidadesComponent},
     {path:'optenerterc',component:OptenerTercComponent},
     {path:'torneocanchas',component:TorneocanchasComponent},
-    {path:'torneo',component:TorneoComponent},
+    {path:'torneo',component:TorneoComponent,canActivate:[TorneosGuard]},
     {path:'torneoalbitro',component:TorneoalbitroComponent},
     {path:'optenertercej',component:OptenerTercejComponent}
 
