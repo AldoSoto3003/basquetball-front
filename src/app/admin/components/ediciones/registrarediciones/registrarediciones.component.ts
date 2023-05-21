@@ -22,6 +22,7 @@ export class RegistraredicionesComponent {
 
     categorias !: edicionesI[];
     torneo!: TorneoI [];
+    Ediciones!:edicionesI[];
 
     nuevoForm = new FormGroup({
       id_torneo: new FormControl('',Validators.required),
@@ -36,6 +37,11 @@ export class RegistraredicionesComponent {
       this.editarserver.obtenerTorneos().subscribe( data => {
         this.torneo = data.data
       })
+
+      this.editarserver.ObtenerTodasLasEdiciones().subscribe( data => {
+        this.Ediciones = data.data
+      })
+
 
 
     }

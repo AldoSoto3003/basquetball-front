@@ -34,7 +34,6 @@ import { RegistrarCanchasComponent } from './components/canchas/registrar-cancha
 import { RegistraredicionesComponent } from './components/ediciones/registrarediciones/registrarediciones.component';
 import { EditarEdicionesComponent } from './components/ediciones/editar-ediciones/editar-ediciones.component';
 import { EdicionesComponent } from './components/ediciones/ediciones/ediciones.component';
-import { RegistrarjugadoresComponent } from './components/Jugadores-equipos/registrarjugadores/registrarjugadores.component';
 import { JugadoresComponent } from './components/Jugadores-equipos/jugadores/jugadores.component';
 import { RegistrarequiposComponent } from './components/equipos/registrarequipos/registrarequipos.component';
 import { EditarequipoComponent } from './components/equipos/editarequipo/editarequipo.component';
@@ -63,7 +62,7 @@ import { EditartorneoalbitroComponent } from './components/TorneoAlbitro/editart
 import { OptenerTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/optenertercej/optener-tercej.component';
 import { ModificarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/modificar-tercej/modificar-tercej.component';
 import { RegistrarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/registrar-tercej/registrar-tercej.component';
-
+import { RegistrarjugadoresComponent } from './components/Jugadores-equipos/registrarjugadores/registrarjugadores.component';
 
 
 
@@ -91,7 +90,6 @@ import { RegistrarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug
     RegistraredicionesComponent,
     EditarEdicionesComponent,
     EdicionesComponent,
-    RegistrarjugadoresComponent,
     JugadoresComponent,
     RegistrarequiposComponent,
     EditarequipoComponent,
@@ -116,7 +114,8 @@ import { RegistrarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug
     OptenerTercejComponent,
     ModificarTercejComponent,
     RegistrarTercejComponent,
-
+    JugadoresComponent,
+    RegistrarjugadoresComponent
   ],
   imports: [
     CommonModule,

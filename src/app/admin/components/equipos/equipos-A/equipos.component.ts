@@ -5,6 +5,7 @@ import { AlertasService } from 'src/app/services/alertas.service';
 import { EquiposService } from 'src/app/services/equipos.service';
 import { EditarequipoComponent } from '../editarequipo/editarequipo.component';
 import { RegistrarequiposComponent } from '../registrarequipos/registrarequipos.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-equipos',
@@ -18,6 +19,7 @@ export class EquiposComponent {
   @ViewChildren(EditarequipoComponent)
   editarEquipo:EditarequipoComponent;
   public search:string = '';
+    subscription:Subscription;
   
   constructor( private EquiposService:EquiposService,private alertService:AlertasService ,private dialog:MatDialog){}
 
@@ -27,6 +29,7 @@ export class EquiposComponent {
       console.log(data)
       this.ediciones = data.data
     }), error => { console.log('error categoria oninit',error)}
+    this.actualizarCategorias();
   }
   onSearch(busqueda:string){
     this.search = busqueda
@@ -48,6 +51,13 @@ export class EquiposComponent {
     });
   }
 
+  actualizarCategorias(){
+    this.subscription = this.EquiposService.refresh.subscribe(() => {
+      this.EquiposService.ObtenerEquipos().subscribe(data => {
+        this.ediciones = data.data
+      })
+    })
+  }
   openDialogRegistrar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
     this.dialog.open(RegistrarequiposComponent, {
       width: 'auto',

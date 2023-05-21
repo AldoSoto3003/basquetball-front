@@ -5,6 +5,7 @@ import { CanchasService } from 'src/app/services/canchas.service';
 import { EditarCanchasComponent } from '../editar-canchas/editar-canchas.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RegistrarCanchasComponent } from '../registrar-canchas/registrar-canchas.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-canchas',
@@ -14,6 +15,7 @@ import { RegistrarCanchasComponent } from '../registrar-canchas/registrar-cancha
 export class CanchasComponent {
   canchas!: CanchasI[];
   p: number = 1;
+  subscription:Subscription;
  
   @ViewChildren(EditarCanchasComponent)
   editarCancha:EditarCanchasComponent;
@@ -28,6 +30,9 @@ export class CanchasComponent {
       let dataResponse:CanchasI[] = data.data
       this.canchas = dataResponse
     })
+
+
+    this.actualizarCategorias();
     }
 
     onSearch(busqueda:string){
@@ -42,6 +47,14 @@ export class CanchasComponent {
         exitAnimationDuration,
         data:data
       });
+    }
+
+    actualizarCategorias(){
+      this.subscription = this.CanchasService.refresh.subscribe(() => {
+        this.CanchasService.ObtenerTodasLasCanchas().subscribe(data => {
+          this.canchas = data.data
+        })
+      })
     }
 
     openDialogRegistrar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {

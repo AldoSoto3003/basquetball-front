@@ -5,6 +5,7 @@ import { TorneoCanchaService } from 'src/app/services/torneo-cancha.service';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TorneoCanchaI } from 'src/app/models/TorneoCancha.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-torneocanchas',
@@ -18,6 +19,7 @@ export class TorneocanchasComponent {
   ediciones: TorneoCanchaI[]
   p:number = 1;
   public searchCategoria : string = ""
+  subscription:Subscription;
 
   @ViewChildren(EditarTorneoCanchaComponent)
   editarCancha:EditarTorneoCanchaComponent;
@@ -28,6 +30,8 @@ export class TorneocanchasComponent {
       console.log(data)
       this.ediciones = data.data
     }), error => { console.log('error categoria oninit',error)}
+
+    this.actualizarCategorias();
   }
 
   onSearch(busqueda:string){
@@ -49,6 +53,15 @@ export class TorneocanchasComponent {
       data:data
     });
   }
+
+  actualizarCategorias(){
+    this.subscription = this.TorneoCanchaService.refresh.subscribe(() => {
+      this.TorneoCanchaService.ObtenerTorneoCanchas().subscribe(data => {
+        this.ediciones = data.data
+      })
+    })
+  }
+
 
   openDialogRegistrar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
     this.dialog.open(RegistrartorneocanchasComponent, {
