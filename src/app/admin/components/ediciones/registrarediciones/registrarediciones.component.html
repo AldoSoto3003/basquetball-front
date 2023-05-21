@@ -1,6 +1,12 @@
 
 <div mat-dialog-content>
     <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+
+      <div class="col">
+        <label for=""> Nombre Edicion</label>
+        <input type="text" class="form-control" placeholder="Edicion" formControlName="num_edicion">
+    </div>
+    
       <div class="col">
         <label class="form-label">Torneo</label>
         <select class="form-select" required formControlName="id_torneo">
@@ -8,10 +14,9 @@
           <option *ngFor="let rol of torneo" [ngValue]="rol.id"> {{ rol.NombreTorneo}} </option>
         </select>
       </div>
-        <div class="col">
-            <label for="">Edicion</label>
-            <input type="text" class="form-control" placeholder="Edicion" formControlName="num_edicion">
-        </div>
+
+      
+       
         <div class="col">
           <label for="">Descripción</label>
           <input type="text" class="form-control" placeholder="Descripcion" formControlName="descripcion">

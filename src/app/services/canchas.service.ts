@@ -24,7 +24,11 @@ export class CanchasService {
   RegistrarCancha(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
-    return this.http.post<any>(environment.urlApi+"RegistrarCancha",form,{headers})
+    return this.http.post<any>(environment.urlApi+"RegistrarCancha",form,{headers}).pipe(
+      tap(() => {
+        this.refresh.next();
+      })
+      )
   }
 
   ActualizarCancha(data:any):Observable<Petition<CanchasI>>{

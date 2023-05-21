@@ -5,6 +5,7 @@ import { AlertasService } from 'src/app/services/alertas.service';
 import { EdicionesService } from 'src/app/services/ediciones.service';
 import { EditarEdicionesComponent } from '../editar-ediciones/editar-ediciones.component';
 import { RegistraredicionesComponent } from '../registrarediciones/registrarediciones.component';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class EdicionesComponent {
   ediciones: edicionesI[]
   p:number = 1;
   public searchCategoria : string = ""
+  subscription:Subscription;
 
   @ViewChildren(EditarEdicionesComponent)
   editarCancha:EditarEdicionesComponent;
@@ -29,6 +31,8 @@ export class EdicionesComponent {
       console.log(data)
       this.ediciones = data.data
     }), error => { console.log('error categoria oninit',error)}
+
+    this.actualizarCategorias();
   }
 
   onSearch(busqueda:string){
@@ -51,6 +55,13 @@ export class EdicionesComponent {
     });
   }
 
+  actualizarCategorias(){
+    this.subscription = this.edicionesserver.refresh.subscribe(() => {
+      this.edicionesserver.ObtenerTodasLasEdiciones().subscribe(data => {
+        this.ediciones = data.data
+      })
+    })
+  }
   openDialogRegistrar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
     this.dialog.open(RegistraredicionesComponent, {
       width: 'auto',

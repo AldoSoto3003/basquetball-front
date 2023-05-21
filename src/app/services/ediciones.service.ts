@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -27,7 +27,11 @@ private _refresh$ = new Subject<void>();
  RegistrarEdicion(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
-    return this.http.post<any>(environment.urlApi+"AgregarEdicionTorneo",form,{headers})
+    return this.http.post<any>(environment.urlApi+"AgregarEdicionTorneo",form,{headers}).pipe(
+      tap(() => {
+        this.refresh.next();
+      })
+      )
   }
   
    obtenerUnaEdicion(id:any):Observable<any>{

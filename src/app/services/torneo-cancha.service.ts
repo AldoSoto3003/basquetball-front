@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -23,7 +23,11 @@ export class TorneoCanchaService {
   RegistrarTorneoCanchas(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
-    return this.http.post<any>(environment.urlApi+"RegistrarTorneoCanchas",form,{headers})
+    return this.http.post<any>(environment.urlApi+"RegistrarTorneoCanchas",form,{headers}).pipe(
+      tap(() => {
+        this.refresh.next();
+      })
+      )
   }
 
 
