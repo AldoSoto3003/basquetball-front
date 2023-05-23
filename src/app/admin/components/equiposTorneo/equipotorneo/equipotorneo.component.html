@@ -1,1 +1,24 @@
-<p>equipotorneo works!</p>
+<div mat-dialog-content>
+  <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
+
+      
+    <div class="col">
+      <label class="form-label">Torneo</label>
+      <select class="form-select" required formControlName="id_torneo">
+        <option selected disabled value="">Elige...</option>
+        <option *ngFor="let rol of roles" [ngValue]="rol.id"> {{ rol.NombreTorneo }} </option>
+      </select>
+    </div>
+
+    <div class="col">
+      <label for="">descripcion</label>
+      <input type="text" class="form-control" placeholder="descripcion" formControlName="descripcion">
+  </div>
+
+
+      <div class="d-flex justify-content-center" style="padding-top: 5%;">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+      </div>
+  </form>
+</div>

@@ -14,7 +14,8 @@ export class EquiposService {
   get refresh() {
     return this._refresh$;
   }
-
+  constructor(private http: HttpClient) { }
+  
   ObtenerEquipos():Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token,'Content-Type': 'application/json'}
@@ -50,5 +51,11 @@ export class EquiposService {
     return this.http.post<any>(environment.urlApi+"ObtenerCPEspecifico",id,{headers})
   }
 
-  constructor(private http: HttpClient) { }
+  ObtenerJugadoresActivos(id:string):Observable<any>{
+    const token = localStorage.getItem("Token")
+    const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
+    return this.http.get<any>(environment.urlApi+"ObtenerJugadoresActivos?ID_Equipo="+id, {headers})
+  }
+
+ 
 }

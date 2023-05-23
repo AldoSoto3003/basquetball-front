@@ -30,6 +30,17 @@ import { TorneoalbitroComponent } from './admin/components/TorneoAlbitro/torneoa
 import { OptenerTercejComponent } from './admin/components/TorneoEdiRamaCatEquipoJug/optenertercej/optener-tercej.component';
 import { UsuariosGuard } from './guards/usuarios.guard';
 import { TorneosGuard } from './guards/torneos.guard';
+import { CanchasGuard } from './guards/canchas.guard';
+import { CategoriasGuard } from './guards/categorias.guard';
+import { EdicionesGuard } from './guards/ediciones.guard';
+import { JugadorGuard } from './guards/jugador.guard';
+import { EquipoGuard } from './guards/equipo.guard';
+import { TorneoalbitroGuard } from './guards/torneoalbitro.guard';
+import { TorneocanchaGuard } from './guards/torneocancha.guard';
+import { TorEdicRamaCategoriaGuard } from './guards/tor-edic-rama-categoria.guard';
+import { TorEdiRamaCatEquipoGuard } from './guards/tor-edi-rama-cat-equipo.guard';
+import { EquipostorneoGuard } from './guards/equipostorneo.guard';
+import { JugadoractivoComponent } from './admin/components/jugadoractivo/jugadoractivo.component';
 
 
 
@@ -45,18 +56,19 @@ const routes: Routes = [
 
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
     {path:"usuarios", component: UsuariosComponent, canActivate:[UsuariosGuard]},
-    {path:"canchas", component:CanchasComponent},
-    {path:'categorias',component:CategoriasComponent},
-    {path:'ediciones',component:EdicionesComponent},
-    {path:'jugadores',component:JugadoresComponent},
-    {path:'equipos-A',component:EquiposComponent},
-    {path:'equiposTorneo',component:EquipoTorneoRegistrarComponent},
+    {path:"canchas", component:CanchasComponent,canActivate:[CanchasGuard]},
+    {path:'categorias',component:CategoriasComponent,canActivate:[CategoriasGuard]},
+    {path:'ediciones',component:EdicionesComponent,canActivate:[EdicionesGuard]},
+    {path:'jugadores',component:JugadoresComponent,canActivate:[JugadorGuard]},
+    {path:'equipos-A',component:EquiposComponent,canActivate:[EquipoGuard]},
+    {path:'equiposTorneo',component:EquipoTorneoRegistrarComponent,canActivate:[EquipostorneoGuard]},
     {path:'localidades',component:LocalidadesComponent},
-    {path:'optenerterc',component:OptenerTercComponent},
-    {path:'torneocanchas',component:TorneocanchasComponent},
+    {path:'optenerterc',component:OptenerTercComponent,canActivate:[TorEdicRamaCategoriaGuard]},
+    {path:'torneocanchas',component:TorneocanchasComponent,canActivate:[TorneocanchaGuard]},
     {path:'torneo',component:TorneoComponent,canActivate:[TorneosGuard]},
-    {path:'torneoalbitro',component:TorneoalbitroComponent},
-    {path:'optenertercej',component:OptenerTercejComponent}
+    {path:'torneoalbitro',component:TorneoalbitroComponent,canActivate:[TorneoalbitroGuard]},
+    {path:'optenertercej',component:OptenerTercejComponent,canActivate:[TorEdiRamaCatEquipoGuard ]},
+    {path:'jugadoractivo',component:JugadoractivoComponent}
 
   ] },
   

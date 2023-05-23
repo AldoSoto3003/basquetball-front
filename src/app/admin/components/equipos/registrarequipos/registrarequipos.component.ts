@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { equiposI } from 'src/app/models/equipos.interface';
 import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
+import { JugadorA } from 'src/app/models/jugadoractivo.interface';
 
 @Component({
   selector: 'app-registrarequipos',
@@ -26,6 +27,7 @@ export class RegistrarequiposComponent {
     categorias !: equiposI[];
     codigo_postal !: CodigoPostal[];
     base64:string;
+    jugadorA!:JugadorA[];
     codigo_postal_para_obtener_asentamientos = ''
     imagen:any = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
     reader = new FileReader();
@@ -40,7 +42,14 @@ export class RegistrarequiposComponent {
       imagen : new FormControl('',Validators.required), 
     })
 
-    ngOnInit(){ }
+    ngOnInit(){ 
+      let token = localStorage.getItem('Token')
+      this.EquiposService.ObtenerJugadoresActivos('1').subscribe( data => {
+        this.jugadorA = data.data
+      })
+
+
+    }
 
 
     onRegister(form:any){

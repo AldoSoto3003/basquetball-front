@@ -33,12 +33,16 @@ import { AdminModule } from './admin/admin.module';
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
     Error500Component,
-    ErrorComponent
+    ErrorComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,10 @@ import { AdminModule } from './admin/admin.module';
     MatSnackBarModule,
     MatTabsModule,
     MatFormFieldModule,
+    AdminModule,
  
 
-    AdminModule,
+   
     AccountModule,
     PagesModule,
     SharedModule,

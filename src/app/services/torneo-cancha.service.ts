@@ -15,11 +15,14 @@ export class TorneoCanchaService {
 
   constructor(private http: HttpClient) { }
 
-  ObtenerTorneoCanchas():Observable<any>{
+ 
+  ObtenerTorneoCanchas(id:string):Observable<any>{
     const token = localStorage.getItem("Token")
-    const headers = { Authorization: "bearer "+ token,'Content-Type': 'application/json'}
-    return this.http.get<any>(environment.urlApi+"ObtenerTorneoCanchas",{headers});
+    const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }
+    return this.http.get<any>(environment.urlApi+"ObtenerTorneoCanchas?id_torneo="+id, {headers})
   }
+
+
   RegistrarTorneoCanchas(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token, 'Content-Type': 'application/json' }

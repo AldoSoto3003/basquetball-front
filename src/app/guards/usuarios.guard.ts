@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuariosGuard implements CanActivate {
-
+ // variable pricipal
   rol_usuario:string = localStorage.getItem("rol")
 
   canActivate(
@@ -15,6 +15,10 @@ export class UsuariosGuard implements CanActivate {
     
     // ID_rol = 1 // Administrador general
     // ID_rol = 2 // Administrador de torneo
+    // ID_rol = 3 // Jugador
+    // ID_rol = 4 // Entrenador
+    // ID_rol = 5 // Arbitro
+
     const activar = (this.rol_usuario == '1')? true : false;
     
     return activar

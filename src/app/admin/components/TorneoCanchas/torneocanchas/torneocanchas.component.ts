@@ -26,7 +26,7 @@ export class TorneocanchasComponent {
   public search:string = '';
 
   ngOnInit(){
-    this.TorneoCanchaService.ObtenerTorneoCanchas().subscribe( data => {
+    this.TorneoCanchaService.ObtenerTorneoCanchas('1').subscribe( data => {
       console.log(data)
       this.ediciones = data.data
     }), error => { console.log('error categoria oninit',error)}
@@ -56,7 +56,7 @@ export class TorneocanchasComponent {
 
   actualizarCategorias(){
     this.subscription = this.TorneoCanchaService.refresh.subscribe(() => {
-      this.TorneoCanchaService.ObtenerTorneoCanchas().subscribe(data => {
+      this.TorneoCanchaService.ObtenerTorneoCanchas('1').subscribe(data => {
         this.ediciones = data.data
       })
     })
