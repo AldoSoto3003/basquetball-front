@@ -64,6 +64,7 @@ import { ModificarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug
 import { RegistrarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug/registrar-tercej/registrar-tercej.component';
 import { RegistrarjugadoresComponent } from './components/Jugadores-equipos/registrarjugadores/registrarjugadores.component';
 import { JugadoractivoComponent } from './components/jugadoractivo/jugadoractivo.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -117,7 +118,9 @@ import { JugadoractivoComponent } from './components/jugadoractivo/jugadoractivo
     RegistrarTercejComponent,
     JugadoresComponent,
     RegistrarjugadoresComponent,
-    JugadoractivoComponent
+    JugadoractivoComponent,
+    NavbarComponent,
+    
    
   ],
   imports: [

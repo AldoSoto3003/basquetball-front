@@ -62,10 +62,11 @@ export class AdminComponent implements AfterViewInit  {
   cerrarSesion(){
     const log = this.authService.logout().subscribe(x=>{console.log(x.data)})    
     localStorage.removeItem("Token");
-    localStorage.removeItem("token");
     localStorage.removeItem("informacion_usuario");
     localStorage.removeItem("rol");
     localStorage.removeItem("email");
+    localStorage.removeItem("nombre");
+    localStorage.removeItem("apellido");
     this.router.navigate(['home'])
   }
 

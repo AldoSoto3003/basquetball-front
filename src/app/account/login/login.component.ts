@@ -35,6 +35,8 @@ export class LoginComponent {
 
            this.api.authme().subscribe(response => {
             localStorage.setItem("informacion_usuario", JSON.stringify(response.data));
+            localStorage.setItem("nombre",response.data.Nombres);
+            localStorage.setItem("apellido", response.data.ApellidoPaterno);
           }, error => this.alertService.showError("Error",error))
           
           this.router.navigate(['admin'])

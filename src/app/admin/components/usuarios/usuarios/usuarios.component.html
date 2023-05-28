@@ -1,3 +1,4 @@
+
 <div class="form-outline" style="margin-bottom: 15px;">
   <button class="btn btn-primary" (click)="onRegister()" *ngIf="tienePermisoDeAgregar">Agregar usuario</button>
   <input type="text" #txtSearch class="form-control" placeholder="Buscar.." id="datatable-search-input" 
@@ -15,7 +16,7 @@
     </thead>
     <tbody>
       <!-- | paginate: { itemsPerPage:2, currentPage:p }  -->
-      <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage:5, currentPage:p } | UsuariosFilter:search" >
+      <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage:10, currentPage:p } | UsuariosFilter:search" >
         <td>
           <div class="d-flex align-items-center">
             <img

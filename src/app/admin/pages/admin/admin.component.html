@@ -81,15 +81,10 @@
                 </a></li>
         </ul>
 
-        <ul class="logout-mode">
-            <li><a (click)="cerrarSesion()">
-                    <i class="uil uil-signout"></i>
-                    <a class="btn btn-danger" id="btn-logout">Cerrar sesion </a>
-                </a></li>
-        </ul>
     </div>
 </nav>
 
 <section class="dashboard">
+    <app-navbar></app-navbar>
     <router-outlet></router-outlet>
 </section>
