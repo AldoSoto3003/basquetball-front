@@ -1,5 +1,6 @@
 export interface JugadorA {
-    id: number;
+  id: number;
+    id_equipo: number;
     Nombres: string;
     ApellidoPaterno: string;
     ApellidoMaterno: string;
@@ -7,4 +8,9 @@ export interface JugadorA {
   }
   
 
+  export interface Respuesta {
+    message: string;
+    status: number;
+    data: JugadorA[];
+  }
   

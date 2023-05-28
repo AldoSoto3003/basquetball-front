@@ -11,6 +11,7 @@ export interface JugadoresI {
 }
 
 export interface Jugadore {
+Nombres: any;
     id_equipo:     number;
     id_jugador:    number;
     DorsalJugador: number;
