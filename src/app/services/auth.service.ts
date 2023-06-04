@@ -19,7 +19,8 @@ export class AuthService {
 
   loginByEmail(form:LoginI):Observable<any>{
     this.loggedIn = false;
-    return this.http.post<any>(environment.urlApi+"auth/login",form)
+    const headers = {'Content-Type': 'application/json' }
+    return this.http.post<any>(environment.urlApi+"auth/login",form,{headers})
   }
 
   authme():Observable<Petition<Usuario>>{
