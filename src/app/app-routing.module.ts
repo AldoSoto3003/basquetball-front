@@ -45,10 +45,9 @@ import { JugadoractivoComponent } from './admin/components/jugadoractivo/jugador
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home/login', pathMatch: 'full' },
 
   { path:"home",component: HomeComponent, children:[
-    
     {path:"marcadores", component: MarcadoresComponent},
     {path:"posiciones", component: PosicionesComponent},
     {path:"login",component: LoginComponent },
