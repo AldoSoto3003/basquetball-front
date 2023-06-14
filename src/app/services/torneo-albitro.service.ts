@@ -24,7 +24,7 @@ export class TorneoAlbitroService {
   ModificarTorneoArbitro(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarTorneoArbitro",form,{headers})
+    return this.http.post<any>(environment.urlApi+"ModificarTorneoArbitro",form,{headers})
   }
   ObtenerTorneoArbitro():Observable<any>{
     const token = localStorage.getItem("Token")

@@ -36,13 +36,13 @@ export class EquiposService {
   EliminarEquipo(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.delete<any>(environment.urlApi+"EliminarEquipo?id="+id,{headers})
+    return this.http.post<any>(environment.urlApi+"EliminarEquipo?id="+id,{headers})
   }
 
   ModificarEquipo(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarEquipo",form,{headers})
+    return this.http.post<any>(environment.urlApi+"ModificarEquipo",form,{headers})
   }
 
   ObtenerCodigoPostal(id:any):Observable<any>{

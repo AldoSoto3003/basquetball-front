@@ -1,0 +1,9 @@
+
+{
+  "/api/*": {
+    "target": "https://basquetsoft.000webhostapp.com/api/public/api/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

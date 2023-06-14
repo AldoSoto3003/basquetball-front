@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, tap } from 'rxjs';
-
 import { environment } from 'src/environments/environment.prod';
 import { ListaUsuariosI, Usuario } from '../models/Usuario.model';
 import { Petition } from '../models/Petition.model';
@@ -44,7 +43,7 @@ export class UserService {
   EliminarUnUsuario(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.delete<any>(environment.urlApi+"EliminarUsuario?id="+id,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"EliminarUsuario?id="+id,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })
@@ -54,7 +53,7 @@ export class UserService {
   EditarUnUsuario(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarUsuario",form,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"ModificarUsuario",form,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })

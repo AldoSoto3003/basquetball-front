@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterLink } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 
@@ -13,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
   ],
   exports:[
     NavbarComponent,

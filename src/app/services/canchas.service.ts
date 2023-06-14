@@ -32,7 +32,7 @@ export class CanchasService {
   }
 
   ActualizarCancha(data:any):Observable<Petition<CanchasI>>{
-    return this.http.put<Petition<CanchasI>>(environment.urlApi+"ActualizarCancha",JSON.stringify(data),{
+    return this.http.post<Petition<CanchasI>>(environment.urlApi+"ActualizarCancha",JSON.stringify(data),{
       headers:{
           authorization: "bearer " + localStorage.getItem("data")!,
         'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export class CanchasService {
    //modificar estatus
 
    ModificarEstatus(data: any): Observable<Petition<CanchasI>> {
-    return this.http.put<Petition<CanchasI>>(
+    return this.http.post<Petition<CanchasI>>(
       environment.urlApi + 'ModificarEstatus',
       JSON.stringify(data),
       {

@@ -28,7 +28,7 @@ export class TorneoEdicionRamaCategoriaService {
   ModificarTorneoEdicionRamaCategoria(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarTorneoEdicionRamaCategoria",form,{headers})
+    return this.http.post<any>(environment.urlApi+"ModificarTorneoEdicionRamaCategoria",form,{headers})
   }
 
   obtenerTorneos():Observable<any>{

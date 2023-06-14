@@ -43,7 +43,7 @@ export class CategoriaService {
   EditarUnaCategoria(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarCategoria",form,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"ModificarCategoria",form,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })
@@ -54,7 +54,7 @@ export class CategoriaService {
   EliminarUnaCategoria(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.delete<any>(environment.urlApi+"EliminarCategoria?id="+id,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"EliminarCategoria?id="+id,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })

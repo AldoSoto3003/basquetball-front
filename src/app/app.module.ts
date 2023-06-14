@@ -60,9 +60,6 @@ import { AdminModule } from './admin/admin.module';
     MatTabsModule,
     MatFormFieldModule,
     AdminModule,
- 
-
-   
     AccountModule,
     PagesModule,
     SharedModule,

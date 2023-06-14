@@ -141,7 +141,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatListModule,
     MatFormFieldModule,
     MatDialogModule,
-    
+    MatIconModule,
     NgbDatepickerModule,
     NgbDatepicker,
     NgbAlertModule,

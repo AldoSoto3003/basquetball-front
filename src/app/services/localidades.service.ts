@@ -26,7 +26,7 @@ export class LocalidadesService {
   ModificarLocalidad(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarLocalidad",form,{headers})
+    return this.http.post<any>(environment.urlApi+"ModificarLocalidad",form,{headers})
   }
 
   ObtenerCodigoPostal(id:any):Observable<any>{
@@ -36,7 +36,7 @@ export class LocalidadesService {
   }
 
   ModificarEstatus(data: any): Observable<Petition<LocalidadesI>> {
-    return this.http.put<Petition<LocalidadesI>>(
+    return this.http.post<Petition<LocalidadesI>>(
       environment.urlApi + 'ModificarEstatusLocalidad',
       JSON.stringify(data),
       {

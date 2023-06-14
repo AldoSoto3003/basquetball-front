@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlApi:  'http://basquetsoft.000webhostapp.com/api/public/api/'
+  urlApi:  'https://basquetsoft.000webhostapp.com/api/public/api/'
 };

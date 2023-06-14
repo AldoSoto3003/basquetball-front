@@ -4,6 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  MatIconModule } from '@angular/material/icon';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class AccountModule { }

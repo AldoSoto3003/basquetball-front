@@ -1,12 +1,20 @@
 
 @import '~@angular/cdk/overlay-prebuilt.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 *{
-    font-family: 'Poppins'
-} 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ font-family: "Poppins",sans-serif;
+ font-weight: 400;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

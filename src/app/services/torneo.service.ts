@@ -31,7 +31,7 @@ export class TorneoService {
   EditarTorneo(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.put<any>(environment.urlApi+"ModificarTorneo",form,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"ModificarTorneo",form,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })
@@ -41,7 +41,7 @@ export class TorneoService {
   EliminarTorneo(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.delete<any>(environment.urlApi+"EliminarTorneo?id="+id,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"EliminarTorneo?id="+id,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })
