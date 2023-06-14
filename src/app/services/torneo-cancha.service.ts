@@ -33,7 +33,6 @@ export class TorneoCanchaService {
       )
   }
 
-
   ModificarTorneoCanchas(form:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }

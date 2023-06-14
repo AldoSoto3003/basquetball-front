@@ -3,31 +3,31 @@
     <form action="" [formGroup]="editarForm" (ngSubmit)="enEditar(editarForm)">
         <div class="col">
             <label for="">Nombre de la categoria</label>
-            <input type="text" class="form-control" placeholder="Nombre de la categoria" formControlName="NombreCategoria">
+            <input type="text" class="form-control" formControlName="NombreCategoria">
         </div>
         <div class="col">
           <label for="">Descripción</label>
-          <input type="text" class="form-control" placeholder="Descripcion" formControlName="Descripcion">
+          <input type="text" class="form-control" formControlName="Descripcion">
       </div>
         <div class="form-group row">
             <div class="col">
-              <label for="">Edad minima varones</label>
-              <input type="number" class="form-control" placeholder="Edad minima varon" formControlName="EdadMin">
+              <label for="">Edad minima hombres</label>
+              <input type="number" class="form-control" formControlName="EdadMin">
             </div>
             <div class="col">
-              <label for="">Edad maxima varones</label>
-              <input type="number" class="form-control" placeholder="Edad maxima varon" formControlName="EdadMax">
+              <label for="">Edad maxima hombres</label>
+              <input type="number" class="form-control"formControlName="EdadMax">
             </div>
         </div>
 
         <div class="form-group row">
           <div class="col">
-            <label for="">Edad minima Hembras</label>
-            <input type="number" class="form-control" placeholder="Edad minima hembra" formControlName="EdadMujerMin">
+            <label for="">Edad minima femenina</label>
+            <input type="number" class="form-control"formControlName="EdadMujerMin">
           </div>
           <div class="col">
-            <label for="">Edad maxima Hembras</label>
-            <input type="number" class="form-control" placeholder="Edad maxima hembra" formControlName="EdadMujerMax">
+            <label for="">Edad maxima femenina</label>
+            <input type="number" class="form-control" formControlName="EdadMujerMax">
           </div>
         </div>
         
