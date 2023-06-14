@@ -16,6 +16,6 @@
 
     ej. ng g g guards/torneos
 
-##Probar Frontend sin CORS
-    Abrir CMD o Powershell y ejecutar dicho comando.
-"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=%LOCALAPPDATA%\Google\chromeTemp
+## Probar Frontend sin CORS con la API de 000webhost
+    Abrir CMD y ejecutar dicho comando.
+    "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=%LOCALAPPDATA%\Google\chromeTemp

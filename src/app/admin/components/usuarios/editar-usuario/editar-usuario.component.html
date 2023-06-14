@@ -4,7 +4,7 @@
     <div class="mb-3">
       <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="" width="200" height="200" [src]="imageURL" />
       <label for="exampleFormControlFile1">Subir fotografia</label>
-      <input class="form-control" type="file" id="formFile" accept="image/*" formControlName="imagen" (change)="onFileChanged($event )" >
+      <input class="form-control" type="file" id="formFile" accept="image/*"  (change)="onFileChanged($event )" >
     </div>
       <div class="form-group row">
           <div class="col">
@@ -38,14 +38,14 @@
       <div class="form-group row">
         <div class="col">
           <label for="">Fecha de nacimiento</label>
-          <input type="date" class="form-control" placeholder="2000/01/01"  [class.is-invalid] = 'fechaNoValido'>
+          <input type="date" class="form-control" placeholder="2000/01/01" formControlName="Fecha_Nacimiento" [class.is-invalid] = 'fechaNoValido'>
           <small *ngIf="fechaNoValido" class="text-danger">Campo requerido</small>
         </div>
         <div class="col">
           <label class="form-label">Rol</label>
           <select class="form-select" required formControlName="Id_Rol" [class.is-invalid] = 'rolNoValido'>
             <option selected disabled value="">Elige...</option>
-            <option *ngFor="let rol of roles" [ngValue]="rol.Id_Rol"> {{ rol.name }} </option>
+            <option *ngFor="let rol of roles" [value]="rol.Id_Rol"> {{ rol.name }} </option>
           </select>
           <small *ngIf="rolNoValido" class="text-danger">Campo requerido</small>
         </div>
@@ -61,7 +61,7 @@
           <label class="form-label">Colonia</label>
           <select class="form-select" required formControlName="id_asenta"  [class.is-invalid] = 'asentaNoValido'>
             <option selected disabled value="">Elige...</option>
-            <option *ngFor="let codigo of codigo_postal" [ngValue]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
+            <option *ngFor="let codigo of codigo_postal" [value]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
           </select>
           <small *ngIf="asentaNoValido" class="text-danger">Campo requerido</small>
         </div>
@@ -83,7 +83,7 @@
           <label class="form-label">Genero</label>
           <select class="form-select" required formControlName="Id_Genero" [class.is-invalid]="curpNoValido">
             <option selected disabled value="">Elige...</option>
-            <option *ngFor="let genero of generos" [ngValue]="genero.ID_Genero"> {{ genero.Descripcion }} </option>
+            <option *ngFor="let genero of generos" [value]="genero.ID_Genero"> {{ genero.Descripcion }} </option>
           </select>
           <small *ngIf="curpNoValido" class="text-danger">Campo requerido</small>
         </div>
@@ -100,9 +100,9 @@
      </div>
      <br><br>
   
-     <div class="d-flex justify-content-center" >
+     <div class="d-flex justify-content-center btn-group" >
       <button type="submit" class="btn btn-primary">Guardar</button>
-      <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+      <button type="button" class="btn btn-danger" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
     </div>
   </form>
 </div>
