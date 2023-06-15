@@ -31,7 +31,7 @@ export class TorneoEdiRamaCatEquipoService {
   EliminarTERCEJ(id:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.post<any>(environment.urlApi+"EliminarTERCEJ?id="+id,{headers}).pipe(
+    return this.http.post<any>(environment.urlApi+"EliminarTERCEJ?id="+id,null,{headers}).pipe(
       tap(() => {
         this.refresh.next()
       })

@@ -57,7 +57,7 @@ export class EquiposJugadoresService  {
   EliminarJugadorEquipo(id_equipo:any, id_usuario:any):Observable<any>{
     const token = localStorage.getItem("Token")
     const headers = { Authorization: "bearer "+ token }
-    return this.http.post<any>(environment.urlApi+"EliminarJugadorEquipo?id_equipo="+id_equipo+"&id_jugador="+id_usuario,{headers})
+    return this.http.post<any>(environment.urlApi+"EliminarJugadorEquipo?id_equipo="+id_equipo+"&id_jugador="+id_usuario,null,{headers})
   }
  
 
