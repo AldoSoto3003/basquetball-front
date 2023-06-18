@@ -33,10 +33,14 @@ export class RegistrarTorneoComponent {
       if (form.valid){
         console.log('Este es el form',form)
         this.TorneoService.RegistrarTorneo(form.value).subscribe( data => {
-          if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
+          if (data.status == 200){
+            this.dialogRef.close(true)
+            this.alertService.showSuccess(data.message,'Correcto')
+          }
         }), error => this.alertService.showError('Error',error)
       }else{
         console.log('Este es el form',form)
+        this.dialogRef.close(false)
         this.alertService.showError('Formulario no valido','Fallo')
       }
   }

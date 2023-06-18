@@ -5,6 +5,7 @@ import { AlertasService } from 'src/app/services/alertas.service';
 import { TorneoService } from 'src/app/services/torneo.service';
 import { EditarTorneoComponent } from '../editar-torneo/editar-torneo.component';
 import { RegistrarTorneoComponent } from '../registrar-torneo/registrar-torneo.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-torneo',
@@ -17,6 +18,7 @@ export class TorneoComponent {
   ediciones: TorneoI[]
   p:number = 1;
   public searchCategoria : string = ""
+  subscription:Subscription;
 
   @ViewChildren(EditarTorneoComponent)
   editarCancha:EditarTorneoComponent;
@@ -26,7 +28,17 @@ export class TorneoComponent {
     this.TorneoService.obtenerTorneos().subscribe( data => {
       console.log(data)
       this.ediciones = data.data
-    }), error => { console.log('error categoria oninit',error)}
+    }), error => { console.log('error torneo oninit',error)}
+
+    this.actualizarCategorias();
+  }
+
+  actualizarCategorias(){
+    this.subscription = this.TorneoService.refresh.subscribe(() => {
+      this.TorneoService.obtenerTorneos().subscribe(data => {
+        this.ediciones = data.data
+      })
+    })
   }
 
   onSearch(busqueda:string){
@@ -60,8 +72,10 @@ export class TorneoComponent {
 
   onDelete(id){
      this.TorneoService.EliminarTorneo(id).subscribe( data => {
-       this.alertService.showSuccess('La categoria se elimino','Exito!')
+       this.alertService.showSuccess('Torneo Inactivo','Exito!')
      }), error => { this.alertService.showError('Error',error.error.data)}
+
+     this.actualizarCategorias();
   }
 
 }

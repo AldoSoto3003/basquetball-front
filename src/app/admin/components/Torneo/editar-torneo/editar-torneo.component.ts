@@ -37,12 +37,19 @@ export class EditarTorneoComponent {
       console.log('Valido',form.value)
       
       this.TorneoService.EditarTorneo(form.value).subscribe( data => {
-        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
-        else{this.alertService.showError(data.message,'Error')}
+        if (data.status == 200){
+          this.dialogRef.close(true)
+          this.alertService.showSuccess(data.message,'Correcto')
+        }
+        else{
+          this.dialogRef.close(false)
+          this.alertService.showError(data.message,'Error')
+        }
       }), error =>{ this.alertService.showError('Ocurrio un error',error.error.data)}
 
     }else{
       console.log('No valido',form.value)
+      this.dialogRef.close(false)
       this.alertService.showError('Formulario no valido','Fallo')
     }
   }
