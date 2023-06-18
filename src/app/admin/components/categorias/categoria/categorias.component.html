@@ -10,8 +10,9 @@
         <th>Descripcion</th>
         <th>Edad Varonil</th>
         <th>Edad Femenil</th>
+        <th>Estatus</th>
         <th>Editar</th>
-        <th>Borrar</th>
+        <th>Cambiar Estatus</th>
       </tr>
     </thead>
     <tbody>
@@ -24,18 +25,25 @@
           </div>
         </td>
         <td>
-          <p class="fw-normal mb-1">{{ categoria.EdadMin }}</p>
-          <p class="text-muted mb-0">{{ categoria.EdadMax }}</p>
+          <p class="fw-normal mb-1">Min: {{ categoria.EdadMin }}</p>
+          <p class="text-muted mb-0">Max: {{ categoria.EdadMax }}</p>
         </td>
         <td>
-          <p class="fw-normal mb-1">{{ categoria.EdadMujerMin }}</p>
-          <p class="text-muted mb-0">{{ categoria.EdadMujerMax }}</p>
+          <p class="fw-normal mb-1">Min: {{ categoria.EdadMujerMin }}</p>
+          <p class="text-muted mb-0">Max: {{ categoria.EdadMujerMax }}</p>
+        </td>
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="ms-3">
+              <p class="fw-bold mb-1"> {{ categoria.Estatus }} </p>
+            </div>
+          </div>
         </td>
         <td>
           <button type="button" class="btn btn-primary" (click)="onEdit( categoria )">Editar</button>
         </td>
         <td>
-          <button type="button" class="btn btn-danger" (click)="onDelete( categoria.id )">Eliminar</button>
+          <button type="button" class="btn btn-danger" (click)="onDelete( categoria.id )">Cambiar</button>
         </td>
       </tr>
     </tbody>
