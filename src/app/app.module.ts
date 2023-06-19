@@ -30,6 +30,8 @@ import { UpdatepasswordComponent } from './account/updatepassword/updatepassword
 
 import { FormsModule } from '@angular/forms';
 import { updatepassService } from './services/changepassword';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PaginationService } from 'ngx-pagination';
 
 
 
@@ -62,6 +64,7 @@ import { updatepassService } from './services/changepassword';
     PagesModule,
     SharedModule,
     ReactiveFormsModule,
+   MatDialogModule,
    
 
     BrowserAnimationsModule,
@@ -70,6 +73,7 @@ import { updatepassService } from './services/changepassword';
     
   ],
  providers: [
+  PaginationService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
    
     {
