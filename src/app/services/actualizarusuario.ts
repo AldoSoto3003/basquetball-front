@@ -36,5 +36,11 @@ import { environment } from 'src/environments/environment.prod';
         })
       );
     }
+
+    ObtenerCodigoPostal(id:any):Observable<any>{
+      const token = localStorage.getItem("Token")
+      const headers = { Authorization: "bearer "+ token }
+      return this.http.post<any>(environment.urlApi+"ObtenerCPEspecifico",id,{headers})
+    }
   }
   

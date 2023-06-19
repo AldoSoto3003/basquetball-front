@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
 import { ActualizarUsuario } from 'src/app/services/actualizarusuario';
-
+import { AlertasService } from 'src/app/services/alertas.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-editarperfil',
   templateUrl: './editarperfil.component.html',
@@ -14,14 +16,30 @@ export class EditarperfilComponent implements OnInit {
   reader = new FileReader();
   public imagePath: any;
   public message: string;
+  codigo_postal !: CodigoPostal[];
+  codigo_postal_para_obtener_asentamientos: '';
+  base64: string;
+  imageURL: any;
 
 
-  constructor(
-    private route: ActivatedRoute,
-    private actualizarUsuarioService: ActualizarUsuario
-  ) {
-    // Elimina la asignación de response.data.id del constructor
-  }
+
+  constructor(private actualizarUsuarioService: ActualizarUsuario, private activerouter: ActivatedRoute,  private alertService: AlertasService,) { }
+
+  
+  get nombreNoValido() { return this.formDatosUsuario.get('Nombres')?.invalid && this.formDatosUsuario.get('Nombres').touched }
+  get ApellidoPaternoNoValido() { return this.formDatosUsuario.get('ApellidoPaterno')?.invalid && this.formDatosUsuario.get('ApellidoPaterno').touched }
+  get ApellidoMaternoNoValido() { return this.formDatosUsuario.get('ApellidoMaterno')?.invalid && this.formDatosUsuario.get('ApellidoMaterno').touched }
+  get emailNoValido() { return this.formDatosUsuario.get('email')?.invalid && this.formDatosUsuario.get('email').touched }
+  get DomicilioNoValido() { return this.formDatosUsuario.get('Domicilio')?.invalid && this.formDatosUsuario.get('Domicilio').touched }
+  get fechaNoValido() { return this.formDatosUsuario.get('Fecha_Nacimiento')?.invalid && this.formDatosUsuario.get('Fecha_Nacimiento').touched }
+  get numSSNoValido() { return this.formDatosUsuario.get('numSS')?.invalid && this.formDatosUsuario.get('numSS').touched }
+  get cpNoValido() { return this.formDatosUsuario.get('CP')?.invalid && this.formDatosUsuario.get('CP').touched }
+  get curpNoValido() { return this.formDatosUsuario.get('curp')?.invalid && this.formDatosUsuario.get('curp').touched }
+  get telefonoNoValido() { return this.formDatosUsuario.get('telefono')?.invalid && this.formDatosUsuario.get('telefono').touched }
+  get referenciaNoValido() { return this.formDatosUsuario.get('referencia')?.invalid && this.formDatosUsuario.get('referencia').touched }
+  get rolNoValido() { return this.formDatosUsuario.get('Id_Rol')?.invalid && this.formDatosUsuario.get('Id_Rol').touched }
+  get asentaNoValido() { return this.formDatosUsuario.get('id_asenta')?.invalid && this.formDatosUsuario.get('id_asenta').touched }
+
   
   ngOnInit(): void {
     this.formDatosUsuario = new FormGroup({
@@ -88,6 +106,27 @@ export class EditarperfilComponent implements OnInit {
       }, error => {
         console.error('Error al actualizar el usuario', error);
       });
+  }
+
+  obtenerAsentamientos() {
+    this.codigo_postal_para_obtener_asentamientos = this.formDatosUsuario.controls["CP"].value
+    if (this.codigo_postal_para_obtener_asentamientos.length == 5) {
+      const codigo_postal = { 'CP': this.codigo_postal_para_obtener_asentamientos }
+      this.actualizarUsuarioService.ObtenerCodigoPostal(codigo_postal).subscribe(data => {
+        this.codigo_postal = data.data
+      })
+    }
+  }
+
+  onFileChanged(event) {
+    if (event.target.files) {
+      this.reader.readAsDataURL(event.target.files[0]);
+      this.reader.onload = (event: any) => {
+        this.imageURL = event.target.result
+        this.base64 = this.reader.result as string;
+        this.formDatosUsuario.controls["imagen"].setValue(this.base64)
+      }
+    }
   }
   
 }

@@ -5,6 +5,11 @@
     </div>
     <div class="modal-body">
       <form [formGroup]="formDatosUsuario">
+        <div class="mb-3">
+          <img id="profile-photo" class="rounded-circle shadow-4-strong" alt="" width="200" height="200" [src]="imageURL" />
+          <label for="exampleFormControlFile1">Subir fotografia</label>
+          <input class="form-control" type="file" id="formFile" accept="image/*"  (change)="onFileChanged($event )" >
+        </div>
         <div class="content-wrapper">
           <div class="text-wrapper">
             <label class="label-text">Nombre:</label>
@@ -27,13 +32,21 @@
             <label class="label-text">Domicilio:</label>
             <input type="text" name="Domicilio" formControlName="Domicilio" >
           </div>
-          <div class="text-wrapper">
-            <label class="label-text">Asentamiento:</label>
-            <input type="text" name="id_asenta" formControlName="id_asenta" >
-          </div>
-          <div class="text-wrapper">
-            <label class="label-text">Código Postal:</label>
-            <input type="text" name="CP" formControlName="CP" >
+          <div class="form-group row">
+            <div class="col">
+              <label for="">CP</label>
+              <input type="text" class="form-control" placeholder="CP" formControlName="CP" (change)="obtenerAsentamientos()" [class.is-invalid]="cpNoValido">
+              <small *ngIf="cpNoValido" class="text-danger">Campo requerido</small>
+            </div>
+            
+            <div class="col">
+              <label class="form-label">Colonia</label>
+              <select class="form-select" required formControlName="id_asenta"  [class.is-invalid] = 'asentaNoValido'>
+                <option selected disabled value="">Elige...</option>
+                <option *ngFor="let codigo of codigo_postal" [value]="codigo.id_asenta_cp_cpcons"> {{ codigo.d_tipo_asenta }} {{ codigo.d_asenta }}</option>
+              </select>
+              <small *ngIf="asentaNoValido" class="text-danger">Campo requerido</small>
+            </div>
           </div>
           <div class="text-wrapper">
             <label class="label-text">Referencia:</label>
@@ -60,10 +73,6 @@
           <button type="submit" class="btn-primary" (click)="updateUser()">Actualizar Perfil</button>
         </div>
       </form>
-     
-      <div class="image-wrapper">
-        <img class="photo"  alt="Foto del usuario" [src]="this.imgURL">
-      </div>
     </div>
   </div>
 </div>
