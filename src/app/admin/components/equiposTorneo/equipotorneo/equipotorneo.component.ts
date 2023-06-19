@@ -19,14 +19,14 @@ export class EquipotorneoComponent {
   get fechaInicialValido(){ return this.nuevoForm.get('fechaInicial')?.invalid && this.nuevoForm.get('fechaInicial').touched }
   get fechafinalValido(){ return this.nuevoForm.get('fechaFinal')?.invalid && this.nuevoForm.get('fechaFinal').touched }
 
-  
+
   constructor( private EquiposTorneoService:EquiposTorneoService,private router:Router, private alertService:AlertasService
     ,private dialogRef: MatDialogRef<EquipotorneoComponent>, @Inject(MAT_DIALOG_DATA) public categoriaActual:  EdicionesTorneoI){}
 
     categorias !: EquiposTorneoService[];
     roles !:TorneoI[];
-   
-  
+
+
 
     nuevoForm = new FormGroup({
       id_torneo: new FormControl('',Validators.required),
@@ -46,7 +46,11 @@ export class EquipotorneoComponent {
       if (form.valid){
         console.log('Este es el form',form)
         this.EquiposTorneoService.RegistrarEdicionTorneo(form.value).subscribe( data => {
-          if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
+          if (data.status == 200){
+            this.alertService.showSuccess(data.message,'Correcto')
+          this.dialogRef.close();
+          }
+
         }), error => this.alertService.showError('Error',error)
       }else{
         console.log('Este es el form',form)

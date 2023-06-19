@@ -41,8 +41,8 @@ export class EditarLocalidadesComponent {
     NombreLocalidad : new FormControl('',Validators.required),
     Domicilio : new FormControl('',Validators.required),
     id_asentamiento : new FormControl('',Validators.required),
-    cp : new FormControl('',Validators.required), 
-    urlImagen : new FormControl('',Validators.required),          
+    cp : new FormControl('',Validators.required),
+    urlImagen : new FormControl('',Validators.required),
   })
 
 
@@ -53,9 +53,10 @@ export class EditarLocalidadesComponent {
   onUpdate(form:any){
     if (form.valid){
       console.log('Valido',form.value)
-      
+
       this.LocalidadesService.ModificarLocalidad(form.value).subscribe( data => {
         this.alertService.showSuccess('Formulario valido','Exito')
+        this.dialogRef.close();
       }), error =>{ this.alertService.showError('Ocurrio un error',error.error.data)}
 
     }else{
@@ -65,7 +66,7 @@ export class EditarLocalidadesComponent {
   }
 
 setDatos(){
-  
+
   this.base64=this.categoriaActual.urlImagen
   this.editarForm.controls["NombreLocalidad"].setValue(this.categoriaActual.NombreLocalidad)
   this.editarForm.controls["Domicilio"].setValue(this.categoriaActual.Domicilio)

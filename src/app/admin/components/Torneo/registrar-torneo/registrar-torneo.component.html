@@ -1,14 +1,14 @@
 
 <div mat-dialog-content>
+  <h1>Registrar un torneo nuevo</h1>
     <form action="" [formGroup]="nuevoForm" (ngSubmit)="onRegister(nuevoForm)">
         <div class="col">
             <label for="">Nombre de torneo</label>
             <input type="text" class="form-control" placeholder="Nombre Torneo" formControlName="NombreTorneo">
-        </div>       
+        </div>
         <div class="d-flex justify-content-center" style="padding-top: 5%;">
-          <button type="submit" class="btn btn-primary">Guardar</button>
-          <button type="button" class="btn btn-primary" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
+          <button type="submit" style="margin-right: 15px;"class="btn btn-primary">Guardar</button>
+          <button type="button" style="margin-right: 50px;" class="btn btn-danger" mat-button mat-dialog-close (click)="onSalir()">Salir</button>
         </div>
     </form>
   </div>
-  

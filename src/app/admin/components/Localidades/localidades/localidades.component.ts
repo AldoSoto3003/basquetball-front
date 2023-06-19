@@ -14,13 +14,13 @@ import { RegistrarLocalidadesComponent } from '../registrar-localidades/registra
 export class LocalidadesComponent {
   localidades!: LocalidadesI[];
   p: number = 1;
- 
+
   @ViewChildren(EditarLocalidadesComponent)
   editarCancha:EditarLocalidadesComponent;
   public search:string = '';
 
 
- 
+
   constructor(private router:Router, private LocalidadesService:LocalidadesService,private dialog:MatDialog){ }
 
   ngOnInit():void{
@@ -36,7 +36,7 @@ export class LocalidadesComponent {
 
 
     openDialogEditar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
-      this.dialog.open(EditarLocalidadesComponent, {
+     const dialogRef= this.dialog.open(EditarLocalidadesComponent, {
         width: 'auto',
         enterAnimationDuration,
         exitAnimationDuration,
@@ -45,7 +45,7 @@ export class LocalidadesComponent {
     }
 
     openDialogRegistrar(enterAnimationDuration: string, exitAnimationDuration: string,data:any=""): void {
-      this.dialog.open(RegistrarLocalidadesComponent, {
+    const dialogRef=  this.dialog.open(RegistrarLocalidadesComponent, {
         width: 'auto',
         enterAnimationDuration,
         exitAnimationDuration,
@@ -61,7 +61,7 @@ export class LocalidadesComponent {
       this.openDialogEditar('0ms','0ms',user)
     }
 
-   
+
     onDelete(idUsuario:any){
       // this.CanchasService.EliminarCancha(idUsuario).subscribe( data => {
       //   this.ngOnInit()

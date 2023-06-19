@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
@@ -14,13 +15,14 @@ import { LocalidadesService } from 'src/app/services/localidades.service';
 })
 export class RegistrarLocalidadesComponent {
 
-  constructor( private LocalidadesService: LocalidadesService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService){ }
+  constructor( private LocalidadesService: LocalidadesService ,private activerouter:ActivatedRoute, private router:Router, private alertService:AlertasService,
+    public dialogRef: MatDialogRef<RegistrarLocalidadesComponent>){ }
 
   get NombrelocalidadNoValido(){ return this.nuevoForm.get('NombreLocalidad')?.invalid && this.nuevoForm.get('NombreLocalidad').touched }
   get DomicilioNoValido(){ return this.nuevoForm.get('Domicilio')?.invalid && this.nuevoForm.get('Domicilio').touched }
   get cpNoValido(){ return this.nuevoForm.get('cp')?.invalid && this.nuevoForm.get('cp').touched }
   get id_asentamientoNoValido(){ return this.nuevoForm.get('id_asentamiento')?.invalid && this.nuevoForm.get('id_asentamiento').touched }
-  
+
   model: NgbDateStruct;
   Localidad !: LocalidadesI[];
   codigo_postal !: CodigoPostal[];
@@ -36,14 +38,14 @@ export class RegistrarLocalidadesComponent {
     NombreLocalidad : new FormControl('',Validators.required),
     Domicilio : new FormControl('',Validators.required),
     id_asentamiento : new FormControl('',Validators.required),
-    cp : new FormControl('',Validators.required), 
-    urlImagen : new FormControl('',Validators.required),    
+    cp : new FormControl('',Validators.required),
+    urlImagen : new FormControl('',Validators.required),
   })
 
   ngOnInit():void{
     let token = localStorage.getItem('Token')
 
-  } 
+  }
 
   postForm(form:any){
     if (form.valid){
@@ -51,6 +53,7 @@ export class RegistrarLocalidadesComponent {
       this.alertService.showSuccess('Formulario valido','Exito')
       this.LocalidadesService.RegistrarLocalidad(form.value).subscribe( data => {
         console.log(data)
+        this.dialogRef.close();
       })
 
     }else{
@@ -59,7 +62,7 @@ export class RegistrarLocalidadesComponent {
     }
   }
 
-  
+
 
   onFileChanged(event){
     if (event.target.files){

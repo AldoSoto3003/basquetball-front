@@ -30,14 +30,17 @@ export class EditarTorneoComponent {
 
   ngOnInit():void{
     this.setDatos()
-  } 
+  }
 
   postForm(form:any){
     if (form.valid){
       console.log('Valido',form.value)
-      
+
       this.TorneoService.EditarTorneo(form.value).subscribe( data => {
-        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')}
+        if (data.status == 200){this.alertService.showSuccess(data.message,'Correcto')
+        this.dialogRef.close();
+
+      }
         else{this.alertService.showError(data.message,'Error')}
       }), error =>{ this.alertService.showError('Ocurrio un error',error.error.data)}
 
@@ -48,7 +51,7 @@ export class EditarTorneoComponent {
   }
 
   setDatos(){
-   
+
     this.editarForm.controls["id"].setValue(String(this.usuarioActual.id))
     this.editarForm.controls["NombreTorneo"].setValue(this.usuarioActual.NombreTorneo)
     this.editarForm.controls["Estatus"].setValue("Activo")
