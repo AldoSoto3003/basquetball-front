@@ -10,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class CrudadmintorneoComponent {
   constructor(private dialogRef: MatDialogRef<CrudadmintorneoComponent>) { }
 
-  imageURL = ""
+  imageURL:any = "https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
   generos = []
   codigo_postal = []
   codigo_postal_para_obtener_asentamientos = ""
@@ -30,6 +30,8 @@ export class CrudadmintorneoComponent {
   get rolNoValido() { return this.nuevoForm.get('Id_Rol')?.invalid && this.nuevoForm.get('Id_Rol').touched }
   get asentaNoValido() { return this.nuevoForm.get('id_asenta')?.invalid && this.nuevoForm.get('id_asenta').touched }
   get torneoNoValido() { return this.nuevoForm.get('id_torneo')?.invalid && this.nuevoForm.get('id_torneo').touched }
+
+
   nuevoForm = new FormGroup({
     Nombres: new FormControl('', Validators.required),
     ApellidoPaterno: new FormControl('', Validators.required),

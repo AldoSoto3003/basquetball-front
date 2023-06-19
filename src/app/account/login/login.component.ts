@@ -27,7 +27,8 @@ export class LoginComponent {
   @ViewChildren(CrudadmintorneoComponent)
   crearadmintorneo: CrudadmintorneoComponent;
 
-  constructor(private api: AuthService, private router: Router, private _snackBar: MatSnackBar, private errorService: ErrorHandlerService, private alertService: AlertasService, private dialog: MatDialog) { }
+  constructor(private api: AuthService, private router: Router, private _snackBar: MatSnackBar, 
+        private errorService: ErrorHandlerService, private alertService: AlertasService, private dialog: MatDialog) { }
 
   async onLogin(form) {
     if (form.valid) {
