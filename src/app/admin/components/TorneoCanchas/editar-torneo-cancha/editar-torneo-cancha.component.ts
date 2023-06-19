@@ -51,8 +51,8 @@ export class EditarTorneoCanchaComponent {
     }
     setValues(){
 
-      this.editarForm.controls["id_torneo"].setValue(this.categoriaActual.id_torneo)
-      this.editarForm.controls["id_cancha"].setValue(this.categoriaActual.id_cancha)
+      // this.editarForm.controls["id_torneo"].setValue(this.categoriaActual.id_torneo)
+      // this.editarForm.controls["id_cancha"].setValue(this.categoriaActual.id_cancha)
 
     }
   
