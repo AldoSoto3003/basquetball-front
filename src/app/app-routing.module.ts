@@ -41,16 +41,25 @@ import { TorEdicRamaCategoriaGuard } from './guards/tor-edic-rama-categoria.guar
 import { TorEdiRamaCatEquipoGuard } from './guards/tor-edi-rama-cat-equipo.guard';
 import { EquipostorneoGuard } from './guards/equipostorneo.guard';
 import { JugadoractivoComponent } from './admin/components/jugadoractivo/jugadoractivo.component';
-
+import { RecoveryPasswordComponent } from './account/recovery-password/recovery-password.component';
+import { UpdatepasswordComponent } from './account/updatepassword/updatepassword.component';
+import { ChangepasswordComponent } from './account/changepassword/changepassword.component';
+import { EditarperfilComponent } from './admin/components/editarperfil/editarperfil.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/login', pathMatch: 'full' },
+  {path: "recoverypass", component: RecoveryPasswordComponent},
+  {path: "updatepass", component: UpdatepasswordComponent},
+  
+  
 
   { path:"home",component: HomeComponent, children:[
     {path:"marcadores", component: MarcadoresComponent},
     {path:"posiciones", component: PosicionesComponent},
     {path:"login",component: LoginComponent },
+    
+    
   ]},
 
   { path:"admin", component: AdminComponent,canActivate:[AuthGuard],children:[
@@ -67,7 +76,9 @@ const routes: Routes = [
     {path:'torneo',component:TorneoComponent,canActivate:[TorneosGuard]},
     {path:'torneoalbitro',component:TorneoalbitroComponent,canActivate:[TorneoalbitroGuard]},
     {path:'optenertercej',component:OptenerTercejComponent,canActivate:[TorEdiRamaCatEquipoGuard ]},
-    {path:'jugadoractivo',component:JugadoractivoComponent}
+    {path:'jugadoractivo',component:JugadoractivoComponent},
+    {path: "changepass", component: ChangepasswordComponent},
+    {path: "editarperfil", component: EditarperfilComponent},
 
   ] },
   

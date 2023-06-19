@@ -1,0 +1,65 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title">Modificar Usuario</h1>
+    </div>
+    <div class="modal-body">
+      <div class="content-wrapper">
+        <div class="text-wrapper">
+          <label class="label-text">Nombre:</label>
+          <input type="text" name="Nombres" [(ngModel)]="user.Nombres">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Apellido Paterno:</label>
+          <input type="text" name="ApellidoPaterno" [(ngModel)]="user.ApellidoPaterno">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Apellido Materno:</label>
+          <input type="text" name="ApellidoMaterno" [(ngModel)]="user.ApellidoMaterno">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Fecha de Nacimiento:</label>
+          <input type="date" name="Fecha_Nacimiento" [(ngModel)]="user.Fecha_Nacimiento">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Domicilio:</label>
+          <input type="text" name="Domicilio" [(ngModel)]="user.Domicilio">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Asentamiento:</label>
+          <input type="text" name="id_asenta" [(ngModel)]="user.id_asenta_cpcons">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Código Postal:</label>
+          <input type="text" name="CP" [(ngModel)]="user.cp">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Referencia:</label>
+          <input type="text" name="referencia" [(ngModel)]="user.referencia">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Número de Seguro Social:</label>
+          <input type="text" name="numSS" [(ngModel)]="user.numSS">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">CURP:</label>
+          <input type="text" name="curp" [(ngModel)]="user.curp">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Teléfono:</label>
+          <input type="text" name="telefono" [(ngModel)]="user.telefono">
+        </div>
+        <div class="text-wrapper">
+          <label class="label-text">Email:</label>
+          <input type="email" name="email" [(ngModel)]="user.email">
+        </div>
+
+
+        <button type="submit" class="btn-primary" (click)="updateUser()">Actualizar Perfil</button>
+      </div>
+      <div class="image-wrapper">
+        <img class="photo" [src]="user.urlImagen" alt="Foto del usuario">
+      </div>
+    </div>
+  </div>
+</div>

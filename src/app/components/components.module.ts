@@ -4,25 +4,30 @@ import { CommonModule } from '@angular/common';
 import { PosicionesComponent } from './posiciones/posiciones.component';
 import { MarcadoresComponent } from './marcadores/marcadores.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EquiposComponent } from '../admin/components/equipos/equipos-A/equipos.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
+
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 
 
 
 @NgModule({
   declarations: [
-   
-    EquiposComponent,
     PosicionesComponent,
     MarcadoresComponent,
     RegistroUsuariosComponent,
+    ChangepasswordComponent,
+    
   ],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    FormsModule,
     
   
   ],

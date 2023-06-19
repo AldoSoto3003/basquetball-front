@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AccountModule } from './account/account.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
@@ -19,7 +19,6 @@ import { Error500Component } from './components/error500/error500.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MatIconModule } from '@angular/material/icon';
 
-
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
@@ -27,11 +26,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminModule } from './admin/admin.module';
+import { UpdatepasswordComponent } from './account/updatepassword/updatepassword.component';
 
-
-
-
-
+import { FormsModule } from '@angular/forms';
+import { updatepassService } from './services/changepassword';
 
 
 
@@ -42,6 +40,7 @@ import { AdminModule } from './admin/admin.module';
     LoaderComponent,
     Error500Component,
     ErrorComponent,
+
     
   ],
   imports: [
@@ -59,10 +58,11 @@ import { AdminModule } from './admin/admin.module';
     MatSnackBarModule,
     MatTabsModule,
     MatFormFieldModule,
-    AdminModule,
     AccountModule,
     PagesModule,
     SharedModule,
+    ReactiveFormsModule,
+   
 
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
