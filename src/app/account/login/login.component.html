@@ -16,11 +16,11 @@
                             <mat-icon>email</mat-icon>
                         </span>
 
-                        <input matInput type="email"  name="email" formControlName="email" id="email"
-                        placeholder="correo@correo.com">
+                        <input matInput type="email" name="email" formControlName="email" id="email"
+                            placeholder="correo@correo.com">
                     </mat-form-field>
-                    
-                    
+
+
                 </div>
                 <div class="mb-2">
                     <mat-form-field class="example-full-width" appearance="fill">
@@ -45,6 +45,10 @@
 
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary" id="btn-login">Iniciar sesion</button>
+                </div>
+                <div class="my-3">
+                    <span>¿Registar nuevo Torneo? <button (click)="onRegister()" class="btn btn-primary">Registar
+                            Torneo</button></span>
                 </div>
 
                 <div class="my-3">

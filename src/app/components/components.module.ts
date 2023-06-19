@@ -11,26 +11,28 @@ import { EquiposComponent } from '../admin/components/equipos/equipos-A/equipos.
 
 
 
+
 @NgModule({
   declarations: [
-   
+
     EquiposComponent,
     PosicionesComponent,
     MarcadoresComponent,
     RegistroUsuariosComponent,
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    
-  
+
+
   ],
-  exports:[
+  exports: [
     PosicionesComponent,
     MarcadoresComponent,
-   
-  
+
+
   ]
 })
 export class ComponentsModule { }

@@ -11,7 +11,7 @@ import { AccountModule } from './account/account.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -24,9 +24,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { MatButtonModule } from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminModule } from './admin/admin.module';
+
 
 
 
@@ -42,7 +43,8 @@ import { AdminModule } from './admin/admin.module';
     LoaderComponent,
     Error500Component,
     ErrorComponent,
-    
+
+
   ],
   imports: [
     BrowserModule,
@@ -67,18 +69,18 @@ import { AdminModule } from './admin/admin.module';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SweetAlert2Module.forRoot()
-    
+
   ],
- providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
-   
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
       multi: true,
     },
-    
-    ],
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
