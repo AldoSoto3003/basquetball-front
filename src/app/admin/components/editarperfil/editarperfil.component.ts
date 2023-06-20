@@ -75,7 +75,7 @@ export class EditarperfilComponent implements OnInit {
       console.log(response.data);
       
       
-      this.imgURL=response.data.urlImagen;
+      this.imageURL=response.data.urlImagen;
       this.formDatosUsuario.controls["id"].setValue(String(response.data.id))
       this.formDatosUsuario.controls["Nombres"].setValue(response.data.Nombres)
       this.formDatosUsuario.controls["ApellidoPaterno"].setValue(response.data.ApellidoPaterno)
@@ -103,9 +103,11 @@ export class EditarperfilComponent implements OnInit {
     console.log("formulario",this.formDatosUsuario.value);
     this.actualizarUsuarioService.Actualizar(this.formDatosUsuario.value)
       .subscribe(response => {
+        this.alertService.showSuccess(response.message,response.data);
         console.log('Usuario actualizado correctamente', response);
         
       }, error => {
+        this.alertService.showError(error.error.message,error.error.data)
         console.error('Error al actualizar el usuario', error);
       });
   }
