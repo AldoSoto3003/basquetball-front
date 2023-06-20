@@ -8,6 +8,8 @@ import { Generos } from 'src/app/models/Generos.interface';
 import { Roles } from 'src/app/models/roles.interface';
 import { CodigoPostal } from 'src/app/models/codigoPostal.interface';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-editar-usuario',

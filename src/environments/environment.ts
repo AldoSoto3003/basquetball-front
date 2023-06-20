@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlApi:  'http://127.0.0.1:80/api/'
+  urlApi:  'https://basquetsoft.000webhostapp.com/api/public/api/'
+
 };
 
 

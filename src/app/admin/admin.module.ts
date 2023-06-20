@@ -8,14 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDialogModule} from '@angular/material/dialog';
 
 import { OverlayModule } from '@angular/cdk/overlay'
 import { CdkMenuModule } from '@angular/cdk/menu'
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { RouterModule } from '@angular/router';
+
+import {RouterModule} from '@angular/router';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -65,6 +65,10 @@ import { RegistrarTercejComponent } from './components/TorneoEdiRamaCatEquipoJug
 import { RegistrarjugadoresComponent } from './components/Jugadores-equipos/registrarjugadores/registrarjugadores.component';
 import { JugadoractivoComponent } from './components/jugadoractivo/jugadoractivo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { EditarperfilComponent } from './components/editarperfil/editarperfil.component';
+
 
 
 
@@ -120,6 +124,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegistrarjugadoresComponent,
     JugadoractivoComponent,
     NavbarComponent,
+    EditarperfilComponent,
+
     
    
   ],

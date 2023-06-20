@@ -78,5 +78,34 @@ export class UserService {
     return this.http.post<any>(environment.urlApi+"ObtenerCPEspecifico",id,{headers})
   }
 
+  ValidarToken(token:string):Observable<Petition<Usuario>> {
+    return this.http.post<Petition<Usuario>>(environment.urlApi + "auth/valid", null, {
+      headers: {
+        authorization: "bearer " + token
+      }
+    })
+  }
+
+  DarDeBajaToken(token:string):Observable<Petition<Usuario>> {
+
+    return this.http.post<Petition<Usuario>>(environment.urlApi + "auth/logout", null, {
+      headers: {
+        authorization: "bearer " + token
+      }
+    })
+  }
+
+  ModificarPassword(data:any,token:string):Observable<Petition<any>>{
+    return this.http.post<Petition<any>>(environment.urlApi+"RecuperarPass",JSON.stringify(data), {
+      headers: {
+        authorization: "bearer " + token,
+  
+        'Content-Type': 'application/json'
+      }});
+  }
+
+
+
+  
 
 }
