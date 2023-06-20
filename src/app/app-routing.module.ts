@@ -50,7 +50,7 @@ import { EditarperfilComponent } from './admin/components/editarperfil/editarper
 const routes: Routes = [
   { path: '', redirectTo: 'home/login', pathMatch: 'full' },
   {path: "recoverypass", component: RecoveryPasswordComponent},
-  {path: "updatepass", component: UpdatepasswordComponent},
+  {path: "recoverPassword/:token", component: UpdatepasswordComponent},
   
   
 

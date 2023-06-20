@@ -32,6 +32,7 @@ import { FormsModule } from '@angular/forms';
 import { updatepassService } from './services/changepassword';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PaginationService } from 'ngx-pagination';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 
 
@@ -64,7 +65,7 @@ import { PaginationService } from 'ngx-pagination';
     PagesModule,
     SharedModule,
     ReactiveFormsModule,
-   MatDialogModule,
+    MatDialogModule,
    
 
     BrowserAnimationsModule,
@@ -73,6 +74,7 @@ import { PaginationService } from 'ngx-pagination';
     
   ],
  providers: [
+  JwtHelperService,
   PaginationService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
    
@@ -81,6 +83,7 @@ import { PaginationService } from 'ngx-pagination';
       useClass: LoaderInterceptor,
       multi: true,
     },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     
     ],
   bootstrap: [AppComponent]

@@ -74,6 +74,7 @@ export class EditarperfilComponent implements OnInit {
     .subscribe(response => {
       console.log(response.data);
       
+      
       this.imgURL=response.data.urlImagen;
       this.formDatosUsuario.controls["id"].setValue(String(response.data.id))
       this.formDatosUsuario.controls["Nombres"].setValue(response.data.Nombres)
@@ -90,7 +91,8 @@ export class EditarperfilComponent implements OnInit {
       this.formDatosUsuario.controls["Id_Genero"].setValue(String(response.data.ID_Genero))
       this.formDatosUsuario.controls["numSS"].setValue(response.data.numSS)
       this.formDatosUsuario.controls["referencia"].setValue(response.data.referencia)
-
+      
+      this.obtenerAsentamientos();
       console.log(response.data.data);
     }, error => {
       console.error('Error al obtener los datos del usuario', error);
